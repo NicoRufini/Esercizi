@@ -54,3 +54,12 @@ for i in friends:
 print(f"Hi {friends[0]}, how are you?")
 print(f"Hi {friends[1]}, how are you?")
 print(f"Hi {friends[2]}, how are you?")
+
+#3-3. Your Own List: Think of your favorite mode of transportation, such as a motorcycle or a car, and make a list that stores several examples. 
+#Use your list to print a series of statements about these items, such as “I would like to own a Honda motorcycle.”
+
+Transportations: list = ["Toyota", "Kawasaki", "Wally"]
+
+print(f"{Transportations[0]} seems a preety cool car, I'd like to own one in the future.")
+print(f"{Transportations[1]} seems a preety cool motorcycle, I'd like to own one in the future.")
+print(f"{Transportations[2]} seems a preety cool boat, I'd like to own one in the future.")
