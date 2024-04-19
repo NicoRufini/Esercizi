@@ -36,3 +36,12 @@ def check_length(s: str) -> str:
         print("The string is 10 charactes long")    
 
 check_length("1234567890")
+
+
+#Write a function print_numbers(), which takes a list of numbers as argument. Using a for loop, print each number one by one.
+
+def print_numbers(numbers: list) -> list:
+    for i in numbers:
+        print(i)
+
+print_numbers([7, 4, 7, 3, 9])
