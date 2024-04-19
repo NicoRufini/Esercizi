@@ -13,7 +13,7 @@ print(subtract(5, 2))
 #Write a function check_value(), which takes a number as an argument.
 #Using if / else, the function should print whether the number is bigger, smaller, or equal to 5.
 
-def check_value(n: int):
+def check_value(n: int) -> str:
     if n > 5:
         print("The number is bigger than 5")
     elif n < 5:
@@ -21,4 +21,18 @@ def check_value(n: int):
     else:
         print("The number is equal to 5")    
 
-check_value(7)
+check_value(2)
+
+
+#Write a function check_length(), which takes a string as an argument.
+#Using if / else, check if the length of the string is bigger, smaller, or equal to 10 characters.
+
+def check_length(s: str) -> str:
+    if len(s) > 10:
+        print("The string is bigger than 10 characters")
+    elif len(s) < 10:
+        print("The string is smaller than 10 characters")
+    else:
+        print("The string is 10 charactes long")    
+
+check_length("1234567890")
