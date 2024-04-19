@@ -57,6 +57,25 @@ def check_each(numbs: list) -> str:
         elif numbs[i] == 5:
             print(f"{numbs[i]} is equal to 5")
         else:
-            print(f"{numbs[i]} is smaller")
+            print(f"{numbs[i]} is smaller than 5")
 
-check_each([4, 5, 6]) 
+check_each([4, 5, 6])
+
+
+#Write a function add_one(). It takes an integer as argument. The function adds 1 to the integer and returns it.
+#Write another function add_one_to_list(). It takes a list of integers as argument. Define a variable new_list in this function.
+#Using a for loop, iterate through the argument list. Using add_one(), fill new_list with integers from the argument list incremented by 1.
+#Print new_list.
+#Example: add_one_to_list([1, 2, 3]) >>> [2, 3, 4]
+
+def add_one(one: int) -> int:
+    one += 1
+    return one
+
+print(add_one(3))
+
+def add_one_to_list(list_one: list) -> list:
+    new_list = [add_one(list_one[i]) for i in range(len(list_one))]
+    return new_list
+
+print(add_one_to_list([7, 8, 12]))
