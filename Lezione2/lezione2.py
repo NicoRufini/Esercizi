@@ -78,7 +78,7 @@ print("\n")
 people_I_would_like_to_invite: list = ["Adele", "Albert Einstein", "Alfons Mucha"]
 
 for i in people_I_would_like_to_invite:
-    print(f"Hi {i}, I'd like to invite you to my house for dinner on Thursday. Kind regards, Nicolò Rufini.")
+    print(f"Hi {i}, I'd like to invite you to a restaurant for dinner on Thursday. Kind regards, Nicolò Rufini.")
 print("\n")
 
 #3-5. Changing Guest List: You just heard that one of your guests can’t make the dinner, so you need to send out 
@@ -93,7 +93,7 @@ print(f"{people_I_would_like_to_invite[0]} won't be able to go to the dinner.")
 people_I_would_like_to_invite[0] = "Amy Winehouse"
 
 for i in people_I_would_like_to_invite:
-    print(f"Hi {i}, I'd like to invite you to my house for dinner on Thursday. Kind regards, Nicolò Rufini.")
+    print(f"Hi {i}, I'd like to invite you to a restaurant for dinner on Thursday. Kind regards, Nicolò Rufini.")
 print("\n")
 
 #3-6. More Guests: You just found a bigger dinner table, so now more space is available. Think of three more guests to invite to dinner.
@@ -113,5 +113,34 @@ people_I_would_like_to_invite.insert(2, "Isaac Newton")
 people_I_would_like_to_invite.append("Fred Taylor")
 
 for i in people_I_would_like_to_invite:
-    print(f"Hi {i}, I'd like to invite you to my house for dinner on Thursday. Kind regards, Nicolò Rufini.")
+    print(f"Hi {i}, I'd like to invite you to a restaurant for dinner on Thursday. Kind regards, Nicolò Rufini.")
 print("\n")
+
+
+#3-7. Shrinking Guest List: You just found out that your new dinner table won’t arrive in time for the dinner,
+#and now you have space for only two guests.
+#• Start with your program from Exercise 3-6. Add a new line that prints a message saying that you can invite only two people for dinner.
+#• Use pop() to remove guests from your list one at a time until only two names remain in your list. 
+#Each time you pop a name from your list, print a message to that person letting them know you’re sorry you can’t invite them to dinner.
+#• Print a message to each of the two people still on your list, letting them know they’re still invited.
+#• Use del to remove the last two names from your list, so you have an empty list. 
+#Print your list to make sure you actually have an empty list at the end of your program.
+
+print("I can invite only two people for dinner.")
+
+x: str = people_I_would_like_to_invite.pop(5)
+print(f"Hi {x}, I'm sorry but you can't go to the dinner.")
+x: str = people_I_would_like_to_invite.pop(4)
+print(f"Hi {x}, I'm sorry but you can't go to the dinner.")
+x: str = people_I_would_like_to_invite.pop(3)
+print(f"Hi {x}, I'm sorry but you can't go to the dinner.")
+x: str = people_I_would_like_to_invite.pop(2)
+print(f"Hi {x}, I'm sorry but you can't go to the dinner.")
+print("\n")
+
+for i in people_I_would_like_to_invite:
+    print(f"Hi {i}, you're still ivited.")
+print("\n")
+
+del people_I_would_like_to_invite[0:]
+print(people_I_would_like_to_invite)
