@@ -1,7 +1,6 @@
 #Nicolò Rufini
 #18/4/2024
 
-
 #2-3. Personal Message: Use a variable to represent a person’s name, and print a message to that person. Your message should be simple, 
 #such as, “Hello Eric, would you like to learn some Python today?”
 
@@ -70,7 +69,7 @@ Transportations: list = ["Toyota", "Kawasaki", "Wally"]
 print(f"{Transportations[0]} seems a preety cool car, I'd like to own one in the future.")
 print(f"{Transportations[1]} seems a preety cool motorcycle, I'd like to own one in the future.")
 print(f"{Transportations[2]} seems a preety cool boat, I'd like to own one in the future.")
-
+print("\n")
 
 #3-4. Guest List: If you could invite anyone, living or deceased, to dinner, who would you invite?
 #Make a list that includes at least three people you’d like to invite to dinner. Then use your list to print a message to each person,
@@ -80,6 +79,7 @@ people_I_would_like_to_invite: list = ["Adele", "Albert Einstein", "Alfons Mucha
 
 for i in people_I_would_like_to_invite:
     print(f"Hi {i}, I'd like to invite you to my house for dinner on Thursday. Kind regards, Nicolò Rufini.")
+print("\n")
 
 #3-5. Changing Guest List: You just heard that one of your guests can’t make the dinner, so you need to send out 
 #a new set of invitations. You’ll have to think of someone else to invite.
@@ -94,3 +94,24 @@ people_I_would_like_to_invite[0] = "Amy Winehouse"
 
 for i in people_I_would_like_to_invite:
     print(f"Hi {i}, I'd like to invite you to my house for dinner on Thursday. Kind regards, Nicolò Rufini.")
+print("\n")
+
+#3-6. More Guests: You just found a bigger dinner table, so now more space is available. Think of three more guests to invite to dinner.
+#• Start with your program from Exercise 3-4 or 3-5. Add a print() call to the end of your program, 
+#  informing people that you found a bigger table.
+#• Use insert() to add one new guest to the beginning of your list.
+#• Use insert() to add one new guest to the middle of your list.
+#• Use append() to add one new guest to the end of your list.
+#• Print a new set of invitation messages, one for each person in your list.
+
+for i in people_I_would_like_to_invite:
+    print(f"Hi {i} I found a bigger dinner table, so I'll invite three more guests.")
+print("\n")
+
+people_I_would_like_to_invite.insert(0, "Alicia keys")
+people_I_would_like_to_invite.insert(2, "Isaac Newton")
+people_I_would_like_to_invite.append("Fred Taylor")
+
+for i in people_I_would_like_to_invite:
+    print(f"Hi {i}, I'd like to invite you to my house for dinner on Thursday. Kind regards, Nicolò Rufini.")
+print("\n")
