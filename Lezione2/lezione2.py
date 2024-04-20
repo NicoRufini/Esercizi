@@ -179,3 +179,9 @@ print(places_in_the_world)
 
 places_in_the_world.sort(reverse = True)
 print(places_in_the_world)
+
+
+#3-9. Dinner Guests: Working with one of the programs from Exercises 3, use len() to print a message 
+#indicating the number of people you’re inviting to dinner.
+
+print(f"The number of people I'm inviting to dinner is {len(people_I_would_like_to_invite)}.")
