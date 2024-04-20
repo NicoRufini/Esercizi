@@ -140,11 +140,10 @@ print("\n")
 
 for i in people_I_would_like_to_invite:
     print(f"Hi {i}, you're still ivited.")
-print("\n")
 
 del people_I_would_like_to_invite[0:]
 print(people_I_would_like_to_invite)
-
+print("\n")
 
 #3-8. Seeing the World: Think of at least five places in the world you’d like to visit.
 #• Store the locations in a list. Make sure the list is not in alphabetical order.
@@ -156,6 +155,27 @@ print(people_I_would_like_to_invite)
 #• Use reverse()  to change the order of your list. Print the list to show that its order has changed.
 #• Use reverse() to change the order of your list again. Print the list to show it’s back to its original order.
 #• Use sort() to change your list so it’s stored in alphabetical order. Print the list to show that its order has been changed.
-#• Use sort() to change your list so it’s stored in reverse-alphabetical order.
-#Print the list to show that its order has changed.
+#• Use sort() to change your list so it’s stored in reverse-alphabetical order. Print the list to show that its order has changed.
 
+places_in_the_world: list = ["Kyoto", "Barcelona", "Paris", "Honolu", "Caraibi"]
+print(places_in_the_world)
+
+print(sorted(places_in_the_world))
+
+print(places_in_the_world)
+
+print(sorted(places_in_the_world, reverse = True))
+
+print(places_in_the_world)
+
+places_in_the_world.reverse()
+print(places_in_the_world)
+
+places_in_the_world.reverse()
+print(places_in_the_world)
+
+places_in_the_world.sort()
+print(places_in_the_world)
+
+places_in_the_world.sort(reverse = True)
+print(places_in_the_world)
