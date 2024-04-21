@@ -191,8 +191,37 @@ print(f"The number of people I'm inviting to dinner is {len(people_I_would_like_
 #cities, languages, or anything else you’d like.
 #Write a program that creates a list containing these items and then uses each function introduced in this chapter at least once.
 
-#Function introduced: .lower(), .upper(), .removesuffix(), list?, .insert(), .append(), .pop(), del, sorted, reverse, .reverse(), 
-#.sort()
+#Functions introduced: .lower(), .upper(), .removesuffix(), .insert(), .append(), .pop(), del, sorted, .reverse(), 
+#.sort(), len()
 #things: google.com, youtube.com, facebook.com
 
-things: list = []
+things: list = ["google.com", "youtube.com", "facebook.com"]
+
+for i in things:
+    print("Lower case:", i.lower())
+    print("Upper case:", i.upper())
+    print("Without the suffix:", i.removesuffix(".com"))
+    print("\n")
+
+things.insert(0, "instagram.com")
+things.append("twitter.com")    
+print("New things:", things)
+print("\n")
+
+x: str = things.pop(2)
+print("Removed item:", x)
+
+del things[2]
+print("Things without Facebook:", things)
+print("\n")
+
+things.sort()
+print("Things in alphabetical order:", things)
+
+things.reverse()
+print("Things in reverse-alphabetical order:", things)
+
+print("Things alphabetical order again:", sorted(things))
+print("\n")
+
+print("Numbers of items in things:", len(things))
