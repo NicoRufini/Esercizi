@@ -185,3 +185,14 @@ print(places_in_the_world)
 #indicating the number of people you’re inviting to dinner.
 
 print(f"The number of people I'm inviting to dinner is {len(people_I_would_like_to_invite)}.")
+
+
+#3-10. Every Function: Think of things you could store in a list. For example, you could make a list of mountains, rivers, countries, 
+#cities, languages, or anything else you’d like.
+#Write a program that creates a list containing these items and then uses each function introduced in this chapter at least once.
+
+#Function introduced: .lower(), .upper(), .removesuffix(), list?, .insert(), .append(), .pop(), del, sorted, reverse, .reverse(), 
+#.sort()
+#things: google.com, youtube.com, facebook.com
+
+things: list = []
