@@ -268,3 +268,15 @@ for i in Glossary:
 #and store all three dictionaries in a list called people. 
 #Loop through your list of people. As you loop through the list, print everything you know about each person.
 
+person_1: dict = {"First name" : "Learco", "Last name" : "Ausserhofer", "Age" : 41, "City" : "Jerash"}
+person_2: dict = {"First name" : "Giuliomaria", "Last name" : "Bubbico", "Age" : 76, "City" : "Kigali"}
+person_3: dict = {"First name" : "Elio", "Last name" : "Occhipinti", "Age" : 10, "City" : "Jinan"}
+people: list = [person_1, person_2, person_3]
+
+for i in people:
+    print(i)
+
+
+#6-8. Pets: Make several dictionaries, where each dictionary represents a different pet.
+#In each dictionary, include the kind of animal and the owner’s name. Store these dictionaries in a list called pets.
+#Next, loop through your list and as you do, print everything you know about each pet. 
