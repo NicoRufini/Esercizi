@@ -302,3 +302,15 @@ for i in favorite_places:
 
 #6-10. Favorite Numbers: Modify your program from Exercise 6-2 
 #so each person can have more than one favorite number. Then print each person’s name along with their favorite numbers.
+
+favorite_numbers: dict = {"Gisella" : [46835, 6258 ,1480], "Marinello" : [5135, 5405 ,2512], "Pierfrancesco" : [61194, 259 ,60], 
+                          "Esteban" : [36497, 23784, 79896], "Vidmer" : [2, 13, 11]}
+
+for i in favorite_numbers:
+    print(i, favorite_numbers[i], "\n")
+
+
+#6-11. Cities: Make a dictionary called cities. Use the names of three cities as keys in your dictionary. 
+#Create a dictionary of information about each city and include the country that the city is in, its approximate population, 
+#and one fact about that city. The keys for each city’s dictionary should be something like country, 
+#population, and fact. Print the name of each city and all of the information you have stored about it.
