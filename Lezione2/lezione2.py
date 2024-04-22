@@ -293,3 +293,12 @@ for i in pets:
 #and store one to three favorite places for each person. To make this exercise a bit more interesting, 
 #ask some friends to name a few of their favorite places. 
 #Loop through the dictionary, and print each person’s name and their favorite places.
+
+favorite_places: dict = {"Antonio " : "Luray", "Franca" : "Locarno", "Alberto " : "Cagayan de Oro",}
+
+for i in favorite_places:
+    print(i, favorite_places[i], "\n")
+
+
+#6-10. Favorite Numbers: Modify your program from Exercise 6-2 
+#so each person can have more than one favorite number. Then print each person’s name along with their favorite numbers.
