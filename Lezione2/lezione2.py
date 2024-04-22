@@ -280,3 +280,16 @@ for i in people:
 #6-8. Pets: Make several dictionaries, where each dictionary represents a different pet.
 #In each dictionary, include the kind of animal and the owner’s name. Store these dictionaries in a list called pets.
 #Next, loop through your list and as you do, print everything you know about each pet. 
+
+pet_1: dict = {"animal" : "dog", "owner_name" : "Manfred"}
+pet_2: dict = {"animal" : "hamster", "owner_name" : "Tullio"}
+pets: list = [pet_1, pet_2]
+
+for i in pets:
+    print(i)
+
+
+#6-9. Favorite Places: Make a dictionary called favorite_places. Think of three names to use as keys in the dictionary, 
+#and store one to three favorite places for each person. To make this exercise a bit more interesting, 
+#ask some friends to name a few of their favorite places. 
+#Loop through the dictionary, and print each person’s name and their favorite places.
