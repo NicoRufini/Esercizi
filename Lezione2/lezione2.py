@@ -314,3 +314,18 @@ for i in favorite_numbers:
 #Create a dictionary of information about each city and include the country that the city is in, its approximate population, 
 #and one fact about that city. The keys for each city’s dictionary should be something like country, 
 #population, and fact. Print the name of each city and all of the information you have stored about it.
+
+cities: dict = {"New York" : {"Country" : "United States", "Population" : 19571000, 
+                             "Fact" : "It's the most linguistically diverse city in the world."}, 
+                "Paris" : {"Country" : "France", "Population" : 12272000, 
+                           "Fact" : "Paris was originally a Roman City called \"Lutetia\"."}, 
+                "Tokyo" : {"Country" : "Japan", "Population" : 37194000, 
+                           "Fact" : "There are anti-suicide lights in Tokyo's metro stations."}}
+
+for i in cities:
+    print(i, cities[i], "\n")
+
+
+#6-12. Extensions: We’re now working with examples that are complex enough that they can be extended in any number of ways. 
+#Use one of the example programs from this chapter, and extend it by adding new keys and values, 
+#changing the context of the program, or improving the formatting of the output.
