@@ -30,3 +30,14 @@ while i < 3:
     i += 1
 
 print("All these animals have ears.")
+
+
+#4-3. Counting to Twenty: Use a for loop to print the numbers from 1 to 20, inclusive.
+
+i: int = 0
+
+while i < 21:
+    print(i)
+    i += 1
+
+#
