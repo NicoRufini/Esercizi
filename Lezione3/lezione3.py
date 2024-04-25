@@ -38,8 +38,18 @@ for i in range(1, 21):
 #4-4. One Million: Make a list of the numbers from one to one million, and then use a for loop to print the numbers.
 # (If the output is taking too long, stop it by pressing CTRL-C or by closing the output window).
 
-one_million: list = [i for i in range(1, 1000001)]
+one_million: list = [i for i in range(1, 100001)]
 
 print(f"First item: {one_million[0]}, and last item: {one_million[-1]}")
 '''for i in one_million:
     print(i)'''
+
+
+#4-5. Summing a Million: Make a list of the numbers from one to one million, and then use min() and max() 
+#to make sure your list actually starts at one and ends at one million. 
+#Also, use the sum() function to see how quickly Python can add a million numbers.
+
+print(f"min: {min(one_million)}. \nmax: {max(one_million)}. \nadd: {sum(one_million)}.")
+
+
+#
