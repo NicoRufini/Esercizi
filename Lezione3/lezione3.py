@@ -73,7 +73,32 @@ for i in multiples_of_3:
 #Make a list of the first 10 cubes (that is, the cube of each integer from 1 through 10), and use a for loop to print out 
 #the value of each cube.
 
-cubes: list = [i**2 for i in range(1, 11)]
+cubes: list = []
+
+for i in range(1, 11):
+    cubes.append(i**2)
 
 for i in cubes:
     print(i)
+print("\n")
+
+#4-9. Cube Comprehension: Use a list comprehension to generate a list of the first 10 cubes.
+
+cubes_comprehension: list = [i**2 for i in range(1, 11)]
+
+for i in cubes:
+    print(i)
+
+
+#4-10. Slices: Using one of the programs you wrote in this chapter, add several lines to the end of the program that do the following:
+#• Print the message The first three items in the list are:. Then use a slice to print the first three items from that program’s list.
+#• Print the message Three items from the middle of the list are:. Then use a slice to print three items from the middle of the list.
+#• Print the message The last three items in the list are:. Then use a slice to print the last three items in the list.
+
+x = slice(3)
+y = slice(4, )
+z = slice()
+
+print(" The first three items in the list are:", )
+
+
