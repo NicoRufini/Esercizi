@@ -8,8 +8,7 @@
 pizzas: list = ["Four cheese pizza", "Sausage and fries pizza", "Margherita pizza"]
 phrases: list = ["is pretty good.", "is one of my favorites.", "is just okay."]
 
-for i in range(len(pizzas)):
-    print( pizzas[i], phrases[i])
+for i in range(len(pizzas)): print( pizzas[i], phrases[i])
 
 print("I really love pizza!")
 
@@ -65,8 +64,7 @@ for i in odd_numbers:
 
 multiples_of_3: list = [i for i in range(3, 31, 3)]
 
-for i in multiples_of_3:
-    print(i)
+for i in multiples_of_3: print(i)
 
 
 #4-8. Cubes: A number raised to the third power is called a cube. For example, the cube of 2 is written as 2**3 in Python. 
@@ -128,3 +126,37 @@ for i in friend_pizzas:
 #4-12. More Loops: All versions of foods.py in this section have avoided using for loops when printing, to save space. 
 #Choose a version of foods.py, and write two for loops to print each list of foods.
 
+#4-14. PEP 8: Look through the original PEP 8 style guide at https://python.org/dev/peps/pep-0008. 
+#You won’t use much of it now, but it might be interesting to skim through it.
+
+#4-15. Code Review: Choose three of the programs you’ve written in this chapter and modify each one to comply with PEP 8.
+
+pizzas: list = [
+    "Four cheese pizza", "Sausage and fries pizza", "Margherita pizza"
+]
+phrases: list = [
+    "is pretty good.", "is one of my favorites.", "is just okay."
+]
+
+for i in range(len(pizzas)):
+    print(pizzas[i], phrases[i])
+
+print("I really love pizza!")
+
+
+multiples_of_3: list = [i for i in range(3, 31, 3)]
+
+for i in multiples_of_3:
+    print(i)
+
+
+one_million: list = [i for i in range(1, 100001)]
+
+print(f"First item: {one_million[0]}, and last item: {one_million[-1]}")
+
+'''for i in one_million:
+    print(i)
+'''
+
+
+#
