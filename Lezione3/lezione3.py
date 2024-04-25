@@ -159,4 +159,64 @@ print(f"First item: {one_million[0]}, and last item: {one_million[-1]}")
 '''
 
 
-#
+#5-1. Conditional Tests: Write a series of conditional tests. Print a statement
+#describing each test and your prediction for the results of each test. Your code
+#should look something like this:
+#car = 'subaru'
+#print("Is car == 'subaru'? I predict True.")
+#print(car == 'subaru')
+#print("\nIs car == 'audi'? I predict False.")
+#print(car == 'audi')
+#• Look closely at your results, and make sure you understand why each line
+#evaluates to True or False.
+#• Create at least 10 tests. Have at least 5 tests evaluate to True and another
+#5 tests evaluate to False.
+
+lista_1: list = []
+lista_2: list = lista_1
+
+lista_2.append(3)
+
+print("Does lista_1 contains an item? I predict True")
+print(len(lista_1) == 1)
+print("Is lista_1 empty? I predict False.")
+print(len(lista_1) == 0)
+
+
+a_random_number: int = 3
+a_random_number_2: int = a_random_number
+a_random_number: int = 9
+
+print("Is a_random_number_2 == 3? I predict True")
+print(a_random_number_2 == 3)
+print("Is a_random_number_2 == 9? I predict False")
+print(a_random_number_2 == 9)
+
+
+v: str = "v"
+Scandinavia: str = "Scandinavia"
+
+x = Scandinavia.count(v)
+
+print("Is v in Scandinavia? I predict True.")
+print(x == 1)
+print("Is there no v in Scandinavia? I predict False.")
+print(x == 0)
+
+
+michael_jackson: dict = {"year" : 1958}
+
+print("Was Michael Jackson born in 1958? I predict True")
+print(michael_jackson["year"] == 1958)
+print("Was Michael Jackson born in 1943? I predict False")
+print(michael_jackson["year"] == 1943)
+
+
+dolly_was_born_in: int = 1946
+we_live_in: int = 2024
+her_age_is: int = we_live_in - dolly_was_born_in
+
+print("Is Dolly 78 years old? I predict True.")
+print(her_age_is == 78)
+print("Is Dolly 54 years old? I predict False-")
+print(her_age_is == 54)
