@@ -5,13 +5,11 @@
 # The output should consist of three or more lines about the kinds of pizza you like and then an additional sentence, 
 #such as I really love pizza!
 
-pizzas: list = ["Four cheese pizza", "The sausage and fries pizza", "Margherita pizza"]
+pizzas: list = ["Four cheese pizza", "Sausage and fries pizza", "Margherita pizza"]
 phrases: list = ["is pretty good.", "is one of my favorites.", "is just okay."]
-i: int = 0
 
-while i < 3:
-    print("The", pizzas[i], phrases[i])
-    i += 1
+for i in range(len(pizzas)):
+    print( pizzas[i], phrases[i])
 
 print("I really love pizza!")
 
@@ -23,21 +21,25 @@ print("I really love pizza!")
 # such as Any of these animals would make a great pet!
 
 animals: list = ["Hamsters", "Cats", "Bats"]
-phrases: list = ["die easily.", "are worse than dogs.", "are some of the cutest animals."]
+phrases: list = ["die easily.", "are worse than dogs.", "are some of the cutest animals that I've ever seen."]
 
-while i < 3:
-    print("The", animals[i], phrases[i])
-    i += 1
+for i in range(len(animals)):
+    print( animals[i], phrases[i])
 
 print("All these animals have ears.")
 
 
 #4-3. Counting to Twenty: Use a for loop to print the numbers from 1 to 20, inclusive.
 
-i: int = 0
-
-while i < 21:
+for i in range(1, 21):
     print(i)
-    i += 1
 
-#
+
+#4-4. One Million: Make a list of the numbers from one to one million, and then use a for loop to print the numbers.
+# (If the output is taking too long, stop it by pressing CTRL-C or by closing the output window).
+
+one_million: list = [i for i in range(1, 1000001)]
+
+print(f"First item: {one_million[0]}, and last item: {one_million[-1]}")
+'''for i in one_million:
+    print(i)'''
