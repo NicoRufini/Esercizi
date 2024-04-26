@@ -177,7 +177,7 @@ lista_2: list = lista_1
 
 lista_2.append(3)
 
-print("Does lista_1 contains an item? I predict True")
+print("Does lista_1 contains an item? I predict True.")
 print(len(lista_1) == 1)
 print("Is lista_1 empty? I predict False.")
 print(len(lista_1) == 0)
@@ -187,9 +187,9 @@ a_random_number: int = 3
 a_random_number_2: int = a_random_number
 a_random_number: int = 9
 
-print("Is a_random_number_2 == 3? I predict True")
+print("Is a_random_number_2 == 3? I predict True.")
 print(a_random_number_2 == 3)
-print("Is a_random_number_2 == 9? I predict False")
+print("Is a_random_number_2 == 9? I predict False.")
 print(a_random_number_2 == 9)
 
 
@@ -206,9 +206,9 @@ print(x == 0)
 
 michael_jackson: dict = {"year" : 1958}
 
-print("Was Michael Jackson born in 1958? I predict True")
+print("Was Michael Jackson born in 1958? I predict True.")
 print(michael_jackson["year"] == 1958)
-print("Was Michael Jackson born in 1943? I predict False")
+print("Was Michael Jackson born in 1943? I predict False.")
 print(michael_jackson["year"] == 1943)
 
 
@@ -218,5 +218,5 @@ her_age_is: int = we_live_in - dolly_was_born_in
 
 print("Is Dolly 78 years old? I predict True.")
 print(her_age_is == 78)
-print("Is Dolly 54 years old? I predict False-")
+print("Is Dolly 54 years old? I predict False.")
 print(her_age_is == 54)
