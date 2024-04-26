@@ -172,15 +172,15 @@ print(f"First item: {one_million[0]}, and last item: {one_million[-1]}")
 #• Create at least 10 tests. Have at least 5 tests evaluate to True and another
 #5 tests evaluate to False.
 
-lista_1: list = []
-lista_2: list = lista_1
+a_random_list_1: list = [1]
+a_random_list_2: list = a_random_list_1
 
-lista_2.append(3)
+a_random_list_2.append(7)
 
-print("Does lista_1 contains an item? I predict True.")
-print(len(lista_1) == 1)
-print("Is lista_1 empty? I predict False.")
-print(len(lista_1) == 0)
+print("Does lista_1 contains two items? I predict True.")
+print(len(a_random_list_1) == 2)
+print("Does lista_1 contains one item? I predict False.")
+print(len(a_random_list_1) == 1)
 
 
 a_random_number: int = 3
@@ -220,3 +220,90 @@ print("Is Dolly 78 years old? I predict True.")
 print(her_age_is == 78)
 print("Is Dolly 54 years old? I predict False.")
 print(her_age_is == 54)
+
+
+#5-2. More Conditional Tests: You don’t have to limit the number of tests you create to 10. 
+#If you want to try more comparisons, write more tests and add them to conditional_tests.py. 
+#Have at least one True and one False result for each of the following:
+#• Tests for equality and inequality with strings
+#• Tests using the lower() method
+#• Numerical tests involving equality and inequality, greater than and less
+#than, greater than or equal to, and less than or equal to
+#• Tests using the and keyword and the or keyword
+#• Test whether an item is in a list
+#• Test whether an item is not in a list
+
+str_1: str = "We're equal."
+str_2: str = "We're equal."
+
+print("Is str_1 == str_2? I predict True.")
+print(str_1 == str_2)
+print("Is str_1 != str_2? I predict False.")
+print(str_1 != str_2)
+
+
+str_1: str = "UPPER."
+str_2: str = "upper."
+
+x = str_1.lower()
+y = str_2.count(x)
+
+print("Is str_1 in str_2? I predict True.")
+print(y == 1)
+print("Is str_1 not in str_2? I predict False.")
+print(y == 0)
+
+
+num_1: int = 78
+num_2: int = 56
+num_3: int = 83
+num_4: int = 64
+num_5: int = 28
+num_6: int = 28
+num_7: int = 53
+num_8: int = 90
+
+print("Is num_1 != num_2? I predict True.")
+print(num_1 != num_2)
+print("Is num_1 == num_2? I predict False.")
+print(num_1 == num_2)
+print("Is num_3 > num_4? I predict True.")
+print(num_3 > num_4)
+print("Is num_3 < num_4? I predict False.")
+print(num_3 < num_4)
+print("Is num_5 == num_6? I predict True.")
+print(num_5 == num_6)
+print("Is num_5 > num_6? I predict False.")
+print(num_5 > num_6)
+print("Is num_7 < num_8? I predict True.")
+print(num_7 < num_8)
+print("Is num_7 == num_8? I predict False.")
+print(num_7 == num_8)
+
+
+str_1: str = "UPPER."
+str_2: str = "upper."
+a_random_number: int = 3
+a_random_number_2: int = a_random_number
+a_random_number: int = 9
+
+x = str_1.lower()
+y = str_2.count(x)
+
+print("Is str_1 in str_2 and a_random_number_2 == 3? I predict True.")
+print(y == 1 and a_random_number_2 == 3)
+print("Is str_1 not in str_2 and a_random_number_2 == 9? I predict False.")
+print(y == 0 and a_random_number_2 == 9)
+print("Is str_1 not in str_2 or a_random_number_2 == 3? I predict True.")
+print(y == 0 or a_random_number_2 == 3)
+
+
+list_1: list = []
+list_2: list = list_1
+
+list_2.append(3)
+
+print("Does lista_1 contains an item? I predict True.")
+print(len(list_1) == 1)
+print("Is lista_1 empty? I predict False.")
+print(len(list_1) == 0)
