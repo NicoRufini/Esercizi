@@ -433,4 +433,81 @@ elif person_age > 2:
 #• Write five if statements. Each should check whether a certain kind of fruit is in your list. 
 #If the fruit is in your list, the if block should print a statement, such as You really like Apples!
 
-favourite_fruits: list = ["Strawberries", "Cherries", "Bananas", "Yellow kiwis"]
+favourite_fruits: list = ["Strawberries", "Cherries", "Bananas"]
+
+if "Strawberries" in favourite_fruits:
+    print("I really like Strawberries!")
+
+if "Cherries" in favourite_fruits:
+    print("I really like Cherries!")
+
+if "Bananas" in favourite_fruits:
+    print("I really like Bananas!")
+
+
+#5-8. Hello Admin: Make a list of five or more usernames, including the name 'admin'. 
+#Imagine you are writing code that will print a greeting to each user after they log in to a website. 
+#Loop through the list, and print a greeting to each user.
+#• If the username is 'admin', print a special greeting, such as Hello admin, would you like to see a status report?
+#• Otherwise, print a generic greeting, such as Hello Jaden, thank you for logging in again.
+
+usernames: list = ["Admin", "Bob", "Charles", "Stacy", "Ryan"]
+
+for i in usernames:
+    if i == "Admin":
+        print("Hello Admin, would you like to see a status report?")
+    
+    else:
+        print(f"Hello {i}, thank you for logging in again.")
+
+
+#5-9. No Users: Add an if test to hello_admin.py to make sure the list of users is not empty.
+#• If the list is empty, print the message We need to find some users!
+#• Remove all of the usernames from your list, and make sure the correct message is printed.
+
+del usernames[0:]
+
+if len(usernames) == 0:
+    print("We need to find some users!")
+
+
+#5-10. Checking Usernames: Do the following to create a program that simulates how websites ensure that everyone has a unique username.
+#• Make a list of five or more usernames called current_users.
+#• Make another list of five usernames called new_users. Make sure one or two of the new usernames are also in the current_users list.
+#• Loop through the new_users list to see if each new username has already been used. If it has, print a message that the person 
+#will need to enter a new username. If a username has not been used, print a message saying that the username is available.
+#• Make sure your comparison is case insensitive. If 'John' has been used, 'JOHN' should not be accepted. 
+#(To do this, you'll need to make a copy of current_users containing the lowercase versions of all existing users.)
+
+current_users: list = ["Jaylee", "Leonora", "Cathleen", "Melanie", "Katharine"]
+new_users: list = ["Fredrick", "Cathleen", "Melanie", "Nicholas", "Vincent"]
+
+for i in new_users:
+    if current_users.count(i) == True:
+        print(f"I'm sorry {i} this name is already used by another user. Please, enter another username:")
+    
+    else:
+        print(f"Hi {i}! This username is available.")
+
+
+#5-11. Ordinal Numbers: Ordinal numbers indicate their position in a list, such as 1st or 2nd. Most ordinal numbers end in th,
+#except 1, 2, and 3.
+#• Store the numbers 1 through 9 in a list.
+#• Loop through the list.
+#• Use an if-elif-else chain inside the loop to print the proper ordinal ending for each number. 
+#Your output should read "1st 2nd 3rd 4th 5th 6th 7th 8th 9th", and each result should be on a separate line.
+
+ordinal_numbers: list = (range(1, 10))
+
+for i in ordinal_numbers:
+    if i == 1:
+        print(str(i) + "st\n")
+    
+    elif i == 2:
+        print(str(i) + "nd\n")
+     
+    elif i == 3:
+        print(str(i) + "rd\n")
+
+    else:
+        print(str(i) + "th\n")
