@@ -111,21 +111,67 @@ def School_Grading_System(Student_1: str, Subjects: dict = {"Math" : 56, "Histor
 
 School_Grading_System("fuys")'''
 
-def School_Grading_System(Stud_1: dict = {"Name" : "Bryan", "Math" : 56, "History" : 59}, 
-                          Stud_2: dict = {"Name" : "Jennifer", "Math" : 75, "History" : 34}, 
-                          Stud_3: dict = {"Name" : "Andrew", "Math" : 67, "History" : 84}) -> str:
+def School_Grading_System(Stud_1: dict = {"Name" : "Bryan", "Subjects" : {"Math" : 56, "History" : 59}}, 
+                          Stud_2: dict = {"Name" : "Jennifer", "Subjects" : {"Math" : 75, "History" : 34}}, 
+                          Stud_3: dict = {"Name" : "Andrew", "Subjects" : {"Math" : 67, "History" : 84}}) -> str:
     Students: list = [Stud_1, Stud_2, Stud_3]
     sum = 0
     for i in Students:
-        print(i["Name"], "Math:", i["Math"], "History:", i["History"])
-        sum += i["Math"] + i["History"]
+        print(i["Name"], "Math:", i["Subjects"]["Math"], "History:", i["Subjects"]["History"])
+        sum += i["Subjects"]["Math"] + i["Subjects"]["History"]
         print(sum)
-        if  sum / (len(Stud_1) - 1) >= 60:
-            print(i["Name"], "U pass")
+        if  sum / len(Stud_1["Subjects"]) >= 60:
+            print(i["Name"], "U pass",  sum / len(Stud_1["Subjects"]))
     
         else:
-            print(i["Name"], "U failed")
+            print(i["Name"], "U failed",  sum / len(Stud_1["Subjects"]))
         sum = 0
 
 
 School_Grading_System()
+
+
+#2. Guess the Number Game:
+#Create a function that generates a random number within a range specified by the user.
+#Prompt the user to guess the number within a specified maximum number of attempts.
+#Provide feedback to the user after each guess, indicating whether their guess is too high, too low, or correct.
+#Terminate the loop when the user guesses the number correctly or reaches the maximum number of attempts.
+
+import random
+
+def Guess_The_Number() -> str:
+    the_number: int = random.randrange(1, 50)
+    the_guess: int = input("ur guess is: ")
+    attempts: int = 0
+    maximum_number_attempts: int = 10
+
+
+    while attempts < maximum_number_attempts:
+        if int(the_guess) == the_number:
+            print("ur correct")
+            break
+
+        elif int(the_guess) > the_number:
+            print("too high")
+            attempts += 1
+            print("attempts", attempts)
+            print("repeat")
+            if attempts == maximum_number_attempts:
+                print("u failed")
+
+            else:
+                the_guess: int = input("ur guess is: ")
+
+        elif int(the_guess) < the_number:
+            print("too low")
+            attempts += 1
+            print("attempts", attempts)
+            print("repeat")
+            if attempts == maximum_number_attempts:
+                print("u failed")
+
+            else:
+                the_guess: int = input("ur guess is: ")
+
+Guess_The_Number()
+    
