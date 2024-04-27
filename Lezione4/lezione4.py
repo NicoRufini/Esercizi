@@ -79,3 +79,53 @@ def add_one_to_list(list_one: list) -> list:
     return new_list
 
 print(add_one_to_list([7, 8, 12]))
+
+
+#School Grading System:
+#Create a function that takes a student's name and their scores in different subjects as input.
+#The function calculates the average score and prints the student's name, average, 
+#and a message indicating whether the student passed the exam (average >= 60) or failed.
+#Create a for loop to iterate over a list of students and scores, calling the function for each student.
+
+#Student's name: Bryan, Jennifer, Andrew 
+#Subjects: Math, History, Literature
+
+'''Student_1: dict = {}
+Student_2: dict = {}
+Student_3: dict = {}'''
+'''
+def School_Grading_System(Student_1: str, Subjects: dict = {"Math" : 56, "History" : 59}) -> str:
+    print("name:", Student_1)
+    sum = 0
+    for i in Subjects:
+        print(f"Insert {i} value:", Subjects[i])
+        sum += Subjects[i]
+
+    print("Average score:", sum / len(Subjects))
+    
+    if  sum / len(Subjects) >= 60:
+        print("U pass")
+    
+    else:
+        print("U failed")
+
+School_Grading_System("fuys")'''
+
+def School_Grading_System(Stud_1: dict = {"Name" : "Bryan", "Math" : 56, "History" : 59}, 
+                          Stud_2: dict = {"Name" : "Jennifer", "Math" : 75, "History" : 34}, 
+                          Stud_3: dict = {"Name" : "Andrew", "Math" : 67, "History" : 84}) -> str:
+    Students: list = [Stud_1, Stud_2, Stud_3]
+    sum = 0
+    for i in Students:
+        print(i["Name"], "Math:", i["Math"], "History:", i["History"])
+        sum += i["Math"] + i["History"]
+        print(sum)
+        if  sum / (len(Stud_1) - 1) >= 60:
+            print(i["Name"], "U pass")
+    
+        else:
+            print(i["Name"], "U failed")
+        sum = 0
+
+
+School_Grading_System()
