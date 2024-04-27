@@ -80,6 +80,7 @@ def add_one_to_list(list_one: list) -> list:
 
 print(add_one_to_list([7, 8, 12]))
 
+''''---------------------------------------------------------------------------------------------------------------------------------'''
 
 #School Grading System:
 #Create a function that takes a student's name and their scores in different subjects as input.
@@ -127,8 +128,7 @@ def School_Grading_System(Stud_1: dict = {"Name" : "Bryan", "Subjects" : {"Math"
             print(i["Name"], "U failed",  sum / len(Stud_1["Subjects"]))
         sum = 0
 
-
-School_Grading_System()
+#School_Grading_System()
 
 
 #2. Guess the Number Game:
@@ -173,5 +173,46 @@ def Guess_The_Number() -> str:
             else:
                 the_guess: int = input("ur guess is: ")
 
-Guess_The_Number()
-    
+#Guess_The_Number()
+
+
+#3. E-commerce Shopping Cart:
+#Create a function that defines a product with a name, price, and quantity.
+#Create a function that manages the shopping cart, allowing the user to add, remove, and view products in the cart.
+#The function should calculate the cart total and apply any discounts or taxes.
+#Implement a for loop to iterate over the items in the cart and print detailed information about each product and the total.
+
+#What do you want to buy?
+
+'''else: 
+            print("We're sorry but either we don't have this product or you spelled it wrong, try again")
+            x: str = input("What do you want to buy? ")'''
+
+def E_commerce_Shopping_Cart():
+    ketchup: dict = {"Name" : "ketchup", "Price" : 4.7}
+    Hamburger: dict = {"Name" : "Hamburger", "Price" : 3}
+    Potato: dict = {"Name" : "Potato", "Price" : 0.5}
+    Products: list = [ketchup, Hamburger, Potato]
+    cart: list = []
+
+    print("Here's the products:")
+
+    for i in Products:
+        print(i["Name"])
+
+    x: str = input("What do you want to buy? ")
+
+    for i in Products:
+        if x.lower() == i["Name"].lower():
+            cart.append(i)
+            print(cart)
+
+        y: str = input("Do you want to buy soemthing else? ")
+
+        if y.lower() == "yes":
+            pass
+            
+
+        
+
+#E_commerce_Shopping_Cart()
