@@ -263,6 +263,48 @@ my_car: dict = make_car("TOYOTA", "AvaLOn", coloR = "red", Bluetooth_connectivit
 
 print(my_car)
 
+
+#8-15. Printing Models: Put the functions for the example printing_models.py in a separate file called printing_functions.py. 
+#Write an import statement at the top of printing_models.py, and modify the file to use the imported functions.
+
+'''Done'''
+
+#8-16. Imports: Using a program you wrote that has one function in it, store that function in a separate file. 
+#Import the function into your main program file, and call the function using each of these approaches:
+#import module_name |
+#from module_name import function_name |
+#from module_name import function_name as fn |
+#import module_name as mn |
+#from module_name import * |
+
+#from printing_functions import *
+
+#square(13)
+
+'''Done'''
+
+#8-17. Styling Functions: Choose any three programs you wrote for this chapter, 
+#and make sure they follow the styling guidelines described in this section.
+
+#8-1
+def display_message() -> str:
+    print("You're learning about functions.")
+
+display_message()
+
+#8-2
+def favorite_book(book_title: str) -> str:
+    print(f"One of my favorite books is {book_title}.")
+
+favorite_book("The moving finger")
+
+#8-6
+def city_country(city: str, country: str) -> str:
+    print(f"{city}, {country}.")
+
+city_country("London", "England")
+
+
 ''''---------------------------------------------------------------------------------------------------------------------------------'''
 
 #School Grading System:
