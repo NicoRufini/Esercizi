@@ -209,6 +209,60 @@ send_messages(sent_messages)
 print("short_messages:", short_messages)
 print("sent_messages:", sent_messages)
 
+
+#8-11. Archived Messages: Start with your work from Exercise 8-10. 
+#Call the function send_messages() with a copy of the list of messages. After calling the function, 
+#print both of your lists to show that the original list has retained its messages.
+
+send_messages(sent_messages[:])
+print("short_messages:", short_messages)
+print("sent_messages:", sent_messages)
+
+
+#8-12. Sandwiches: Write a function that accepts a list of items a person wants on a sandwich. 
+#The function should have one parameter that collects as many items as the function call provides, 
+#and it should print a summary of the sandwich that’s being ordered. Call the function three times, 
+#using a different number of arguments each time.
+
+def make_me_a_sandwich(ingredients: list) -> str:
+    print("Hi, you ordered a sandwich with:", ingredients)
+
+make_me_a_sandwich(", ".join(["Baked ham", "cheese"]))
+make_me_a_sandwich(", ".join(["Hamburger"]))
+make_me_a_sandwich(", ".join(["Tomato", "lettuce", "hamburger"]))
+
+
+#8-13. User Profile:  Build a profile of yourself by calling build_profile(), 
+#using your first and last names and three other key-value pairs that describe you. 
+#All the values must be passed to the function as parameters. The function then must return a string 
+#such as "Eric Crow, age 45, hair brown, weight 67"
+
+def build_profile(name: str, last_name: str, age: str, hair: str, weight: str) -> dict:
+    profile: dict = {"Name" : name, "Last name" : last_name, "Age" : age, "Hair" : hair, "Weight" : weight}
+    return f"{profile['Name']} {profile['Last name']}, age {profile['Age']} hair {profile['Hair']} weight {profile['Weight']}"
+
+print(build_profile("Nicolò", "Rufini", "20", "brown", "65"))
+
+
+#8-14. Cars: Write a function that stores information about a car in a dictionary. 
+#The function should always receive a manufacturer and a model name. It should then accept an arbitrary number of keyword arguments. 
+#Call the function with the required information and two other name-value pairs, such as a color or an optional feature. 
+#Your function should work for a call like this one: car = make_car('subaru', 'outback', color='blue', tow_package=True) 
+#Print the dictionary that’s returned to make sure all the information was stored correctly. 
+
+#color: str , "Color" : color.title() , Bluetooth_onnectivity = True,
+def make_car(manufacturer: str, model: str, **optional_features) -> dict:
+    car: dict = {"Manufacturer" : manufacturer.title(), "Model" : model.title()}
+
+    for option, charcteristic in optional_features.items():
+        car[option.title()] = charcteristic
+
+    return car
+
+my_car: dict = make_car("TOYOTA", "AvaLOn", coloR = "red", Bluetooth_connectivity = True)
+
+print(my_car)
+
 ''''---------------------------------------------------------------------------------------------------------------------------------'''
 
 #School Grading System:
