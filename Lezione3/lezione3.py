@@ -3,7 +3,7 @@
 # you should have one line of output containing a simple statement like I like pepperoni pizza.
 #• Add a line at the end of your program, outside the for loop, that states how much you like pizza.
 # The output should consist of three or more lines about the kinds of pizza you like and then an additional sentence, 
-#such as I really love pizza!
+# such as I really love pizza!
 
 pizzas: list = ["Four cheese pizza", "Sausage and fries pizza", "Margherita pizza"]
 phrases: list = ["is pretty good.", "is one of my favorites.", "is just okay."]
@@ -40,6 +40,7 @@ for i in range(1, 21):
 one_million: list = [i for i in range(1, 100001)]
 
 print(f"First item: {one_million[0]}, and last item: {one_million[-1]}")
+
 '''for i in one_million:
     print(i)'''
 
@@ -48,7 +49,7 @@ print(f"First item: {one_million[0]}, and last item: {one_million[-1]}")
 #to make sure your list actually starts at one and ends at one million. 
 #Also, use the sum() function to see how quickly Python can add a million numbers.
 
-print(f"min: {min(one_million)}. \nmax: {max(one_million)}. \nadd: {sum(one_million)}.")
+print(f"min: {min(one_million)}. \nmax: {max(one_million)}. \nadd: {sum(one_million)}.\n")
 
 
 #4-6. Odd Numbers: Use the third argument of the range() function to make a list of the odd numbers from 1 to 20. 
@@ -56,15 +57,23 @@ print(f"min: {min(one_million)}. \nmax: {max(one_million)}. \nadd: {sum(one_mill
 
 odd_numbers: list = [i for i in range(1, 21, 2)]
 
+print("Odd numbers:")
+
 for i in odd_numbers:
     print(i)
-
+    
+print("\n")
 
 #4-7. Threes: Make a list of the multiples of 3, from 3 to 30. Use a for loop to print the numbers in your list.
 
 multiples_of_3: list = [i for i in range(3, 31, 3)]
 
-for i in multiples_of_3: print(i)
+print("Multiples of 3:")
+
+for i in multiples_of_3: 
+    print(i)
+
+print("\n")
 
 
 #4-8. Cubes: A number raised to the third power is called a cube. For example, the cube of 2 is written as 2**3 in Python. 
@@ -76,16 +85,24 @@ cubes: list = []
 for i in range(1, 11):
     cubes.append(i**2)
 
+print("Cubes:")
+
 for i in cubes:
     print(i)
+
 print("\n")
+
 
 #4-9. Cube Comprehension: Use a list comprehension to generate a list of the first 10 cubes.
 
 cubes_comprehension: list = [i**2 for i in range(1, 11)]
 
+print("Cubes comprehension:")
+
 for i in cubes:
     print(i)
+
+print("\n")
 
 
 #4-10. Slices: Using one of the programs you wrote in this chapter, add several lines to the end of the program that do the following:
@@ -100,7 +117,7 @@ z = slice(7, 10)
 print("The list is:", multiples_of_3)
 print("The first three items in the list are:", multiples_of_3[x])
 print("Three items from the middle of the list are:", multiples_of_3[y])
-print("The last three items in the list are:", multiples_of_3[z])
+print("The last three items in the list are:", multiples_of_3[z], "\n")
 
 
 #4-11. My Pizzas, Your Pizzas: Start with your program from Exercise 4-1. Make a copy of the list of pizzas, and call it friend_pizzas. 
@@ -110,17 +127,25 @@ print("The last three items in the list are:", multiples_of_3[z])
 #• Prove that you have two separate lists. Print the message My favorite pizzas are:
 #and then use a for loop to print the first list. Print the message My friend’s favorite pizzas are: 
 #and then use a for loop to print the second list. Make sure each new pizza is stored in the appropriate list.
-
-friend_pizzas: list = ["Four cheese pizza", "Sausage and fries pizza", "Margherita pizza"]
+#["Four cheese pizza", "Sausage and fries pizza", "Margherita pizza"]
+friend_pizzas: list = pizzas[:]
 
 pizzas.append("Neapolitan")
 friend_pizzas.append("New York-style")
 
+print("My favorite pizzas are:")
+
 for i in pizzas:
-    print("My favorite pizzas are:", i)
+    print(i)
+
 print("\n")
+
+print("My friend's favorite pizzas are:")
+
 for i in friend_pizzas:
-    print("My friend's favorite pizzas are:", i)
+    print(i)
+
+print("\n")
 
 
 #4-12. More Loops: All versions of foods.py in this section have avoided using for loops when printing, to save space. 
@@ -131,6 +156,7 @@ for i in friend_pizzas:
 
 #4-15. Code Review: Choose three of the programs you’ve written in this chapter and modify each one to comply with PEP 8.
 
+#4-1:
 pizzas: list = [
     "Four cheese pizza", "Sausage and fries pizza", "Margherita pizza"
 ]
@@ -143,7 +169,7 @@ for i in range(len(pizzas)):
 
 print("I really love pizza!")
 
-
+#4-7
 multiples_of_3: list = [i for i in range(3, 31, 3)]
 
 for i in multiples_of_3:
@@ -172,6 +198,7 @@ print(f"First item: {one_million[0]}, and last item: {one_million[-1]}")
 #• Create at least 10 tests. Have at least 5 tests evaluate to True and another
 #5 tests evaluate to False.
 
+#Conditional Tests number 1:
 a_random_list_1: list = [1]
 a_random_list_2: list = a_random_list_1
 
@@ -183,6 +210,7 @@ print("Does lista_1 contains one item? I predict False.")
 print(len(a_random_list_1) == 1)
 
 
+#Conditional Tests number 2:
 a_random_number: int = 3
 a_random_number_2: int = a_random_number
 a_random_number: int = 9
@@ -193,6 +221,7 @@ print("Is a_random_number_2 == 9? I predict False.")
 print(a_random_number_2 == 9)
 
 
+#Conditional Tests number 3:
 v: str = "v"
 Scandinavia: str = "Scandinavia"
 
@@ -204,6 +233,7 @@ print("Is there no v in Scandinavia? I predict False.")
 print(x == 0)
 
 
+#Conditional Tests number 4:
 michael_jackson: dict = {"year" : 1958}
 
 print("Was Michael Jackson born in 1958? I predict True.")
@@ -212,6 +242,7 @@ print("Was Michael Jackson born in 1943? I predict False.")
 print(michael_jackson["year"] == 1943)
 
 
+#Conditional Tests number 5:
 dolly_was_born_in: int = 1946
 we_live_in: int = 2024
 her_age_is: int = we_live_in - dolly_was_born_in
@@ -233,6 +264,7 @@ print(her_age_is == 54)
 #• Test whether an item is in a list
 #• Test whether an item is not in a list
 
+#Conditional Tests number 6:
 str_1: str = "We're equal."
 str_2: str = "We're equal."
 
@@ -242,6 +274,7 @@ print("Is str_1 != str_2? I predict False.")
 print(str_1 != str_2)
 
 
+#Conditional Tests number 7:
 str_1: str = "UPPER."
 str_2: str = "upper."
 
@@ -254,6 +287,7 @@ print("Is str_1 not in str_2? I predict False.")
 print(y == 0)
 
 
+#Conditional Tests number 8:
 num_1: int = 78
 num_2: int = 56
 num_3: int = 83
@@ -281,6 +315,7 @@ print("Is num_7 == num_8? I predict False.")
 print(num_7 == num_8)
 
 
+#Conditional Tests number 9:
 str_1: str = "UPPER."
 str_2: str = "upper."
 a_random_number: int = 3
@@ -298,6 +333,7 @@ print("Is str_1 not in str_2 or a_random_number_2 == 3? I predict True.")
 print(y == 0 or a_random_number_2 == 3)
 
 
+#Conditional Tests number 10:
 list_1: list = []
 list_2: list = list_1
 
@@ -404,9 +440,8 @@ elif alien_color == "red":
 #• If the person is at least 13 years old but less than 20, print a message that the person is a teenager.
 #• If the person is at least 20 years old but less than 65, print a message that the person is an adult.
 #• If the person is age 65 or older, print a message that the person is an elder.
-# < 
-# >
-person_age: int = 58
+
+person_age: int = 67
 
 if person_age < 2:
     print("The person is a baby.")
@@ -423,7 +458,7 @@ elif 13 <= person_age < 20:
 elif 20 <= person_age < 65:
     print("The person is an adult.")
 
-elif person_age > 2:
+else:
     print("The person is an elder.")
 
 
@@ -475,15 +510,15 @@ if len(usernames) == 0:
 #• Make a list of five or more usernames called current_users.
 #• Make another list of five usernames called new_users. Make sure one or two of the new usernames are also in the current_users list.
 #• Loop through the new_users list to see if each new username has already been used. If it has, print a message that the person 
-#will need to enter a new username. If a username has not been used, print a message saying that the username is available.
+# will need to enter a new username. If a username has not been used, print a message saying that the username is available.
 #• Make sure your comparison is case insensitive. If 'John' has been used, 'JOHN' should not be accepted. 
-#(To do this, you'll need to make a copy of current_users containing the lowercase versions of all existing users.)
+# (To do this, you'll need to make a copy of current_users containing the lowercase versions of all existing users.)
 
 current_users: list = ["Jaylee", "Leonora", "Cathleen", "Melanie", "Katharine"]
 new_users: list = ["Fredrick", "Cathleen", "Melanie", "Nicholas", "Vincent"]
 
 for i in new_users:
-    if current_users.count(i) == True:
+    if current_users.count(i):
         print(f"I'm sorry {i} this name is already used by another user. Please, enter another username:")
     
     else:
@@ -501,13 +536,13 @@ ordinal_numbers: list = (range(1, 10))
 
 for i in ordinal_numbers:
     if i == 1:
-        print(str(i) + "st\n")
+        print(str(i) + "st")
     
     elif i == 2:
-        print(str(i) + "nd\n")
+        print(str(i) + "nd")
      
     elif i == 3:
-        print(str(i) + "rd\n")
+        print(str(i) + "rd")
 
     else:
-        print(str(i) + "th\n")
+        print(str(i) + "th")
