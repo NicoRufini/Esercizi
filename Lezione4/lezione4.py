@@ -411,6 +411,11 @@ def Guess_The_Number() -> str:
 
 #What do you want to buy?
 
+#ketchup: dict = {"Name" : "ketchup", "Price" : 4.7}
+#Hamburger: dict = {"Name" : "Hamburger", "Price" : 3}
+#Potato: dict = {"Name" : "Potato", "Price" : 0.5}
+#Products: list = [ketchup, Hamburger, Potato]
+#cart: list = []
 '''else: 
             print("We're sorry but either we don't have this product or you spelled it wrong, try again")
             x: str = input("What do you want to buy? ")'''
@@ -424,9 +429,11 @@ def E_commerce_Shopping_Cart():
 
     print("Here's the products:")
 
+#while True: 
     for i in Products:
         print(i["Name"])
 
+    print(quit)
     x: str = input("What do you want to buy? ")
 
     for i in Products:
@@ -437,9 +444,9 @@ def E_commerce_Shopping_Cart():
         y: str = input("Do you want to buy soemthing else? ")
 
         if y.lower() == "yes":
-            pass
-            
+            x: str = input("What do you want to buy? ")
+        
 
         
 
-#E_commerce_Shopping_Cart()
+E_commerce_Shopping_Cart()
