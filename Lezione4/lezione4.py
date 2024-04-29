@@ -89,6 +89,7 @@ def display_message() -> str:
 
 display_message()
 
+
 #8-2. Favorite Book: Write a function called favorite_book() that accepts one parameter, title. The function should print a message, 
 #such as "One of my favorite books is Alice in Wonderland". Call the function, making sure to include a book title
 #as an argument in the function call.
@@ -109,6 +110,7 @@ def make_shirt(size: str, message: str) -> str:
 make_shirt("small", "Hi I'm happy:)")
 make_shirt(message = "Hi I'm happy:)", size = "small")
 print("\n")
+
 
 #8-4. Large Shirts: Modify the make_shirt() function so that shirts are large by default with a message that reads I love Python. 
 #Make a large shirt and a medium shirt with the default message, and a shirt of any size with a different message.
@@ -156,7 +158,7 @@ city_country("Paris", "France")
 def make_album(artist: str, album: str, tracks: list = None) -> dict:
     artist_name: dict = {"Artist" : artist, "Album" : album}
 
-    if tracks:
+    if tracks != None:
         artist_name["Tracks"] = tracks
 
     return artist_name
@@ -184,7 +186,7 @@ while False:
 #8-9. Messages: Make a list containing a series of short text messages. 
 #Pass the list to a function called show_messages(), which prints each text message.
 
-short_messages: list = ["Hi!", "r u ok?", "ah, I'm happy about it"]
+short_messages: list = ["Hi!", "r u ok?", "ah, cool"]
 
 def show_messages(messages) -> str:
     for i in messages:
@@ -250,7 +252,7 @@ print(build_profile("Nicolò", "Rufini", "20", "brown", "65"))
 #Your function should work for a call like this one: car = make_car('subaru', 'outback', color='blue', tow_package=True) 
 #Print the dictionary that’s returned to make sure all the information was stored correctly. 
 
-#color: str , "Color" : color.title() , Bluetooth_onnectivity = True,
+
 def make_car(manufacturer: str, model: str, **optional_features) -> dict:
     car: dict = {"Manufacturer" : manufacturer.title(), "Model" : model.title()}
 
