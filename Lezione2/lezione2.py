@@ -14,14 +14,13 @@ print(f"Hello {name}, would you like to learn some Python today?")
 name: str = "Luca"
 
 print(name.lower())
-
 print(name.upper())
-
 print(name)
 
 
-#2-5. Famous Quote: Find a quote from a famous person you admire. Print the quote and the name of its author. Your output should look something like the following,
-#including the quotation marks: Albert Einstein once said, “A person who never made a mistake never tried anything new.”
+#2-5. Famous Quote: Find a quote from a famous person you admire. Print the quote and the name of its author. 
+#Your output should look something like the following, including the quotation marks: 
+#Albert Einstein once said, “A person who never made a mistake never tried anything new.”
 
 print("Albert Einstein once said, \"A person who never made a mistake never tried anything new.\"")
 
@@ -56,9 +55,8 @@ for i in friends:
 #3-2. Greetings: Start with the list you used in Exercise 3-1, but instead of just printing each person’s name, print a message to them. 
 #The text of each message should be the same, but each message should be personalized with the person’s name.
 
-print(f"Hi {friends[0]}, how are you?")
-print(f"Hi {friends[1]}, how are you?")
-print(f"Hi {friends[2]}, how are you?")
+for i in friends:
+    print(f"Hi {i}, how are you?")
 
 
 #3-3. Your Own List: Think of your favorite mode of transportation, such as a motorcycle or a car, and make a list that stores several examples. 
@@ -71,6 +69,7 @@ print(f"{Transportations[1]} seems a preety cool motorcycle, I'd like to own one
 print(f"{Transportations[2]} seems a preety cool boat, I'd like to own one in the future.")
 print("\n")
 
+
 #3-4. Guest List: If you could invite anyone, living or deceased, to dinner, who would you invite?
 #Make a list that includes at least three people you’d like to invite to dinner. Then use your list to print a message to each person,
 #inviting them to dinner.
@@ -80,6 +79,7 @@ people_I_would_like_to_invite: list = ["Adele", "Albert Einstein", "Alfons Mucha
 for i in people_I_would_like_to_invite:
     print(f"Hi {i}, I'd like to invite you to a restaurant for dinner on Thursday. Kind regards, Nicolò Rufini.")
 print("\n")
+
 
 #3-5. Changing Guest List: You just heard that one of your guests can’t make the dinner, so you need to send out 
 #a new set of invitations. You’ll have to think of someone else to invite.
@@ -95,6 +95,7 @@ people_I_would_like_to_invite[0] = "Amy Winehouse"
 for i in people_I_would_like_to_invite:
     print(f"Hi {i}, I'd like to invite you to a restaurant for dinner on Thursday. Kind regards, Nicolò Rufini.")
 print("\n")
+
 
 #3-6. More Guests: You just found a bigger dinner table, so now more space is available. Think of three more guests to invite to dinner.
 #• Start with your program from Exercise 3-4 or 3-5. Add a print() call to the end of your program, 
@@ -126,7 +127,7 @@ print("\n")
 #• Use del to remove the last two names from your list, so you have an empty list. 
 #Print your list to make sure you actually have an empty list at the end of your program.
 
-print("I can invite only two people for dinner.")
+print("I can only invite two people for dinner.")
 
 x: str = people_I_would_like_to_invite.pop(5)
 print(f"Hi {x}, I'm sorry but you can't go to the dinner.")
@@ -145,6 +146,7 @@ del people_I_would_like_to_invite[0:]
 print(people_I_would_like_to_invite)
 print("\n")
 
+
 #3-8. Seeing the World: Think of at least five places in the world you’d like to visit.
 #• Store the locations in a list. Make sure the list is not in alphabetical order.
 #• Print your list in its original order. Don’t worry about printing the list neatly; just print it as a raw Python list.
@@ -161,11 +163,9 @@ places_in_the_world: list = ["Kyoto", "Barcelona", "Paris", "Honolu", "Caraibi"]
 print(places_in_the_world)
 
 print(sorted(places_in_the_world))
-
 print(places_in_the_world)
 
 print(sorted(places_in_the_world, reverse = True))
-
 print(places_in_the_world)
 
 places_in_the_world.reverse()
@@ -193,7 +193,7 @@ print(f"The number of people I'm inviting to dinner is {len(people_I_would_like_
 
 #Functions introduced: .lower(), .upper(), .removesuffix(), .insert(), .append(), .pop(), del, sorted, .reverse(), 
 #.sort(), len()
-#things: google.com, youtube.com, facebook.com
+#Things: google.com, youtube.com, facebook.com
 
 things: list = ["google.com", "youtube.com", "facebook.com"]
 
@@ -225,13 +225,14 @@ print("Things in alphabetical order again:", sorted(things))
 print("\n")
 
 print("Numbers of items in things:", len(things))
+print("\n")
 
 
 #6-1. Person: Use a dictionary to store information about a person you know. Store their first name, last name, age, 
 #and the city in which they live. 
 #You should have keys such as first_name, last_name, age, and city. Print each piece of information stored in your dictionary.
 
-person: dict = {"First name" : "Giancarlomaria", "Last name" : "Bonadonna", "Age" : 6, "City" : "Bromsgrove"}
+person: dict = {"first_name" : "Giancarlomaria", "last_name" : "Bonadonna", "Age" : 6, "City" : "Bromsgrove"}
 
 print(person)
 
@@ -261,7 +262,7 @@ Glossary: dict = {"Collection" : "A data type that contains multiple items.", "F
                   "A sequence of istructions to acomplish a task."}
 
 for i in Glossary:
-    print(i, "\n", Glossary[i], "\n")
+    print(i + "\n" + Glossary[i] + "\n")
 
 
 #6-7. People: Start with the program you wrote for Exercise 6-1. Make two new dictionaries representing different people, 
@@ -330,9 +331,6 @@ for i in cities:
 #Use one of the example programs from this chapter, and extend it by adding new keys and values, 
 #changing the context of the program, or improving the formatting of the output.
 
-fruits_and_colors: dict = {"Apple" : "Red", "Watermelon" : "Green", "Peach" : "Orange", "Coconut" : "Brown"}
+favorite_places["Jonathan"] = "New York"
 
-for i in fruits_and_colors:
-    fruits_and_colors.update({i : "Yellow"})
-
-print(fruits_and_colors)
+print(favorite_places)
