@@ -426,10 +426,12 @@ def E_commerce_Shopping_Cart():
     Potato: dict = {"Name" : "Potato", "Price" : 0.5}
     Products: list = [ketchup, Hamburger, Potato]
     cart: list = []
+    total = 0
+
+#while True: 
 
     print("Here's the products:")
 
-#while True: 
     for i in Products:
         print(i["Name"])
 
@@ -441,10 +443,18 @@ def E_commerce_Shopping_Cart():
             cart.append(i)
             print(cart)
 
+        #total +=
+
         y: str = input("Do you want to buy soemthing else? ")
 
         if y.lower() == "yes":
             x: str = input("What do you want to buy? ")
+        
+
+        elif y.lower() == "no":
+            print("Here's the total:", total)
+
+
         
 
         
