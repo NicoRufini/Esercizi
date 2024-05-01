@@ -419,8 +419,8 @@ def Guess_The_Number() -> str:
 '''else: 
             print("We're sorry but either we don't have this product or you spelled it wrong, try again")
             x: str = input("What do you want to buy? ")'''
-
-def E_commerce_Shopping_Cart():
+#####################################################################################################
+'''def E_commerce_Shopping_Cart():
     ketchup: dict = {"Name" : "ketchup", "Price" : 4.7}
     Hamburger: dict = {"Name" : "Hamburger", "Price" : 3}
     Potato: dict = {"Name" : "Potato", "Price" : 0.5}
@@ -459,4 +459,5 @@ def E_commerce_Shopping_Cart():
 
         
 
-E_commerce_Shopping_Cart()
+E_commerce_Shopping_Cart()'''
+
