@@ -170,3 +170,81 @@ print(merge_dictionaries({}, {'a': 10, 'b': 20}))
 print(merge_dictionaries({'x': 5}, {'x': -5}))
 print(merge_dictionaries({}, {}))
 print(merge_dictionaries({'a': 3}, {'b': 4}))
+
+
+#1. Create a Playlist:
+#Write a function called create_playlist() that accepts a playlist name and a variable number of song titles. 
+#The function should return a dictionary with the playlist name and a set of songs. Call the function with different numbers of songs 
+#to demonstrate flexibility.
+
+#Write a function called add_like() that accepts a dictionary, the name of a playlist, and a boolean value 
+#indicating whether it is liked (True or False). This function should return an updated dictionary.
+
+def create_playlist(playlist_name: str, songs: set) -> dict:
+    songs: dict = dict.fromkeys(songs)
+    return (f"{playlist_name} = {songs}")
+    
+print(create_playlist("A Playlist", {"song1", "song2", "song3"}))
+
+
+def add_like(update: dict, new_playlist_name: str, liked: bool, songs: set) -> dict:
+    updated_playlist: dict = dict.fromkeys(songs) | update
+    return(f"{new_playlist_name} = {updated_playlist}, {liked}")
+
+print(add_like({"song4" : None}, "Another playlist", True, {"song1", "song2", "song3"}))
+
+
+#2. Book Collection:
+#Write a function called add_book() that accepts an author's name and a variable number of book titles authored by them. 
+#This function should return a dictionary where the author's name is the key and the value is a list of their books. 
+#Demonstrate this function by adding books for different authors.
+#Example: add_book("Mark Twain", ["The Adventures of Tom Sawyer", "Life on the Mississippi"])
+#Write a function called delete_book() that accepts a dictionary and the name of the author from whom to remove all details. 
+#This function should return an updated dictionary.
+
+def add_book(auhtor: str, books: list) -> dict:
+    books_info: dict = {auhtor : books}
+    return books_info
+
+print(add_book("Mark Twain", ["The Adventures of Tom Sawyer", "Life on the Mississippi"]))
+
+def delete_book(author_name: str, dictionary: dict) -> dict:
+    del dictionary[:]
+    return author_name, dictionary
+
+print(delete_book("Mark Twain", ["The Adventures of Tom Sawyer", "Life on the Mississippi"]))
+
+
+#3. Personal Info:
+#Write a build_profile() function that accepts the name , surname,  occupation, location, and age  of a person. 
+#Make occupation, location, and age optional parameters. Use this function to create profiles for different people, 
+#demonstrating how it handles these optional parameters.
+#Example: build_profile("John", "Doe", occupation="Developer", location="USA", age=30)
+
+def build_profile(name: str, username: str, occupation: str = None, location: str = None, age: int = None) -> dict:
+    optional_parameters: dict = {"Occupation" :  occupation, "Location" : location, "Age" : age}
+    profile: dict = {"Name" : name, "Username" : username}
+    for i, v in optional_parameters.items():
+        if v != None:
+            profile[i] = v
+
+    return profile
+            
+
+print(build_profile("John", "Doe"))
+print(build_profile("John", "Doe", "Developer"))
+print(build_profile("John", "Doe", "Developer", "USA"))
+print(build_profile("John", "Doe", "Developer", "USA", 30))
+
+
+def build_profile(name: str, username: str, **optional_parameters):
+    profile: dict = {"Name" : name, "Username" : username}
+    for i, v in optional_parameters.items():
+        profile[i] = v
+
+    return profile
+
+print(build_profile("John", "Doe"))
+print(build_profile("John", "Doe", occupation ="Developer"))
+print(build_profile("John", "Doe", occupation ="Developer", location ="USA"))
+print(build_profile("John", "Doe", occupation ="Developer", location ="USA", age =30))
