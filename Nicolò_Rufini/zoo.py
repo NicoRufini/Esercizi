@@ -45,28 +45,66 @@ Animal(name=Lupo, species=Lupus, age=14)
 Fra un recinto e l'altro mettete 30 volte il carattere #."""
 
 class Zoo:
-    def __init__(self, fences, zoo_keepers) -> None:
+    def __init__(self, fences: int, zoo_keepers: int) -> None: #fences: ?
         self.fences = fences
         self.zoo_keepers = zoo_keepers
 
+    def __str__(self) -> str:
+        return f"Zoo(fences = {self.fences}, zoo_keepers = {self.zoo_keepers})"
+
 class Animal:
-    def __init__(self, name, species, age, height, width, preferred_habitat, health) -> None:
+    def __init__(self, name: str, species: str, age: int, height: int, width: float, preferred_habitat: str) -> None: #, health) #width: ?
         self.name = name
         self.species = species
         self.age = age
         self.height = height
         self.width = width
         self.preferred_habitat = preferred_habitat 
-        self.health = health # round(100 * (1 / age), 3)
+        #self.health = health # round(100 * (1 / age), 3)
+        #self.set_health()
+
+    def set_health(self):
+        self.health: float = round(100 * (1 / self.age), 3)
+        return self.health
+
+    def __str__(self) -> str:
+        return f"Animal(name = {self.name}, species = {self.species}, age = {self.age}, height = {self.height}cm, "\
+            f"width = {self.width}cm, preferred_habitat = {self.preferred_habitat}, health = {self.set_health()}"
 
 class Fence:
-    def __init__(self, area, temperature, habitat) -> None:
-        self.area = area
+    def __init__(self, area: float, temperature: float, habitat: str) -> None:
+        self.area = area #The area cannot have a negative value abs(area)
         self.temperature = temperature
         self.habitat = habitat
+    
+    def __str__(self) -> str:
+        if self.area < 0:
+            return "The area cannot have a negative value."
+        else:
+            return f"Fence(area = {self.area}, temperature = {self.temperature}°C, habitat = {self.habitat})"
 
 class ZooKeeper:
-    def __init__(self, name, surname, id) -> None:
+    def __init__(self, name: str, surname: str, id: str) -> None:
         self.name = name
         self.surname = surname
         self.id = id
+
+    def __str__(self) -> str:
+        return f"ZooKeeper(fences = {self.name}, surname = {self.surname}, id = {self.id})"
+
+#Zoo keeper
+print("-" * 100)
+zoo_keeper_0 = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
+print(zoo_keeper_0)
+print("-" * 100)
+
+#Fence
+fence_0 = Fence(area = -100, temperature = 25, habitat = "Continent")
+print(fence_0)
+print("-" * 100)
+
+#Animal
+animal_0 = Animal(name = "Wolf", species = "Lupus", age = 14,height = 85, width = 160, preferred_habitat = "mountains")
+print(animal_0)
+print("-" * 100)
+#print("#" * 30)
