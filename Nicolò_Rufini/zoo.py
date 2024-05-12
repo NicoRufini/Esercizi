@@ -18,9 +18,13 @@ Funzionalità:
    che l'animale rimosso occupava.
 3. feed(animal: Animal) (Dai da mangiare agli animali): implementa un metodo che consenta al guardiano dello zoo di nutrire 
    tutti gli animali dello zoo. Ogni volta che un animale viene nutrito, la sua salute incrementa di 1% rispetto alla sua salute corrente, 
-   ma le dimensioni dell'animale (height e width) vengono incrementate del 2%. Perciò, l'animale si può nutrire soltanto se il recinto ha ancora spazio a sufficienza per ospitare l'animale ingrandito dal cibo.
-4. clean(fence: Fence) (Pulizia dei recinti): implementare un metodo che consenta al guardiano dello zoo di pulire tutti i recinti dello zoo. 
-   Questo metodo restituisce un valore di tipo float che indica il tempo che il guardiano impiega per pulire il recinto. Il tempo di pulizia è il rapporto dell'area occupata dagli animali diviso l'area residua del recinto. Se l'area residua è pari a 0, restituire l'area occupata.
+   ma le dimensioni dell'animale (height e width) vengono incrementate del 2%. Perciò, l'animale si può nutrire soltanto se il recinto ha 
+   ancora spazio a sufficienza per ospitare l'animale ingrandito dal cibo.
+4. clean(fence: Fence) (Pulizia dei recinti): implementare un metodo che consenta al guardiano dello zoo 
+   di pulire tutti i recinti dello zoo. 
+   Questo metodo restituisce un valore di tipo float che indica il tempo che il guardiano impiega per pulire il recinto. 
+   Il tempo di pulizia è il rapporto dell'area occupata dagli animali diviso l'area residua del recinto. Se l'area residua è pari a 0, 
+   restituire l'area occupata.
 5. describe_zoo() (Visualizza informazioni sullo zoo): visualizza informazioni su tutti i guardani dello zoo, sui recinti dello zoo che 
    contengono animali. 
 E.s.: Se abbiamo un guardiano chiamato Lorenzo Maggi con matricola 1234, e un recinto Fence(area=100, temperature=25, habitat=Continentale) 
@@ -43,14 +47,15 @@ Animal(name=Lupo, species=Lupus, age=14)
 #########################
 
 Fra un recinto e l'altro mettete 30 volte il carattere #."""
-
-class Zoo:
+###
+'''
+class Zoo: 
     def __init__(self, fences: int, zoo_keepers: int) -> None: #fences: ?
         self.fences = fences
         self.zoo_keepers = zoo_keepers
 
     def __str__(self) -> str:
-        return f"Zoo(fences = {self.fences}, zoo_keepers = {self.zoo_keepers})"
+        return f"Zoo(fences = {self.fences}, zoo_keepers = {self.zoo_keepers})" '''###
 
 class Animal:
     def __init__(self, name: str, species: str, age: int, height: int, width: float, preferred_habitat: str) -> None: #, health) #width: ?
@@ -69,7 +74,7 @@ class Animal:
 
     def __str__(self) -> str:
         return f"Animal(name = {self.name}, species = {self.species}, age = {self.age}, height = {self.height}cm, "\
-            f"width = {self.width}cm, preferred_habitat = {self.preferred_habitat}, health = {self.set_health()}"
+               f"width = {self.width}cm, preferred_habitat = {self.preferred_habitat}, health = {self.set_health()})"
 
 class Fence:
     def __init__(self, area: float, temperature: float, habitat: str) -> None:
@@ -79,7 +84,7 @@ class Fence:
     
     def __str__(self) -> str:
         if self.area < 0:
-            return "The area cannot have a negative value."
+            return "The area can't have a negative value."
         else:
             return f"Fence(area = {self.area}, temperature = {self.temperature}°C, habitat = {self.habitat})"
 
@@ -90,7 +95,7 @@ class ZooKeeper:
         self.id = id
 
     def __str__(self) -> str:
-        return f"ZooKeeper(fences = {self.name}, surname = {self.surname}, id = {self.id})"
+        return f"ZooKeeper(name = {self.name}, surname = {self.surname}, id = {self.id})"
 
 #Zoo keeper
 print("-" * 100)
