@@ -43,3 +43,30 @@ Animal(name=Lupo, species=Lupus, age=14)
 #########################
 
 Fra un recinto e l'altro mettete 30 volte il carattere #."""
+
+class Zoo:
+    def __init__(self, fences, zoo_keepers) -> None:
+        self.fences = fences
+        self.zoo_keepers = zoo_keepers
+
+class Animal:
+    def __init__(self, name, species, age, height, width, preferred_habitat, health) -> None:
+        self.name = name
+        self.species = species
+        self.age = age
+        self.height = height
+        self.width = width
+        self.preferred_habitat = preferred_habitat 
+        self.health = health # round(100 * (1 / age), 3)
+
+class Fence:
+    def __init__(self, area, temperature, habitat) -> None:
+        self.area = area
+        self.temperature = temperature
+        self.habitat = habitat
+
+class ZooKeeper:
+    def __init__(self, name, surname, id) -> None:
+        self.name = name
+        self.surname = surname
+        self.id = id
