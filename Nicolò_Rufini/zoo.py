@@ -97,19 +97,29 @@ class ZooKeeper:
     def __str__(self) -> str:
         return f"ZooKeeper(name = {self.name}, surname = {self.surname}, id = {self.id})"
 
+class Zoo:
+    def __init__(self) -> None:
+        self.fences = Fence(area = -100, temperature = 25, habitat = "Continent")
+        self.zoo_keeper = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
+
+    def __str__(self) -> str:
+        return f"Guardians:\n\n{self.zoo_keeper}\n\nFences:\n\n{self.fences}"
+
 #Zoo keeper
-print("-" * 100)
+'''print("-" * 100)
 zoo_keeper_0 = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
 print(zoo_keeper_0)
-print("-" * 100)
+print("-" * 100)'''
 
 #Fence
-fence_0 = Fence(area = -100, temperature = 25, habitat = "Continent")
+'''fence_0 = Fence(area = -100, temperature = 25, habitat = "Continent")
 print(fence_0)
-print("-" * 100)
+print("-" * 100)'''
 
 #Animal
-animal_0 = Animal(name = "Wolf", species = "Lupus", age = 14,height = 85, width = 160, preferred_habitat = "mountains")
+'''animal_0 = Animal(name = "Wolf", species = "Lupus", age = 14,height = 85, width = 160, preferred_habitat = "mountains")
 print(animal_0)
 print("-" * 100)
-#print("#" * 30)
+#print("#" * 30)'''
+
+print(Zoo())
