@@ -103,7 +103,7 @@ class Zoo:
         self.zoo_keeper = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
 
     def __str__(self) -> str:
-        return f"Guardians:\n\n{self.zoo_keeper}\n\nFences:\n\n{self.fences}"
+        return f"Guardians:\n\n{self.zoo_keeper}\n\nFences:\n\n{self.fences}\n\nwith animals:\n\n"
 
 #Zoo keeper
 '''print("-" * 100)
