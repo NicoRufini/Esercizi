@@ -57,7 +57,7 @@ class Zoo:
     def __str__(self) -> str:
         return f"Zoo(fences = {self.fences}, zoo_keepers = {self.zoo_keepers})" '''###
 
-class Animal:
+'''class Animal:
     def __init__(self, name: str, species: str, age: int, height: int, width: float, preferred_habitat: str) -> None: #, health) #width: ?
         self.name = name
         self.species = species
@@ -74,7 +74,7 @@ class Animal:
 
     def __str__(self) -> str:
         return f"Animal(name = {self.name}, species = {self.species}, age = {self.age}, height = {self.height}cm, "\
-               f"width = {self.width}cm, preferred_habitat = {self.preferred_habitat}, health = {self.set_health()})"
+               f"width = {self.width}cm, preferred_habitat = {self.preferred_habitat}, health = {self.set_health()})" 
 
 class Fence:
     def __init__(self, area: float, temperature: float, habitat: str) -> None:
@@ -95,7 +95,7 @@ class ZooKeeper:
         self.id = id
 
     def __str__(self) -> str:
-        return f"ZooKeeper(name = {self.name}, surname = {self.surname}, id = {self.id})"
+        return f"ZooKeeper(name = {self.name}, surname = {self.surname}, id = {self.id})" 
 
 class Zoo:
     def __init__(self) -> None:
@@ -103,7 +103,7 @@ class Zoo:
         self.zoo_keeper = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
 
     def __str__(self) -> str:
-        return f"Guardians:\n\n{self.zoo_keeper}\n\nFences:\n\n{self.fences}\n\nwith animals:\n\n"
+        return f"Guardians:\n\n{self.zoo_keeper}\n\nFences:\n\n{self.fences}\n\nwith animals:\n\n" '''
 
 #Zoo keeper
 '''print("-" * 100)
@@ -122,4 +122,81 @@ print(animal_0)
 print("-" * 100)
 #print("#" * 30)'''
 
-print(Zoo())
+'''print(Zoo())'''
+
+#####
+
+class Animal:
+    def __init__(self, name: str, species: str, age: int, height: int, 
+                 width: float, preferred_habitat: str) -> None: #, health) #width: ?
+        self.name = name
+        self.species = species
+        self.age = age
+        self.height = height
+        self.width = width
+        self.preferred_habitat = preferred_habitat 
+        #self.health = health # round(100 * (1 / age), 3)
+        #self.set_health()
+
+    def set_health(self):
+        self.health: float = round(100 * (1 / self.age), 3)
+        return self.health
+
+    def __str__(self) -> str:
+        return f"Animal(name = {self.name}, species = {self.species}, age = {self.age}, height = {self.height}cm, "\
+               f"width = {self.width}cm, preferred_habitat = {self.preferred_habitat}, health = {self.set_health()})" 
+'''    
+class Fence:
+    def __init__(self, area: float, temperature: float, habitat: str) -> None: #list_animal: list[Animal])
+        self.area = area #The area cannot have a negative value abs(area)
+        self.temperature = temperature
+        self.habitat = habitat
+        #self.list_animal = list_animal
+
+    def set_list_animal(self):
+        self.list_animal: list[Animal] = []
+        
+        if Animal(self, name: str != None, species: str != None, age: int != None, height: int != None, 
+                 width: float != None, preferred_habitat: str != None):
+            self.list_animal.append(Animal)
+        
+        return self.list_animal
+    
+    def __str__(self) -> str:
+        if self.area < 0:
+            return f"Fences:\n\nThe area can't have a negative value.\n\nwith animals:\n\n{self.set_list_animal()}"
+        else:
+            return f"Fences:\n\nFence(area = {self.area}, temperature = {self.temperature}°C, habitat = {self.habitat})" \
+                   f"\n\nwith animals:\n\n{self.set_list_animal()}" '''
+
+#Fence deve essere figlia di animal
+#Riprova la prima Fence (quella non figlia)
+class Fence(Animal):
+    def __init__(self,  name: str, species: str, age: int, height: int, width: float, preferred_habitat: str,
+                 area: float, temperature: float, habitat: str) -> None:
+        super().__init__(name, species, age, height, width, preferred_habitat)
+        self.area = area #The area cannot have a negative value abs(area)
+        self.temperature = temperature
+        self.habitat = habitat
+
+    def set_list_animal(self):
+        self.list_animal: list[Animal] = []
+        if self.name != None and self.species != None and self.age != None and self.height != None \
+            and self.width != None and self.preferred_habitat != None:
+            self.list_animal.append(Animal)
+        
+        return self.list_animal
+    
+    def __str__(self) -> str:
+        if self.area < 0:
+            return f"Fences:\n\nThe area can't have a negative value.\n\nwith animals:\n\n{self.set_list_animal()}"
+        else:
+            return f"Fences:\n\nFence(area = {self.area}, temperature = {self.temperature}°C, habitat = {self.habitat})" \
+                   f"\n\nwith animals:\n\n{self.set_list_animal()}"
+        
+animal_0 = Animal(name = "Wolf", species = "Lupus", age = 14,height = 85, width = 160, preferred_habitat = "mountains")
+print(animal_0)
+print("-" * 100)
+
+fence_0 = Fence(area = -100, temperature = 25, habitat = "Continent")
+print(fence_0)
