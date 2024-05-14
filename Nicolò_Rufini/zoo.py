@@ -272,15 +272,15 @@ print(animal_0)
 print("-" * 100)
 #print("#" * 30)
 
+#Fence
+fence_0 = Fence(area = -100, temperature = 25, habitat = "Continent", class_animal = animal_0)
+print(fence_0)
+print("-" * 100)
+
 #Zoo keeper
 print("-" * 100)
 zoo_keeper_0 = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
 print(zoo_keeper_0)
-print("-" * 100)
-
-#Fence
-fence_0 = Fence(area = -100, temperature = 25, habitat = "Continent", class_animal = animal_0)
-print(fence_0)
 print("-" * 100)
 
 
