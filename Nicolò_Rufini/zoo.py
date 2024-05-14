@@ -212,7 +212,7 @@ class Zoo:
     def __str__(self) -> str:
         return f"Zoo(fences = {self.fences}, zoo_keepers = {self.zoo_keepers})" '''###
 
-class Animal: #class Animal(object)
+class Animal: #class Animal(object) **animal
     def __init__(self, name: str, species: str, age: int, height: int, width: float, preferred_habitat: str) -> None: #, health) #width: ?
         self.name = name
         self.species = species
@@ -231,7 +231,7 @@ class Animal: #class Animal(object)
         return f"Animal(name = {self.name}, species = {self.species}, age = {self.age}, height = {self.height}cm, "\
                f"width = {self.width}cm, preferred_habitat = {self.preferred_habitat}, health = {self.set_health()})" 
 
-class Fence: #class Fence(object)
+class Fence: #class Fence(object) **fences
     def __init__(self, area: float, temperature: float, habitat: str, class_animal: Animal) -> None: #class_animal set_list_animal
         self.area = area #The area cannot have a negative value abs(area)
         self.temperature = temperature
