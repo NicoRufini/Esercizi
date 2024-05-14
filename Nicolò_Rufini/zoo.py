@@ -254,7 +254,7 @@ class Fence(): #class Fence(object) **fences(?)
             return i #return? try print() ###@@
         
 
-###@@ ###@@ ###@@ ###@@
+###@@ ###@@ ###@@ ###@@ 
 
 
     
@@ -263,7 +263,7 @@ class Fence(): #class Fence(object) **fences(?)
             return f"The area can't have a negative value.\n\nwith animals:\n\n{self.set_list_animal()}\n" + "#" * 30
         else:
             return f"Fence(area = {self.area}, temperature = {self.temperature}°C, habitat = {self.habitat})\n\n"\
-                   f"with animals:\n\n{self.set_list_animal()}\n" + "#" * 30
+                   f"with animalssss:\n\n{self.set_list_animal()}\n" + "#" * 30
 
 class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
     def __init__(self, name: str, surname: str, id: str) -> None:
@@ -277,7 +277,7 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         #self.fence = fence
         self.fence.list_animal.append(self.animal)
         for i in fence.list_animal:
-            print(i)
+            return i #print(i)
 
     def remove_animal(self, animal: Animal) -> Animal: #, fence: Fence
         pass
