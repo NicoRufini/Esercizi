@@ -212,7 +212,7 @@ class Zoo:
     def __str__(self) -> str:
         return f"Zoo(fences = {self.fences}, zoo_keepers = {self.zoo_keepers})" '''###
 
-class Animal: #class Animal(object) **animal
+class Animal: #class Animal(object)
     def __init__(self, name: str, species: str, age: int, height: int, width: float, preferred_habitat: str) -> None: #, health) #width: ?
         self.name = name
         self.species = species
@@ -231,7 +231,7 @@ class Animal: #class Animal(object) **animal
         return f"Animal(name = {self.name}, species = {self.species}, age = {self.age}, height = {self.height}cm, "\
                f"width = {self.width}cm, preferred_habitat = {self.preferred_habitat}, health = {self.set_health()})" 
 
-class Fence: #class Fence(object) **fences
+class Fence: #class Fence(object) **fences(?)
     def __init__(self, area: float, temperature: float, habitat: str, class_animal: Animal) -> None: #class_animal set_list_animal
         self.area = area #The area cannot have a negative value abs(area)
         self.temperature = temperature
@@ -249,7 +249,7 @@ class Fence: #class Fence(object) **fences
         else:
             return f"Fence(area = {self.area}, temperature = {self.temperature}°C, habitat = {self.habitat})\n\nwith animals:\n\n{self.set_list_animal()}"
 
-class ZooKeeper: #class ZooKeeper(object)
+class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
     def __init__(self, name: str, surname: str, id: str) -> None:
         self.name = name
         self.surname = surname
@@ -258,7 +258,7 @@ class ZooKeeper: #class ZooKeeper(object)
     def __str__(self) -> str:
         return f"ZooKeeper(name = {self.name}, surname = {self.surname}, id = {self.id})" 
 
-class Zoo:
+class Zoo: #**fences **zookeepers
     def __init__(self, class_fence: Fence, class_zookeeper: ZooKeeper) -> None:
         self.fences = class_fence
         self.zoo_keeper = class_zookeeper
