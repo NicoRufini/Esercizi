@@ -231,7 +231,7 @@ class Animal:
         return f"Animal(name = {self.name}, species = {self.species}, age = {self.age}, height = {self.height}cm, "\
                f"width = {self.width}cm, preferred_habitat = {self.preferred_habitat}, health = {self.set_health()})" 
 
-class Fence:
+class Fence(object):
     def __init__(self, area: float, temperature: float, habitat: str) -> None:
         self.area = area #The area cannot have a negative value abs(area)
         self.temperature = temperature
@@ -243,7 +243,7 @@ class Fence:
         else:
             return f"Fence(area = {self.area}, temperature = {self.temperature}°C, habitat = {self.habitat})"
 
-class ZooKeeper:
+class ZooKeeper(object):
     def __init__(self, name: str, surname: str, id: str) -> None:
         self.name = name
         self.surname = surname
@@ -253,23 +253,22 @@ class ZooKeeper:
         return f"ZooKeeper(name = {self.name}, surname = {self.surname}, id = {self.id})" 
 
 class Zoo:
-    def __init__(self) -> None:
-        self.fences = Fence(area = -100, temperature = 25, habitat = "Continent")
-        self.zoo_keeper = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
-
+    def __init__(self, class_fence, class_zookeeper) -> None:
+        self.fences = class_fence
+        self.zoo_keeper = class_zookeeper
     def __str__(self) -> str:
         return f"Guardians:\n\n{self.zoo_keeper}\n\nFences:\n\n{self.fences}\n\nwith animals:\n\n" 
 
 #Zoo keeper
-'''print("-" * 100)
+print("-" * 100)
 zoo_keeper_0 = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
 print(zoo_keeper_0)
-print("-" * 100)'''
+print("-" * 100)
 
 #Fence
-'''fence_0 = Fence(area = -100, temperature = 25, habitat = "Continent")
+fence_0 = Fence(area = -100, temperature = 25, habitat = "Continent")
 print(fence_0)
-print("-" * 100)'''
+print("-" * 100)
 
 #Animal
 '''animal_0 = Animal(name = "Wolf", species = "Lupus", age = 14,height = 85, width = 160, preferred_habitat = "mountains")
@@ -277,4 +276,4 @@ print(animal_0)
 print("-" * 100)
 #print("#" * 30)'''
 
-'''print(Zoo())'''
+print(Zoo(fence_0, zoo_keeper_0))
