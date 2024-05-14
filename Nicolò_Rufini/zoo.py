@@ -252,6 +252,11 @@ class Fence(): #class Fence(object) **fences(?)
         self.list_animal: list[Animal] = [self.animal] #self.list_animal.append(self.animal)(?)
         for i in self.list_animal:
             return i #return? try print() ###@@
+        
+
+###@@ ###@@ ###@@
+
+
     
     def __str__(self) -> str:
         if self.area < 0:
