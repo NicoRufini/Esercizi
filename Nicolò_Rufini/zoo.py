@@ -254,7 +254,7 @@ class Fence(): #class Fence(object) **fences(?)
             return i #return? try print() ###@@
         
 
-###@@ ###@@ ###@@
+###@@ ###@@ ###@@ ###@@
 
 
     
