@@ -256,6 +256,7 @@ class Zoo:
     def __init__(self, class_fence, class_zookeeper) -> None:
         self.fences = class_fence
         self.zoo_keeper = class_zookeeper
+    
     def __str__(self) -> str:
         return f"Guardians:\n\n{self.zoo_keeper}\n\nFences:\n\n{self.fences}\n\nwith animals:\n\n" 
 
