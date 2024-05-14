@@ -241,24 +241,24 @@ class Animal: #class Animal(object) maybe (in some way) class Animal can return 
         return f"Animal(name = {self.name}, species = {self.species}, age = {self.age}, height = {self.height}cm, "\
                f"width = {self.width}cm, preferred_habitat = {self.preferred_habitat}, health = {self.set_health()})" 
 
-class Fence: #class Fence(object) **fences(?)
+class Fence(): #class Fence(object) **fences(?)
     def __init__(self, area: float, temperature: float, habitat: str, class_animal: Animal) -> None: #class_animal set_list_animal
         self.area = area #The area cannot have a negative value abs(area)
         self.temperature = temperature
         self.habitat = habitat
         self.animal = class_animal
 
-    def set_list_animal(self):
+    def set_list_animal(self): #@classmethod of set_list_animal and call it in Fence add_animal(?)
         self.list_animal: list[Animal] = [self.animal] #self.list_animal.append(self.animal)(?)
         for i in self.list_animal:
-            return i
+            return i #return? try print()
     
     def __str__(self) -> str:
         if self.area < 0:
-            return f"The area can't have a negative value.\n\nwith animals:\n\n{self.set_list_animal()}"
+            return f"The area can't have a negative value.\n\nwith animals:\n\n{self.set_list_animal()}\n" + "#" * 30
         else:
             return f"Fence(area = {self.area}, temperature = {self.temperature}°C, habitat = {self.habitat})\n\n"\
-                   f"with animals:\n\n{self.set_list_animal()}"
+                   f"with animals:\n\n{self.set_list_animal()}\n" + "#" * 30
 
 class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
     def __init__(self, name: str, surname: str, id: str) -> None:
@@ -266,13 +266,13 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         self.surname = surname
         self.id = id
 
-    def add_animal(self, animal: Animal) -> Animal: #, fence: Fence)
+    def add_animal(self, fence: Fence, animal: Animal) -> Animal: #, fence: Fence)
+        self.fence = fence
         self.animal = animal
-
-        """
-        self.animal = animal
-        Fence(self.set_list_animal()).append(self.animal)
-        """
+        #self.fence = fence
+        self.fence.list_animal.append(self.animal)
+        for i in fence.list_animal:
+            print(i)
 
     def remove_animal(self, animal: Animal) -> Animal: #, fence: Fence
         pass
@@ -311,7 +311,7 @@ zoo_keeper_0 = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
 print(zoo_keeper_0)
 print("-" * 100)
 
-zoo_keeper_0.add_animal(animal_0)
+zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0)
 
 print(Zoo(fence_0, zoo_keeper_0).describe_zoo())
 #Do the functions first, then **fences and **zookeepers
