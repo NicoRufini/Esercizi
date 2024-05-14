@@ -257,13 +257,31 @@ class Fence: #class Fence(object) **fences(?)
         if self.area < 0:
             return f"The area can't have a negative value.\n\nwith animals:\n\n{self.set_list_animal()}"
         else:
-            return f"Fence(area = {self.area}, temperature = {self.temperature}°C, habitat = {self.habitat})\n\nwith animals:\n\n{self.set_list_animal()}"
+            return f"Fence(area = {self.area}, temperature = {self.temperature}°C, habitat = {self.habitat})\n\n"\
+                   f"with animals:\n\n{self.set_list_animal()}"
 
 class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
     def __init__(self, name: str, surname: str, id: str) -> None:
         self.name = name
         self.surname = surname
         self.id = id
+
+    def add_animal(self, animal: Animal) -> Animal: #, fence: Fence)
+        self.animal = animal
+
+        """
+        self.animal = animal
+        Fence(self.set_list_animal()).append(self.animal)
+        """
+
+    def remove_animal(self, animal: Animal) -> Animal: #, fence: Fence
+        pass
+
+    def feed(animal: Animal) -> Animal:
+        pass
+
+    def clean(fence: Fence) -> Fence: #class_fence(?)
+        pass
 
     def __str__(self) -> str:
         return f"ZooKeeper(name = {self.name}, surname = {self.surname}, id = {self.id})" 
@@ -273,7 +291,7 @@ class Zoo: #**fences **zookeepers
         self.fences = class_fence
         self.zoo_keeper = class_zookeeper
     
-    def __str__(self) -> str:
+    def describe_zoo(self) -> str:
         return f"Guardians:\n\n{self.zoo_keeper}\n\nFences:\n\n{self.fences}" 
 
 #Animal
@@ -293,8 +311,9 @@ zoo_keeper_0 = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
 print(zoo_keeper_0)
 print("-" * 100)
 
+zoo_keeper_0.add_animal(animal_0)
 
-print(Zoo(fence_0, zoo_keeper_0))
+print(Zoo(fence_0, zoo_keeper_0).describe_zoo())
 #Do the functions first, then **fences and **zookeepers
 ################
 '''
