@@ -57,7 +57,7 @@ class Zoo:
     def __str__(self) -> str:
         return f"Zoo(fences = {self.fences}, zoo_keepers = {self.zoo_keepers})" '''###
 
-'''class Animal:
+class Animal:
     def __init__(self, name: str, species: str, age: int, height: int, width: float, preferred_habitat: str) -> None: #, health) #width: ?
         self.name = name
         self.species = species
@@ -103,7 +103,7 @@ class Zoo:
         self.zoo_keeper = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
 
     def __str__(self) -> str:
-        return f"Guardians:\n\n{self.zoo_keeper}\n\nFences:\n\n{self.fences}\n\nwith animals:\n\n" '''
+        return f"Guardians:\n\n{self.zoo_keeper}\n\nFences:\n\n{self.fences}\n\nwith animals:\n\n" 
 
 #Zoo keeper
 '''print("-" * 100)
@@ -125,7 +125,7 @@ print("-" * 100)
 '''print(Zoo())'''
 
 #####
-
+"""
 class Animal:
     def __init__(self, name: str, species: str, age: int, height: int, 
                  width: float, preferred_habitat: str) -> None: #, health) #width: ?
@@ -145,7 +145,7 @@ class Animal:
     def __str__(self) -> str:
         return f"Animal(name = {self.name}, species = {self.species}, age = {self.age}, height = {self.height}cm, "\
                f"width = {self.width}cm, preferred_habitat = {self.preferred_habitat}, health = {self.set_health()})" 
-'''    
+'''
 class Fence:
     def __init__(self, area: float, temperature: float, habitat: str) -> None: #list_animal: list[Animal])
         self.area = area #The area cannot have a negative value abs(area)
@@ -156,8 +156,7 @@ class Fence:
     def set_list_animal(self):
         self.list_animal: list[Animal] = []
         
-        if Animal(self, name: str != None, species: str != None, age: int != None, height: int != None, 
-                 width: float != None, preferred_habitat: str != None):
+        if Animal(self, name: str != None, species: str != None, age: int != None, height: int != None, width: float != None, preferred_habitat: str != None):
             self.list_animal.append(Animal)
         
         return self.list_animal
@@ -199,4 +198,4 @@ print(animal_0)
 print("-" * 100)
 
 fence_0 = Fence(area = -100, temperature = 25, habitat = "Continent")
-print(fence_0)
+print(fence_0)"""
