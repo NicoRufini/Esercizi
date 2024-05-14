@@ -254,7 +254,7 @@ class Fence(): #class Fence(object) **fences(?)
             return i #return? try print()
         
 
-###
+###@@ ###@@ ###@@
 
 
     
@@ -277,7 +277,7 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         #self.fence = fence
         self.fence.list_animal.append(self.animal)
         for i in fence.list_animal:
-            return i #print(i)
+            print(i)
 
     def remove_animal(self, animal: Animal) -> Animal: #, fence: Fence
         pass
