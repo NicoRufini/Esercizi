@@ -251,10 +251,10 @@ class Fence(): #class Fence(object) **fences(?)
     def set_list_animal(self): #@classmethod of set_list_animal and call it in Fence add_animal(?)
         self.list_animal: list[Animal] = [self.animal] #self.list_animal.append(self.animal)(?)
         for i in self.list_animal:
-            return i #return? try print() ###@@
+            return i #return? try print()
         
 
-###@@ ###@@ ###@@ ###@@ 
+###
 
 
     
