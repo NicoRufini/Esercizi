@@ -47,6 +47,16 @@ Animal(name=Lupo, species=Lupus, age=14)
 #########################
 
 Fra un recinto e l'altro mettete 30 volte il carattere #."""
+################
+'''
+animals:
+name = "Wolf", species = "Lupus", age = 14,height = 85, width = 160, preferred_habitat = "mountains"
+
+Fences:
+area = -100, temperature = 25, habitat = "Continent"
+
+Zookeepers are not important
+'''
 #####
 ###
 '''
@@ -267,13 +277,13 @@ class Zoo: #**fences **zookeepers
         return f"Guardians:\n\n{self.zoo_keeper}\n\nFences:\n\n{self.fences}" 
 
 #Animal
-animal_0 = Animal(name = "Wolf", species = "Lupus", age = 14,height = 85, width = 160, preferred_habitat = "mountains")
+animal_0 = Animal(name = "Wolf", species = "Lupus", age = 14, height = 85, width = 160, preferred_habitat = "mountains")
 print(animal_0)
 print("-" * 100)
 #print("#" * 30)
 
 #Fence
-fence_0 = Fence(area = -100, temperature = 25, habitat = "Continent", class_animal = animal_0)
+fence_0 = Fence(area = -100, temperature = 25, habitat = "Forest", class_animal = animal_0)
 print(fence_0)
 print("-" * 100)
 
@@ -285,3 +295,26 @@ print("-" * 100)
 
 
 print(Zoo(fence_0, zoo_keeper_0))
+#Do the functions first, then **fences and **zookeepers
+################
+'''
+animals:
+name = "Wolf", species = "Lupus", age = 14, height = 85, width = 160, preferred_habitat = "mountains", "forests"
+name = "Squirrel", species = "Eastern gray squirrel", age = 6, height = 18, width = 15, preferred_habitat = "forests"
+name = "Tiger", species = "Bnegal tiger", age = 12, height = 110, width = 190, preferred_habitat = "forests", "savannah", "swamps"
+name = "Penguin", species = "Pygoscelis adeliae", age = 17, height = 65, width = 14, preferred_habitat = "ocean", "coasts", "Polar"
+name = "Sea lion", species = "Eumetopias jubatus", age = 21, height = 89, width = 37, preferred_habitat = "ocean", "coasts", "Polar"
+name = "Sea turtle", species = "Hawksbill", age = 75, height = 44, width = 86, preferred_habitat = "ocean", "coasts", "Tropical"
+
+
+Fences:
+area = -100, temperature = 25, habitat = "Continent"
+habitat = "Forest"
+habitat = "Acquatic"
+habitat = "Dessert"
+habitat = "Mountainous"
+habitat = "Polar"
+habitat = "Tropical"
+
+Zookeepers are not important
+'''
