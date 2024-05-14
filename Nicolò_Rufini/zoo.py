@@ -212,7 +212,7 @@ class Zoo:
     def __str__(self) -> str:
         return f"Zoo(fences = {self.fences}, zoo_keepers = {self.zoo_keepers})" '''###
 
-class Animal: #class Animal(object)
+class Animal: #class Animal(object) maybe (in some way) class Animal can return a list instead of class Fences
     def __init__(self, name: str, species: str, age: int, height: int, width: float, preferred_habitat: str) -> None: #, health) #width: ?
         self.name = name
         self.species = species
