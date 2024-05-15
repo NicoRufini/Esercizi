@@ -309,6 +309,17 @@ class Zoo: #**fences **zookeepers
     
     def describe_zoo(self) -> str:
         #return f"Guardians:\n\n{self.zoo_keepers}\n\nFences:\n\n{self.fences}"
+        zoo_zoo_keepers_string: str = "Guardians:\n\n"
+        zoo_fences_string: str = "Fences:\n\n"
+
+        for i in self.zoo_keepers:
+            zoo_zoo_keepers_string += f"{i.__str__()}\n"
+
+        for i in self.fences:
+            zoo_fences_string += f"{i.__str__()}\n\n"
+
+        return f"{zoo_zoo_keepers_string}\n{zoo_fences_string}"
+    
         '''
         zoo_zoo_keepers_string: str = "Guardians:\n\n"
         zoo_fences_string: str = "Fences:\n\n"
@@ -346,7 +357,9 @@ zoo_keeper_0 = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
 
 #add_animal
 zoo_keeper_0.add_animal(animal = animal_forest_1, fence = fence_forest) #fence = fence_0, animal = animal_0
-#zoo_keeper_0.add_animal(fence = fence_forest, animal = animal_forest_1)
+zoo_keeper_0.add_animal(animal = animal_forest_2, fence = fence_forest)
+zoo_keeper_0.add_animal(animal = animal_forest_3, fence = fence_forest)
+zoo_keeper_0.add_animal(fence = fence_acquatic, animal = animal_acquatic_1)
 #print(zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0))
 #print(zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0))
 
@@ -360,7 +373,7 @@ zoo_keeper_0.add_animal(animal = animal_forest_1, fence = fence_forest) #fence =
 #clean
 
 #Zoo
-zoo_park= Zoo(fences = [fence_forest, fence_acquatic], zoo_keepers = zoo_keeper_0)
+zoo_park= Zoo(fences = [fence_forest, fence_acquatic], zoo_keepers = [zoo_keeper_0])
 print(zoo_park.describe_zoo())
 
 #Do the functions first, then **fences and **zookeepers
