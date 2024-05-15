@@ -292,6 +292,9 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         animal.health += 0.01 * animal.health
         animal.height += 0.02 * animal.height
         animal.width += 0.02 * animal.width
+        animal.health = round(animal.health, 3)
+        animal.height = round(animal.height, 3)
+        animal.width = round(animal.width, 3)
 
     def clean(self, fence: Fence) -> Fence: #class_fence(?)
         self.fence = fence
@@ -334,18 +337,20 @@ class Zoo: #**fences **zookeepers
         ''' 
 
 #Animal
-animal_forest_1 = Animal(name = "Wolf", species = "Lupus", age = 14, height = 85, width = 160, preferred_habitat = "forest")
-animal_forest_2 = Animal(name = "Squirrel", species = "Chipmunk", age = 6, height = 18, width = 15, preferred_habitat = "forests")
-animal_forest_3 = Animal(name = "Tiger", species = "Bnegal tiger", age = 12, height = 110, width = 190, preferred_habitat = "forests")
-animal_acquatic_1 = Animal(name = "Sea turtle", species = "Hawksbill", age = 75, height = 44, width = 86, preferred_habitat = "Acquatic")
+animal_forest_1 = Animal(name = "Wolf", species = "Lupus", age = 14, height = 85, width = 160, preferred_habitat = "Forest")
+#animal_forest_2 = Animal(name = "Squirrel", species = "Chipmunk", age = 6, height = 18, width = 15, preferred_habitat = "Forest")
+#animal_forest_3 = Animal(name = "Tiger", species = "Bnegal tiger", age = 12, height = 110, width = 190, preferred_habitat = "Forest")
+#animal_acquatic_1 = Animal(name = "Sea turtle", species = "Hawksbill", age = 75, height = 44, width = 86, preferred_habitat = "Acquatic")
+#animal_polar_1 = Animal(name = "Penguin", species = "Pygoscelis adeliae", age = 17, height = 65, width = 14, preferred_habitat = "Polar")
+#animal_polar_2 = Animal(name = "Sea lion", species = "Eumetopias jubatus", age = 21, height = 89, width = 37, preferred_habitat = "Polar")
 #print(animal_0)
 #print("-" * 100)
 #print("#" * 30)
 
 #Fence
 fence_forest = Fence(area = 100, temperature = 25, habitat = "Forest") #, class_animal = animal_0
-fence_acquatic = Fence(area = 25, temperature = 20, habitat = "Acquatic")
-fence_polar = Fence(area = 75, temperature = 0, habitat = "Polar")
+#fence_acquatic = Fence(area = 25, temperature = 20, habitat = "Acquatic")
+#fence_polar = Fence(area = 75, temperature = 0, habitat = "Polar")
 #print(fence_0)
 #print("-" * 100)
 
@@ -356,24 +361,32 @@ zoo_keeper_0 = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
 #print("-" * 100)
 
 #add_animal
-zoo_keeper_0.add_animal(animal = animal_forest_1, fence = fence_forest) #fence = fence_0, animal = animal_0
-zoo_keeper_0.add_animal(animal = animal_forest_2, fence = fence_forest)
-zoo_keeper_0.add_animal(animal = animal_forest_3, fence = fence_forest)
-zoo_keeper_0.add_animal(fence = fence_acquatic, animal = animal_acquatic_1)
+#zoo_keeper_0.add_animal(animal = animal_forest_1, fence = fence_forest) #fence = fence_0, animal = animal_0
+#zoo_keeper_0.add_animal(animal = animal_forest_2, fence = fence_forest)
+#zoo_keeper_0.add_animal(animal = animal_forest_3, fence = fence_forest)
+#zoo_keeper_0.add_animal(fence = fence_acquatic, animal = animal_acquatic_1)
 #print(zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0))
 #print(zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0))
 
 #remove_animal
 #zoo_keeper_0.remove_animal(animal = animal_forest_1, fence = fence_forest)
-#zoo_keeper_0.remove_animal(animal = animal_forest_1, fence = fence_forest)
+#zoo_keeper_0.remove_animal(animal = animal_forest_2, fence = fence_forest)
+#zoo_keeper_0.remove_animal(animal = animal_forest_3, fence = fence_forest)
 
 #feed
-#zoo_keeper_0.feed(animal = animal_0)
+#zoo_keeper_0.feed(animal = animal_forest_1)
+#zoo_keeper_0.feed(animal = animal_forest_1)
+#zoo_keeper_0.feed(animal = animal_forest_2)
+#zoo_keeper_0.feed(animal = animal_forest_2)
+#zoo_keeper_0.feed(animal = animal_forest_3)
+#zoo_keeper_0.feed(animal = animal_forest_3)
+#zoo_keeper_0.feed(animal = animal_acquatic_1)
+#zoo_keeper_0.feed(animal = animal_acquatic_1)
 
 #clean
 
 #Zoo
-zoo_park= Zoo(fences = [fence_forest, fence_acquatic], zoo_keepers = [zoo_keeper_0])
+zoo_park= Zoo(fences = [fence_forest], zoo_keepers = [zoo_keeper_0])
 print(zoo_park.describe_zoo())
 
 #Do the functions first, then **fences and **zookeepers
