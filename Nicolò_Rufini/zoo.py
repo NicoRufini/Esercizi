@@ -303,17 +303,30 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         return f"ZooKeeper(name = {self.name}, surname = {self.surname}, id = {self.id})" 
 
 class Zoo: #**fences **zookeepers
-    def __init__(self, fences: list[Fence], zookeepers: list[ZooKeeper]) -> None: #zoo_keepers e fences sono delle liste
+    def __init__(self, fences: list[Fence], zoo_keepers: list[ZooKeeper]) -> None: #zoo_keepers e fences sono delle liste
         self.fences = fences
-        self.zoo_keepers = zookeepers
+        self.zoo_keepers = zoo_keepers
     
     def describe_zoo(self) -> str:
-        return f"Guardians:\n\n{self.zoo_keepers}\n\nFences:\n\n{self.fences}" 
+        #return f"Guardians:\n\n{self.zoo_keepers}\n\nFences:\n\n{self.fences}"
+        '''
+        zoo_zoo_keepers_string: str = "Guardians:\n\n"
+        zoo_fences_string: str = "Fences:\n\n"
+
+        for i in self.zoo_keepers:
+            zoo_zoo_keepers_string += f"{i.__str__()}\n"
+        
+        for i in self.fences:
+            zoo_fences_string += f"{i.__str__()}\n"
+
+        return f"{zoo_zoo_keepers_string}\n\n{zoo_fences_string}"
+        ''' 
 
 #Animal
 animal_forest_1 = Animal(name = "Wolf", species = "Lupus", age = 14, height = 85, width = 160, preferred_habitat = "forest")
 animal_forest_2 = Animal(name = "Squirrel", species = "Chipmunk", age = 6, height = 18, width = 15, preferred_habitat = "forests")
 animal_forest_3 = Animal(name = "Tiger", species = "Bnegal tiger", age = 12, height = 110, width = 190, preferred_habitat = "forests")
+animal_acquatic_1 = Animal(name = "Sea turtle", species = "Hawksbill", age = 75, height = 44, width = 86, preferred_habitat = "Acquatic")
 #print(animal_0)
 #print("-" * 100)
 #print("#" * 30)
@@ -347,7 +360,7 @@ zoo_keeper_0.add_animal(animal = animal_forest_1, fence = fence_forest) #fence =
 #clean
 
 #Zoo
-zoo_park= Zoo(fences = fence_forest, zookeepers = zoo_keeper_0)
+zoo_park= Zoo(fences = [fence_forest, fence_acquatic], zoo_keepers = zoo_keeper_0)
 print(zoo_park.describe_zoo())
 
 #Do the functions first, then **fences and **zookeepers
