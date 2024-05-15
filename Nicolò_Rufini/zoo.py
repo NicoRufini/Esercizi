@@ -280,12 +280,14 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         self.animal = animal
         self.fence = fence
         #self.fence = fence
-        self.fence.animal.append(self.animal)
+        if animal.preferred_habitat == fence.habitat:
+            self.fence.animal.append(self.animal)
 
     def remove_animal(self, animal: Animal, fence: Fence) -> Animal: #, fence: Fence
         self.animal = animal
         self.fence = fence
-        self.fence.animal.remove(self.animal)
+        if animal.preferred_habitat == fence.habitat:
+            self.fence.animal.remove(self.animal)
 
     def feed(self, animal: Animal) -> Animal:
         self.animal = animal
@@ -296,7 +298,7 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         animal.height = round(animal.height, 3)
         animal.width = round(animal.width, 3)
 
-    def clean(self, fence: Fence) -> Fence: #class_fence(?)
+    def clean(self, fence: Fence) -> Fence: #class_fence(?) #calculate animal area
         self.fence = fence
         self.clean_time = None #Il tempo di pulizia è il rapporto dell'area occupata dagli animali diviso l'area residua del recinto.  
         #Se l'area residua è pari a 0, restituire l'area occupata.
@@ -372,6 +374,7 @@ zoo_keeper_0 = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
 #zoo_keeper_0.remove_animal(animal = animal_forest_1, fence = fence_forest)
 #zoo_keeper_0.remove_animal(animal = animal_forest_2, fence = fence_forest)
 #zoo_keeper_0.remove_animal(animal = animal_forest_3, fence = fence_forest)
+#zoo_keeper_0.remove_animal(fence = fence_acquatic, animal = animal_acquatic_1)
 
 #feed
 #zoo_keeper_0.feed(animal = animal_forest_1)
