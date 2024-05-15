@@ -287,8 +287,11 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         self.fence = fence
         self.fence.animal.remove(self.animal)
 
-    def feed(animal: Animal) -> Animal:
-        pass
+    def feed(self, animal: Animal) -> Animal:
+        self.animal = animal
+        animal.health += 0.01
+        animal.height += 0.02
+        animal.width += 0.02
 
     def clean(fence: Fence) -> Fence: #class_fence(?)
         pass
@@ -328,8 +331,13 @@ zoo_keeper_0.add_animal(animal = animal_0, fence = fence_0) #fence = fence_0, an
 #print(zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0))
 
 #remove_animal
-zoo_keeper_0.remove_animal(animal = animal_0, fence = fence_0)
 #zoo_keeper_0.remove_animal(animal = animal_0, fence = fence_0)
+#zoo_keeper_0.remove_animal(animal = animal_0, fence = fence_0)
+
+#feed
+zoo_keeper_0.feed(animal = animal_0)
+
+#clean
 
 #Zoo
 z= Zoo(fence_0,zoo_keeper_0)
