@@ -303,7 +303,7 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         return f"ZooKeeper(name = {self.name}, surname = {self.surname}, id = {self.id})" 
 
 class Zoo: #**fences **zookeepers
-    def __init__(self, class_fence: Fence, class_zookeeper: ZooKeeper) -> None:
+    def __init__(self, class_fence: Fence, class_zookeeper: ZooKeeper) -> None: #zoo_keepers e fences sono delle liste
         self.fences = class_fence
         self.zoo_keeper = class_zookeeper
     
@@ -329,7 +329,7 @@ print("-" * 100)
 
 #add_animal
 zoo_keeper_0.add_animal(animal = animal_0, fence = fence_0) #fence = fence_0, animal = animal_0
-#zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0)
+zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0)
 #print(zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0))
 #print(zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0))
 
@@ -343,7 +343,7 @@ zoo_keeper_0.add_animal(animal = animal_0, fence = fence_0) #fence = fence_0, an
 #clean
 
 #Zoo
-zoo_0= Zoo(fence_0,zoo_keeper_0)
+zoo_0= Zoo(class_fence = fence_0, class_zookeeper = zoo_keeper_0)
 print(zoo_0.describe_zoo())
 
 #Do the functions first, then **fences and **zookeepers
