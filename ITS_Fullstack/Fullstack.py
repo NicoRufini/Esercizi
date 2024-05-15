@@ -155,3 +155,4 @@ course.register(Student(cf="1234", name="Toni", surname="Mancini", age=46))
 course.register(Student(cf="1234", name="Toni", surname="Mancini", age=46))
 print(f'Studenti in fullstack: {len(course.groups[0].students)}')
 print(f'Studenti in cloud: {len(course.groups[1].students)}')
+###
