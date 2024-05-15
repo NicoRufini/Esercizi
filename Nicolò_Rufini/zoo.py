@@ -231,29 +231,29 @@ class Animal: #class Animal(object) maybe (in some way) class Animal can return 
         self.width = width
         self.preferred_habitat = preferred_habitat 
         #self.health = health # round(100 * (1 / age), 3)
-        #self.set_health()
+        self.set_health()
 
     def set_health(self):
         self.health: float = round(100 * (1 / self.age), 3)
-        return self.health
+        #return self.health
 
     def __str__(self) -> str:
         return f"Animal(name = {self.name}, species = {self.species}, age = {self.age}, height = {self.height}cm, "\
-               f"width = {self.width}cm, preferred_habitat = {self.preferred_habitat}, health = {self.set_health()})" 
+               f"width = {self.width}cm, preferred_habitat = {self.preferred_habitat}, health = {self.health})" 
 
-class Fence(): #class Fence(object) **fences(?)
-    def __init__(self, area: float, temperature: float, habitat: str, class_animal: Animal) -> None: #class_animal set_list_animal
+class Fence: #class Fence(object) **fences(?)
+    def __init__(self, area: float, temperature: float, habitat: str) -> None: #, class_animal: Animal set_list_animal
         self.area = area #The area cannot have a negative value abs(area)
         self.temperature = temperature
         self.habitat = habitat
-        self.animal = class_animal
+        self.animal = []
 
-    def set_list_animal(self): #@classmethod of set_list_animal and call it in Fence add_animal(?)
-        self.list_animal: list[Animal] = [self.animal] #[self.animal]
+    #def set_list_animal(self): #@classmethod of set_list_animal and call it in Fence add_animal(?)
+        #self.list_animal: list[Animal] = [self.animal] #[self.animal]
         #self.other_list_animal: list = [] #self.list_animal.append(self.animal)(?)
-        for i in self.list_animal:
+        #for i in self.list_animal:
             #self.other_list_animal.append(i)
-            return i #return? try print()
+            #return i #return? try print()
         
 
 ###@@ ###@@ ###@@ ###@@ ###@@ ###@@ ###@@@
@@ -261,11 +261,14 @@ class Fence(): #class Fence(object) **fences(?)
 
     
     def __str__(self) -> str:
-        if self.area < 0:
-            return f"The area can't have a negative value.\n\nwith animals:\n\n{self.set_list_animal()}\n" + "#" * 30
-        else:
-            return f"Fence(area = {self.area}, temperature = {self.temperature}°C, habitat = {self.habitat})\n\n"\
-                   f"with animalssss:\n\n{self.set_list_animal()}\n" + "#" * 30
+        fence_string: str = ""
+        if self.area >= 0:
+            fence_string = f"Fence(area = {self.area}, temperature = {self.temperature}°C, habitat = {self.habitat})\n\n"\
+                   f"with animals:\n\n"
+            for i in self.animal:
+                fence_string +=  f"{i.__str__()}" + "#" * 30    
+            return fence_string
+            
 
 class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
     def __init__(self, name: str, surname: str, id: str) -> None:
@@ -277,8 +280,8 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         self.fence = fence
         self.animal = animal
         #self.fence = fence
-        self.fence.list_animal.append(self.animal)
-        for i in fence.list_animal:
+        self.fence.animal.append(self.animal)
+        for i in fence.animal:
             return i
 
     def remove_animal(self, animal: Animal) -> Animal: #, fence: Fence
@@ -308,7 +311,7 @@ print("-" * 100)
 #print("#" * 30)
 
 #Fence
-fence_0 = Fence(area = -100, temperature = 25, habitat = "Forest", class_animal = animal_0)
+fence_0 = Fence(area = 100, temperature = 25, habitat = "Forest") #, class_animal = animal_0
 print(fence_0)
 print("-" * 100)
 
@@ -323,7 +326,8 @@ print("-" * 100)
 #print(zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0))
 
 #Zoo
-print(Zoo(fence_0, zoo_keeper_0).describe_zoo())
+z= Zoo(fence_0,zoo_keeper_0)
+print(z.describe_zoo())
 
 #Do the functions first, then **fences and **zookeepers
 ################
