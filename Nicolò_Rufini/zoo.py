@@ -266,8 +266,8 @@ class Fence: #class Fence(object) **fences(?)
             fence_string = f"Fence(area = {self.area}, temperature = {self.temperature}°C, habitat = {self.habitat})\n\n"\
                    f"with animals:\n\n"
             for i in self.animal:
-                fence_string +=  f"{i.__str__()}"    
-            return f"{fence_string}\n" + "#" * 30
+                fence_string +=  f"{i.__str__()}\n"    
+            return f"{fence_string}" + "#" * 30
             
 
 class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
@@ -338,7 +338,7 @@ zoo_keeper_0.add_animal(animal = animal_0, fence = fence_0) #fence = fence_0, an
 #zoo_keeper_0.remove_animal(animal = animal_0, fence = fence_0)
 
 #feed
-zoo_keeper_0.feed(animal = animal_0)
+#zoo_keeper_0.feed(animal = animal_0)
 
 #clean
 
