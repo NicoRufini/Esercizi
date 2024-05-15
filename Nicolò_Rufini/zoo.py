@@ -276,16 +276,16 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         self.surname = surname
         self.id = id
 
-    def add_animal(self, fence: Fence, animal: Animal) -> Animal: #, fence: Fence)
-        self.fence = fence
+    def add_animal(self, animal: Animal, fence: Fence) -> Animal: #, fence: Fence)
         self.animal = animal
+        self.fence = fence
         #self.fence = fence
         self.fence.animal.append(self.animal)
-        for i in fence.animal:
-            return i
 
-    def remove_animal(self, animal: Animal) -> Animal: #, fence: Fence
-        pass
+    def remove_animal(self, animal: Animal, fence: Fence) -> Animal: #, fence: Fence
+        self.animal = animal
+        self.fence = fence
+        self.fence.animal.remove(self.animal)
 
     def feed(animal: Animal) -> Animal:
         pass
@@ -321,9 +321,15 @@ zoo_keeper_0 = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
 print(zoo_keeper_0)
 print("-" * 100)
 
+#add_animal
+zoo_keeper_0.add_animal(animal = animal_0, fence = fence_0) #fence = fence_0, animal = animal_0
 #zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0)
 #print(zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0))
 #print(zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0))
+
+#remove_animal
+zoo_keeper_0.remove_animal(animal = animal_0, fence = fence_0)
+#zoo_keeper_0.remove_animal(animal = animal_0, fence = fence_0)
 
 #Zoo
 z= Zoo(fence_0,zoo_keeper_0)
