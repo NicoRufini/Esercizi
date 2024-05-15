@@ -289,12 +289,15 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
 
     def feed(self, animal: Animal) -> Animal:
         self.animal = animal
-        animal.health += 0.01
-        animal.height += 0.02
-        animal.width += 0.02
+        animal.health += 0.01 * animal.health
+        animal.height += 0.02 * animal.height
+        animal.width += 0.02 * animal.width
 
-    def clean(fence: Fence) -> Fence: #class_fence(?)
-        pass
+    def clean(self, fence: Fence) -> Fence: #class_fence(?)
+        self.fence = fence
+        self.clean_time = None #Il tempo di pulizia è il rapporto dell'area occupata dagli animali diviso l'area residua del recinto.  
+        #Se l'area residua è pari a 0, restituire l'area occupata.
+
 
     def __str__(self) -> str:
         return f"ZooKeeper(name = {self.name}, surname = {self.surname}, id = {self.id})" 
@@ -340,8 +343,8 @@ zoo_keeper_0.feed(animal = animal_0)
 #clean
 
 #Zoo
-z= Zoo(fence_0,zoo_keeper_0)
-print(z.describe_zoo())
+zoo_0= Zoo(fence_0,zoo_keeper_0)
+print(zoo_0.describe_zoo())
 
 #Do the functions first, then **fences and **zookeepers
 ################
