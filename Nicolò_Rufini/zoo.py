@@ -249,9 +249,11 @@ class Fence(): #class Fence(object) **fences(?)
         self.animal = class_animal
 
     def set_list_animal(self): #@classmethod of set_list_animal and call it in Fence add_animal(?)
-        self.list_animal: list[Animal] = [self.animal] #self.list_animal.append(self.animal)(?)
+        self.list_animal: list[Animal] = [self.animal]
+        #self.other_list_animal: list = [] #self.list_animal.append(self.animal)(?)
         for i in self.list_animal:
-            return i #return? try print()
+            #self.other_list_animal.append(i)
+            yield i #return? try print()
         
 
 ###@@ ###@@ ###@@ ###@@ ###@@ ###@@ ###@@@
@@ -277,7 +279,7 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         #self.fence = fence
         self.fence.list_animal.append(self.animal)
         for i in fence.list_animal:
-            print(i)
+            return i
 
     def remove_animal(self, animal: Animal) -> Animal: #, fence: Fence
         pass
@@ -316,7 +318,7 @@ zoo_keeper_0 = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
 print(zoo_keeper_0)
 print("-" * 100)
 
-zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0)
+#zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0)
 
 print(Zoo(fence_0, zoo_keeper_0).describe_zoo())
 #Do the functions first, then **fences and **zookeepers
