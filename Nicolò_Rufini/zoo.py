@@ -253,7 +253,7 @@ class Fence(): #class Fence(object) **fences(?)
         #self.other_list_animal: list = [] #self.list_animal.append(self.animal)(?)
         for i in self.list_animal:
             #self.other_list_animal.append(i)
-            yield i #return? try print()
+            return i #return? try print()
         
 
 ###@@ ###@@ ###@@ ###@@ ###@@ ###@@ ###@@@
@@ -319,8 +319,12 @@ print(zoo_keeper_0)
 print("-" * 100)
 
 #zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0)
+#print(zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0))
+#print(zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0))
 
+#Zoo
 print(Zoo(fence_0, zoo_keeper_0).describe_zoo())
+
 #Do the functions first, then **fences and **zookeepers
 ################
 '''
