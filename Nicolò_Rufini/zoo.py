@@ -298,7 +298,7 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         animal.height = round(animal.height, 3)
         animal.width = round(animal.width, 3)
 
-    def clean(self, fence: Fence) -> Fence: #class_fence(?) #calculate animal area
+    def clean(self, fence: Fence) -> Fence: #class_fence(?) #calculate animal area = width * height, maybe on class Fence calculate it
         self.fence = fence
         self.clean_time = None #Il tempo di pulizia è il rapporto dell'area occupata dagli animali diviso l'area residua del recinto.  
         #Se l'area residua è pari a 0, restituire l'area occupata.
