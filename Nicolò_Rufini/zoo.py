@@ -223,7 +223,7 @@ class Zoo:
         return f"Zoo(fences = {self.fences}, zoo_keepers = {self.zoo_keepers})" '''###
 
 class Animal: #class Animal(object) maybe (in some way) class Animal can return a list instead of class Fences
-    def __init__(self, name: str, species: str, age: int, height: int, width: float, preferred_habitat: str) -> None: #, health) #width: ?
+    def __init__(self, name: str, species: str, age: int, height: float, width: float, preferred_habitat: str) -> None: #, health) #width: ?
         self.name = name
         self.species = species
         self.age = age
@@ -247,6 +247,8 @@ class Fence: #class Fence(object) **fences(?)
         self.temperature = temperature
         self.habitat = habitat
         self.animal: list[Animal] = []
+        #self.set_occupied_area()
+        self.occupied_area: float = 0
 
     #def set_list_animal(self): #@classmethod of set_list_animal and call it in Fence add_animal(?)
         #self.list_animal: list[Animal] = [self.animal] #[self.animal]
@@ -255,7 +257,28 @@ class Fence: #class Fence(object) **fences(?)
             #self.other_list_animal.append(i)
             #return i #return? try print()
         
+    '''def set_occupied_area(self) -> float: #-> int(?)(no):
+        self.animals_area: list[float] = []
+        for i in self.animal:
+            self.animal_area: float = i.width * i.height
+            self.animals_area.append(self.animal_area)
 
+        self.occupied_area: float = sum(self.animals_area)'''
+        
+    '''    self.animals_area: list = []
+        #self.animal_area = animal.width * animal.height
+        1°:for i in self.animal: #meglio fare un solo for
+            self.animal_area = i.width * i.height
+            self.animals_area.append(self.animal_area)
+
+        2°:for i in self.animal: #Mi sa che il 2° non va bene, è meglio il 1°
+            self.animals_area.append(i)
+
+           for i in self.animals_area:
+            i = i.width * i.height
+        
+        occupied_area: float = sum(animals_area)
+        '''
 ###@@ ###@@ ###@@ ###@@ ###@@ ###@@ ###@@@
 
 
@@ -280,14 +303,20 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         self.animal = animal
         self.fence = fence
         #self.fence = fence
-        if animal.preferred_habitat == fence.habitat:
+        fence.occupied_area += animal.width * animal.height
+        if animal.preferred_habitat == fence.habitat and fence.occupied_area < fence.area:
             self.fence.animal.append(self.animal)
+        else:
+            fence.occupied_area -= animal.width * animal.height
+
+            #fence.occupied_area += animal.width * animal.height
 
     def remove_animal(self, animal: Animal, fence: Fence) -> Animal: #, fence: Fence
         self.animal = animal
         self.fence = fence
         if animal.preferred_habitat == fence.habitat:
             self.fence.animal.remove(self.animal)
+            fence.occupied_area -= animal.width * animal.height
 
     def feed(self, animal: Animal) -> Animal:
         self.animal = animal
@@ -298,9 +327,15 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         animal.height = round(animal.height, 3)
         animal.width = round(animal.width, 3)
 
-    def clean(self, fence: Fence) -> Fence: #class_fence(?) #calculate animal area = width * height, maybe on class Fence calculate it
+    def clean(self, fence: Fence) -> Fence: #class_fence(?) #calculate animal area = width * height, maybe on class Fence calculate it, occupied area
         self.fence = fence
-        self.clean_time = None #Il tempo di pulizia è il rapporto dell'area occupata dagli animali diviso l'area residua del recinto.  
+        self.residual_area: float = fence.area - fence.occupied_area
+        if self.residual_area != 0:
+            self.clean_time: float = fence.occupied_area / self.residual_area
+            return self.clean_time
+        else:
+            return fence.occupied_area
+        #Il tempo di pulizia è il rapporto dell'area occupata dagli animali diviso l'area residua del recinto.  
         #Se l'area residua è pari a 0, restituire l'area occupata.
 
 
@@ -340,8 +375,8 @@ class Zoo: #**fences **zookeepers
 
 #Animal
 animal_forest_1 = Animal(name = "Wolf", species = "Lupus", age = 14, height = 85, width = 160, preferred_habitat = "Forest")
-#animal_forest_2 = Animal(name = "Squirrel", species = "Chipmunk", age = 6, height = 18, width = 15, preferred_habitat = "Forest")
-#animal_forest_3 = Animal(name = "Tiger", species = "Bnegal tiger", age = 12, height = 110, width = 190, preferred_habitat = "Forest")
+animal_forest_2 = Animal(name = "Squirrel", species = "Chipmunk", age = 6, height = 18, width = 15, preferred_habitat = "Forest")
+animal_forest_3 = Animal(name = "Tiger", species = "Bnegal tiger", age = 12, height = 110, width = 190, preferred_habitat = "Forest")
 #animal_acquatic_1 = Animal(name = "Sea turtle", species = "Hawksbill", age = 75, height = 44, width = 86, preferred_habitat = "Acquatic")
 #animal_polar_1 = Animal(name = "Penguin", species = "Pygoscelis adeliae", age = 17, height = 65, width = 14, preferred_habitat = "Polar")
 #animal_polar_2 = Animal(name = "Sea lion", species = "Eumetopias jubatus", age = 21, height = 89, width = 37, preferred_habitat = "Polar")
@@ -350,9 +385,9 @@ animal_forest_1 = Animal(name = "Wolf", species = "Lupus", age = 14, height = 85
 #print("#" * 30)
 
 #Fence
-fence_forest = Fence(area = 100, temperature = 25, habitat = "Forest") #, class_animal = animal_0
-#fence_acquatic = Fence(area = 25, temperature = 20, habitat = "Acquatic")
-#fence_polar = Fence(area = 75, temperature = 0, habitat = "Polar")
+fence_forest = Fence(area = 35000, temperature = 25, habitat = "Forest") #, class_animal = animal_0
+#fence_acquatic = Fence(area = 4000, temperature = 20, habitat = "Acquatic")
+#fence_polar = Fence(area = 4300, temperature = 0, habitat = "Polar")
 #print(fence_0)
 #print("-" * 100)
 
@@ -363,8 +398,11 @@ zoo_keeper_0 = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
 #print("-" * 100)
 
 #add_animal
-#zoo_keeper_0.add_animal(animal = animal_forest_1, fence = fence_forest) #fence = fence_0, animal = animal_0
+zoo_keeper_0.add_animal(animal = animal_forest_1, fence = fence_forest) #fence = fence_0, animal = animal_0
+#zoo_keeper_0.add_animal(animal = animal_forest_1, fence = fence_forest)
+zoo_keeper_0.add_animal(animal = animal_forest_2, fence = fence_forest)
 #zoo_keeper_0.add_animal(animal = animal_forest_2, fence = fence_forest)
+zoo_keeper_0.add_animal(animal = animal_forest_3, fence = fence_forest)
 #zoo_keeper_0.add_animal(animal = animal_forest_3, fence = fence_forest)
 #zoo_keeper_0.add_animal(fence = fence_acquatic, animal = animal_acquatic_1)
 #print(zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0))
@@ -375,6 +413,8 @@ zoo_keeper_0 = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
 #zoo_keeper_0.remove_animal(animal = animal_forest_2, fence = fence_forest)
 #zoo_keeper_0.remove_animal(animal = animal_forest_3, fence = fence_forest)
 #zoo_keeper_0.remove_animal(fence = fence_acquatic, animal = animal_acquatic_1)
+
+#zoo_keeper_0.add_animal(animal = animal_forest_3, fence = fence_forest)
 
 #feed
 #zoo_keeper_0.feed(animal = animal_forest_1)
@@ -396,21 +436,23 @@ print(zoo_park.describe_zoo())
 ################
 '''
 animals:
-name = "Wolf", species = "Lupus", age = 14, height = 85, width = 160, preferred_habitat = "mountains", "forests"
-name = "Squirrel", species = "Chipmunk", age = 6, height = 18, width = 15, preferred_habitat = "forests"
-name = "Tiger", species = "Bnegal tiger", age = 12, height = 110, width = 190, preferred_habitat = "forests", "savannah", "swamps"
-name = "Penguin", species = "Pygoscelis adeliae", age = 17, height = 65, width = 14, preferred_habitat = "ocean", "coasts", "Polar"
-name = "Sea lion", species = "Eumetopias jubatus", age = 21, height = 89, width = 37, preferred_habitat = "ocean", "coasts", "Polar"
-name = "Sea turtle", species = "Hawksbill", age = 75, height = 44, width = 86, preferred_habitat = "ocean", "coasts", "Tropical"
-
+name = "Wolf", species = "Lupus", age = 14, height = 85, width = 160, preferred_habitat = "mountains", "forests" #anima area = 13600
+name = "Squirrel", species = "Chipmunk", age = 6, height = 18, width = 15, preferred_habitat = "forests" #animal area = 270
+name = "Tiger", species = "Bnegal tiger", age = 12, height = 110, width = 190, preferred_habitat = "forests", "savannah", "swamps" #animal area = 20900
+name = "Penguin", species = "Pygoscelis adeliae", age = 17, height = 65, width = 14, preferred_habitat = "ocean", "coasts", "Polar" #animal area = 910
+name = "Sea lion", species = "Eumetopias jubatus", age = 21, height = 89, width = 37, preferred_habitat = "ocean", "coasts", "Polar" #animal area = 3293
+name = "Sea turtle", species = "Hawksbill", age = 75, height = 44, width = 86, preferred_habitat = "ocean", "coasts", "Tropical" #animal area = 3784
+#animal forest area = 34770 |
+#animal polar area = 4203 |
+#animal acquatic area = 3784 |
 
 Fences:
 area = 100, temperature = 25, habitat = "Continent"
-area = 100, temperature = 25, habitat = "Forest" #Wolf, Squirrel, Tiger
-area = 25, temperature = 20, habitat = "Acquatic" #Sea turtle
+area = 35000, temperature = 25, habitat = "Forest" #Wolf, Squirrel, Tiger
+area = 4000, temperature = 20, habitat = "Acquatic" #Sea turtle
 area = 100, temperature = 25, habitat = "Dessert"
 area = 100, temperature = 25, habitat = "Mountainous"
-area = 75, temperature = 0, habitat = "Polar" #Penguin, Sea lion
+area = 4300, temperature = 0, habitat = "Polar" #Penguin, Sea lion
 area = 100, temperature = 25, habitat = "Tropical"
 
 Zookeepers are not important
