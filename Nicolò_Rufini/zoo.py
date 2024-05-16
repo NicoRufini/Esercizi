@@ -334,7 +334,7 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
             self.clean_time: float = fence.occupied_area / self.residual_area
             return f"Time: {round(self.clean_time, 3)}" #value(?)
         else:
-            return f"Time: {round(fence.occupied_area)}"
+            return f"Time: {fence.occupied_area}"
         #Il tempo di pulizia è il rapporto dell'area occupata dagli animali diviso l'area residua del recinto.  
         #Se l'area residua è pari a 0, restituire l'area occupata.
 
