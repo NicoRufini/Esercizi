@@ -333,12 +333,12 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
 
     def clean(self, fence: Fence) -> Fence: #class_fence(?) #calculate animal area = width * height,
         self.fence = fence                  #maybe on class Fence calculate it, occupied area
-        #self.residual_area: float = fence.area - fence.occupied_area
-        if self.residual_area != 0:
+        self.residual_area: float = fence.area - fence.occupied_area #
+        if self.residual_area != 0: #!= 0
             self.clean_time: float = fence.occupied_area / self.residual_area
             return f"Time: {round(self.clean_time, 3)}" #value(?) #self.clean_time
         else:
-            return f"Time: {fence.occupied_area}"
+            return f"Time: {fence.occupied_area}" #fence.occupied_area
         #Il tempo di pulizia è il rapporto dell'area occupata dagli animali diviso l'area residua del recinto.  
         #Se l'area residua è pari a 0, restituire l'area occupata.
 
@@ -379,48 +379,56 @@ class Zoo: #**fences **zookeepers
 
 #Animal                                                             #height = 85, width = 160
 animal_forest_1 = Animal(name = "Wolf", species = "Lupus", age = 14, height = 85, width = 160, preferred_habitat = "Forest") 
-#animal_forest_2 = Animal(name = "Squirrel", species = "Chipmunk", age = 6, height = 18, width = 15, preferred_habitat = "Forest")
-#animal_forest_3 = Animal(name = "Tiger", species = "Bnegal tiger", age = 12, height = 110, width = 190, preferred_habitat = "Forest")
-#animal_acquatic_1 = Animal(name = "Sea turtle", species = "Hawksbill", age = 75, height = 44, width = 86, preferred_habitat = "Acquatic")
-#animal_polar_1 = Animal(name = "Penguin", species = "Pygoscelis adeliae", age = 17, height = 65, width = 14, preferred_habitat = "Polar")
-#animal_polar_2 = Animal(name = "Sea lion", species = "Eumetopias jubatus", age = 21, height = 89, width = 37, preferred_habitat = "Polar")
+animal_forest_2 = Animal(name = "Squirrel", species = "Chipmunk", age = 6, height = 18, width = 15, preferred_habitat = "Forest")
+animal_forest_3 = Animal(name = "Tiger", species = "Bnegal tiger", age = 12, height = 110, width = 190, preferred_habitat = "Forest")
+animal_acquatic_1 = Animal(name = "Sea turtle", species = "Hawksbill", age = 75, height = 44, width = 86, preferred_habitat = "Acquatic")
+animal_polar_1 = Animal(name = "Penguin", species = "Pygoscelis adeliae", age = 17, height = 65, width = 14, preferred_habitat = "Polar")
+animal_polar_2 = Animal(name = "Sea lion", species = "Eumetopias jubatus", age = 21, height = 89, width = 37, preferred_habitat = "Polar")
 #print(animal_0)
 #print("-" * 100)
 #print("#" * 30)
 
-#Fence
-fence_forest = Fence(area = 35000, temperature = 25, habitat = "Forest") #, class_animal = animal_0 #area = 35000
-#fence_acquatic = Fence(area = 4000, temperature = 20, habitat = "Acquatic")
-#fence_polar = Fence(area = 4300, temperature = 0, habitat = "Polar")
+#Fence area * 2
+fence_forest = Fence(area = 70000, temperature = 25, habitat = "Forest") #, class_animal = animal_0 #area = 35000
+fence_acquatic = Fence(area = 4000 * 2, temperature = 20, habitat = "Acquatic")
+fence_polar = Fence(area = 4300 * 2, temperature = 0, habitat = "Polar")
 #print(fence_0)
 #print("-" * 100)
 
 #Zoo keeper
 #print("-" * 100)
-zoo_keeper_0 = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 1234)
+zoo_keeper_1 = ZooKeeper(name = "Lorenzo", surname = "Maggi", id = 100)
+zoo_keeper_2 = ZooKeeper(name = "Maurizio", surname = "Nongred", id = 200)
+zoo_keeper_3 = ZooKeeper(name = "Noah", surname = "Orlosbo", id = 300)
 #print(zoo_keeper_0)
 #print("-" * 100)
 
-#add_animal
-zoo_keeper_0.add_animal(animal = animal_forest_1, fence = fence_forest) #fence = fence_0, animal = animal_0
-#zoo_keeper_0.add_animal(animal = animal_forest_1, fence = fence_forest)
-#zoo_keeper_0.add_animal(animal = animal_forest_2, fence = fence_forest)
-#zoo_keeper_0.add_animal(animal = animal_forest_2, fence = fence_forest)
-#zoo_keeper_0.add_animal(animal = animal_forest_3, fence = fence_forest)
-#zoo_keeper_0.add_animal(animal = animal_forest_3, fence = fence_forest)
-#zoo_keeper_0.add_animal(fence = fence_acquatic, animal = animal_acquatic_1)
+#add_animal |
+zoo_keeper_1.add_animal(animal = animal_forest_1, fence = fence_forest) #fence = fence_0, animal = animal_0
+zoo_keeper_1.add_animal(animal = animal_forest_1, fence = fence_forest)
+zoo_keeper_1.add_animal(animal = animal_forest_1, fence = fence_forest)
+zoo_keeper_3.add_animal(animal = animal_forest_2, fence = fence_forest)
+zoo_keeper_1.add_animal(animal = animal_forest_2, fence = fence_forest)
+zoo_keeper_1.add_animal(animal = animal_forest_3, fence = fence_forest)
+zoo_keeper_1.add_animal(animal = animal_forest_3, fence = fence_forest)
+zoo_keeper_2.add_animal(fence = fence_acquatic, animal = animal_acquatic_1)
+zoo_keeper_3.add_animal(fence = fence_polar, animal = animal_polar_1)
+zoo_keeper_3.add_animal(fence = fence_polar, animal = animal_polar_2)
 #print(zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0))
 #print(zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0))
 
-#remove_animal
-#zoo_keeper_0.remove_animal(animal = animal_forest_1, fence = fence_forest)
-#zoo_keeper_0.remove_animal(animal = animal_forest_2, fence = fence_forest)
+#remove_animal |
+zoo_keeper_1.remove_animal(animal = animal_forest_1, fence = fence_forest)
+zoo_keeper_1.remove_animal(animal = animal_forest_2, fence = fence_forest)
+zoo_keeper_1.remove_animal(animal = animal_forest_2, fence = fence_forest)
 #zoo_keeper_0.remove_animal(animal = animal_forest_3, fence = fence_forest)
 #zoo_keeper_0.remove_animal(fence = fence_acquatic, animal = animal_acquatic_1)
+#zoo_keeper_3.remove_animal(fence = fence_polar, animal = animal_polar_1)
+#zoo_keeper_3.remove_animal(fence = fence_acquatic, animal = animal_polar_2)
 
-#zoo_keeper_0.add_animal(animal = animal_forest_3, fence = fence_forest)
+zoo_keeper_1.add_animal(animal = animal_forest_3, fence = fence_forest)
 
-#feed
+#feed \
 #zoo_keeper_0.feed(animal = animal_forest_1)
 #zoo_keeper_0.feed(animal = animal_forest_1)
 #zoo_keeper_0.feed(animal = animal_forest_1)
@@ -429,20 +437,129 @@ zoo_keeper_0.add_animal(animal = animal_forest_1, fence = fence_forest) #fence =
 #zoo_keeper_0.feed(animal = animal_forest_1)
 #zoo_keeper_0.feed(animal = animal_forest_2)
 #zoo_keeper_0.feed(animal = animal_forest_2)
-#zoo_keeper_0.feed(animal = animal_forest_3)
-#zoo_keeper_0.feed(animal = animal_forest_3)
-#zoo_keeper_0.feed(animal = animal_forest_3)
-#zoo_keeper_0.feed(animal = animal_forest_3)
-#zoo_keeper_0.feed(animal = animal_forest_3)
-#zoo_keeper_0.feed(animal = animal_forest_3)
+'''
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+zoo_keeper_1.feed(animal = animal_forest_3)
+'''
+#zoo_keeper_1.feed(animal = animal_forest_3)
+
 #zoo_keeper_0.feed(animal = animal_acquatic_1)
 #zoo_keeper_0.feed(animal = animal_acquatic_1)
 
-#clean
-print(zoo_keeper_0.clean(fence = fence_forest))
+#clean |(?)
+print(zoo_keeper_2.clean(fence = fence_forest))
 
 #Zoo
-zoo_park= Zoo(fences = [fence_forest], zoo_keepers = [zoo_keeper_0])
+zoo_park= Zoo(fences = [fence_forest, fence_acquatic, fence_polar], zoo_keepers = [zoo_keeper_1, zoo_keeper_2, zoo_keeper_3])
 #print(zoo_park.describe_zoo())
 
 #Do the functions first, then **fences and **zookeepers
@@ -451,7 +568,7 @@ zoo_park= Zoo(fences = [fence_forest], zoo_keepers = [zoo_keeper_0])
 animals:
 name = "Wolf", species = "Lupus", age = 14, height = 85, width = 160, preferred_habitat = "mountains", "forests" #anima area = 13600
 name = "Squirrel", species = "Chipmunk", age = 6, height = 18, width = 15, preferred_habitat = "forests" #animal area = 270
-name = "Tiger", species = "Bnegal tiger", age = 12, height = 110, width = 190, preferred_habitat = "forests", "savannah", "swamps" #animal area = 20900
+name = "Tiger", species = "Bnegal tiger", age = 12, height = 110, width = 190, preferred_habitat = "forests" #animal area = 20900
 name = "Penguin", species = "Pygoscelis adeliae", age = 17, height = 65, width = 14, preferred_habitat = "ocean", "coasts", "Polar" #animal area = 910
 name = "Sea lion", species = "Eumetopias jubatus", age = 21, height = 89, width = 37, preferred_habitat = "ocean", "coasts", "Polar" #animal area = 3293
 name = "Sea turtle", species = "Hawksbill", age = 75, height = 44, width = 86, preferred_habitat = "ocean", "coasts", "Tropical" #animal area = 3784
@@ -469,4 +586,7 @@ area = 4300, temperature = 0, habitat = "Polar" #Penguin, Sea lion
 area = 100, temperature = 25, habitat = "Tropical"
 
 Zookeepers are not important
+
+zoo_keeper_2 = ZooKeeper(name = "Maurizio", surname = "Nongred", id = 200)
+zoo_keeper_3 = ZooKeeper(name = "Noah", surname = "Orlosbo", id = 300)
 '''
