@@ -304,7 +304,7 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         self.fence = fence
         #self.fence = fence 
         fence.occupied_area += animal.width * animal.height
-        if animal.preferred_habitat == fence.habitat and fence.occupied_area < fence.area:
+        if animal.preferred_habitat == fence.habitat and fence.occupied_area <= fence.area:
             self.fence.animal.append(self.animal)
         else:
             fence.occupied_area -= animal.width * animal.height
@@ -320,6 +320,7 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
 
     def feed(self, animal: Animal) -> Animal: #Lo devi rivedere, l'animale si può nutrire soltanto se il recinto 
         self.animal = animal                  #ha ancora spazio a sufficienza per ospitare l'animale ingrandito dal cibo
+        #if self.residual_area > 0:
         animal.health += 0.01 * animal.health
         animal.height += 0.02 * animal.height
         animal.width += 0.02 * animal.width
@@ -327,12 +328,12 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         animal.height = round(animal.height, 3)
         animal.width = round(animal.width, 3)
 
-    def clean(self, fence: Fence) -> Fence: #class_fence(?) #calculate animal area = width * height, maybe on class Fence calculate it, occupied area
-        self.fence = fence
+    def clean(self, fence: Fence) -> Fence: #class_fence(?) #calculate animal area = width * height,
+        self.fence = fence                  #maybe on class Fence calculate it, occupied area
         self.residual_area: float = fence.area - fence.occupied_area
         if self.residual_area != 0:
             self.clean_time: float = fence.occupied_area / self.residual_area
-            return f"Time: {round(self.clean_time, 3)}" #value(?)
+            return f"Time: {round(self.clean_time, 3)}" #value(?) #self.clean_time
         else:
             return f"Time: {fence.occupied_area}"
         #Il tempo di pulizia è il rapporto dell'area occupata dagli animali diviso l'area residua del recinto.  
@@ -373,8 +374,8 @@ class Zoo: #**fences **zookeepers
         return f"{zoo_zoo_keepers_string}\n\n{zoo_fences_string}"
         ''' 
 
-#Animal
-animal_forest_1 = Animal(name = "Wolf", species = "Lupus", age = 14, height = 85, width = 160, preferred_habitat = "Forest") #height = 85, width = 160
+#Animal                                                             #height = 85, width = 160
+animal_forest_1 = Animal(name = "Wolf", species = "Lupus", age = 14, height = 85, width = 160, preferred_habitat = "Forest") 
 #animal_forest_2 = Animal(name = "Squirrel", species = "Chipmunk", age = 6, height = 18, width = 15, preferred_habitat = "Forest")
 #animal_forest_3 = Animal(name = "Tiger", species = "Bnegal tiger", age = 12, height = 110, width = 190, preferred_habitat = "Forest")
 #animal_acquatic_1 = Animal(name = "Sea turtle", species = "Hawksbill", age = 75, height = 44, width = 86, preferred_habitat = "Acquatic")
@@ -435,11 +436,11 @@ zoo_keeper_0.add_animal(animal = animal_forest_1, fence = fence_forest) #fence =
 #zoo_keeper_0.feed(animal = animal_acquatic_1)
 
 #clean
-print(zoo_keeper_0.clean(fence = fence_forest))
+#print(zoo_keeper_0.clean(fence = fence_forest))
 
 #Zoo
 zoo_park= Zoo(fences = [fence_forest], zoo_keepers = [zoo_keeper_0])
-#print(zoo_park.describe_zoo())
+print(zoo_park.describe_zoo())
 
 #Do the functions first, then **fences and **zookeepers
 ################
