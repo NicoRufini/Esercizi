@@ -304,6 +304,9 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         self.fence = fence
         #self.fence = fence 
         fence.occupied_area += animal.width * animal.height
+
+        self.residual_area: float = fence.area - fence.occupied_area
+
         if animal.preferred_habitat == fence.habitat and fence.occupied_area <= fence.area:
             self.fence.animal.append(self.animal)
         else:
@@ -320,17 +323,17 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
 
     def feed(self, animal: Animal) -> Animal: #Lo devi rivedere, l'animale si può nutrire soltanto se il recinto 
         self.animal = animal                  #ha ancora spazio a sufficienza per ospitare l'animale ingrandito dal cibo
-        #if self.residual_area > 0:
-        animal.health += 0.01 * animal.health
-        animal.height += 0.02 * animal.height
-        animal.width += 0.02 * animal.width
-        animal.health = round(animal.health, 3)
-        animal.height = round(animal.height, 3)
-        animal.width = round(animal.width, 3)
+        if self.residual_area > 0:
+            animal.health += 0.01 * animal.health
+            animal.height += 0.02 * animal.height
+            animal.width += 0.02 * animal.width
+            animal.health = round(animal.health, 3)
+            animal.height = round(animal.height, 3)
+            animal.width = round(animal.width, 3)
 
     def clean(self, fence: Fence) -> Fence: #class_fence(?) #calculate animal area = width * height,
         self.fence = fence                  #maybe on class Fence calculate it, occupied area
-        self.residual_area: float = fence.area - fence.occupied_area
+        #self.residual_area: float = fence.area - fence.occupied_area
         if self.residual_area != 0:
             self.clean_time: float = fence.occupied_area / self.residual_area
             return f"Time: {round(self.clean_time, 3)}" #value(?) #self.clean_time
@@ -436,11 +439,11 @@ zoo_keeper_0.add_animal(animal = animal_forest_1, fence = fence_forest) #fence =
 #zoo_keeper_0.feed(animal = animal_acquatic_1)
 
 #clean
-#print(zoo_keeper_0.clean(fence = fence_forest))
+print(zoo_keeper_0.clean(fence = fence_forest))
 
 #Zoo
 zoo_park= Zoo(fences = [fence_forest], zoo_keepers = [zoo_keeper_0])
-print(zoo_park.describe_zoo())
+#print(zoo_park.describe_zoo())
 
 #Do the functions first, then **fences and **zookeepers
 ################
