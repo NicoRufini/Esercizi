@@ -318,8 +318,8 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
             self.fence.animal.remove(self.animal)
             fence.occupied_area -= animal.width * animal.height
 
-    def feed(self, animal: Animal) -> Animal:
-        self.animal = animal
+    def feed(self, animal: Animal) -> Animal: #Lo devi rivedere, l'animale si può nutrire soltanto se il recinto 
+        self.animal = animal                  #ha ancora spazio a sufficienza per ospitare l'animale ingrandito dal cibo
         animal.health += 0.01 * animal.health
         animal.height += 0.02 * animal.height
         animal.width += 0.02 * animal.width
@@ -332,9 +332,9 @@ class ZooKeeper: #class ZooKeeper(object) **zookeepers(?)
         self.residual_area: float = fence.area - fence.occupied_area
         if self.residual_area != 0:
             self.clean_time: float = fence.occupied_area / self.residual_area
-            return self.clean_time
+            return f"Time: {self.clean_time}"
         else:
-            return fence.occupied_area
+            return f"Time: {fence.occupied_area}"
         #Il tempo di pulizia è il rapporto dell'area occupata dagli animali diviso l'area residua del recinto.  
         #Se l'area residua è pari a 0, restituire l'area occupata.
 
@@ -419,8 +419,16 @@ zoo_keeper_0.add_animal(animal = animal_forest_3, fence = fence_forest)
 #feed
 #zoo_keeper_0.feed(animal = animal_forest_1)
 #zoo_keeper_0.feed(animal = animal_forest_1)
+#zoo_keeper_0.feed(animal = animal_forest_1)
+#zoo_keeper_0.feed(animal = animal_forest_1)
+#zoo_keeper_0.feed(animal = animal_forest_1)
+#zoo_keeper_0.feed(animal = animal_forest_1)
 #zoo_keeper_0.feed(animal = animal_forest_2)
 #zoo_keeper_0.feed(animal = animal_forest_2)
+#zoo_keeper_0.feed(animal = animal_forest_3)
+#zoo_keeper_0.feed(animal = animal_forest_3)
+#zoo_keeper_0.feed(animal = animal_forest_3)
+#zoo_keeper_0.feed(animal = animal_forest_3)
 #zoo_keeper_0.feed(animal = animal_forest_3)
 #zoo_keeper_0.feed(animal = animal_forest_3)
 #zoo_keeper_0.feed(animal = animal_acquatic_1)
