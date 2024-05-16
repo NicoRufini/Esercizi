@@ -212,7 +212,7 @@ fence_0 = Fence(area = -100, temperature = 25, habitat = "Continent")
 print(fence_0)"""
 
 #####
-###
+### |||||||
 '''
 class Zoo: 
     def __init__(self, fences: int, zoo_keepers: int) -> None: #fences: ?
@@ -411,9 +411,12 @@ zoo_keeper_3 = ZooKeeper(name = "Noah", surname = "Orlosbo", id = 300)
 #add_animal |
 zoo_keeper_1.add_animal(animal = animal_forest_1, fence = fence_forest) #fence = fence_0, animal = animal_0
 zoo_keeper_1.add_animal(animal = animal_forest_1, fence = fence_forest) 
-zoo_keeper_1.add_animal(animal = animal_forest_1, fence = fence_forest) #
-zoo_keeper_3.add_animal(animal = animal_forest_2, fence = fence_forest) #
-zoo_keeper_1.add_animal(animal = animal_forest_2, fence = fence_forest) #
+#zoo_keeper_1.add_animal(animal = animal_forest_1, fence = fence_forest) #
+#zoo_keeper_3.add_animal(animal = animal_forest_2, fence = fence_forest) #
+#zoo_keeper_1.add_animal(animal = animal_forest_2, fence = fence_forest) #
+zoo_keeper_1.add_animal(animal = animal_forest_1, fence = fence_polar) ##
+zoo_keeper_3.add_animal(animal = animal_forest_2, fence = fence_polar) ##
+zoo_keeper_1.add_animal(animal = animal_forest_2, fence = fence_polar) ##
 zoo_keeper_1.add_animal(animal = animal_forest_3, fence = fence_forest)
 zoo_keeper_1.add_animal(animal = animal_forest_3, fence = fence_forest)
 zoo_keeper_2.add_animal(fence = fence_acquatic, animal = animal_acquatic_1)
@@ -423,9 +426,9 @@ zoo_keeper_3.add_animal(fence = fence_polar, animal = animal_polar_2)
 #print(zoo_keeper_0.add_animal(fence = fence_0, animal = animal_0))
 
 #remove_animal |
-zoo_keeper_1.remove_animal(animal = animal_forest_1, fence = fence_forest) #
-zoo_keeper_1.remove_animal(animal = animal_forest_2, fence = fence_forest) #
-zoo_keeper_1.remove_animal(animal = animal_forest_2, fence = fence_forest) #
+#zoo_keeper_1.remove_animal(animal = animal_forest_1, fence = fence_forest) #
+#zoo_keeper_1.remove_animal(animal = animal_forest_2, fence = fence_forest) #
+#zoo_keeper_1.remove_animal(animal = animal_forest_2, fence = fence_forest) #
 #zoo_keeper_0.remove_animal(animal = animal_forest_3, fence = fence_forest)
 #zoo_keeper_0.remove_animal(fence = fence_acquatic, animal = animal_acquatic_1)
 #zoo_keeper_3.remove_animal(fence = fence_polar, animal = animal_polar_1)
