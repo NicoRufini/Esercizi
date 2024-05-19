@@ -359,3 +359,103 @@ print("(9-12)", "-" * 50)
 from admin_2 import admin_2_py
 
 admin_2_py.privileges.show_privileges()
+
+
+#9-13. Dice: Make a class Die with one attribute called sides, which has a default value of 6. 
+#Write a method called roll_die() that prints a random number between 1 and the number of sides the die has. 
+#Make a 6-sided die and roll it 10 times. Make a 10-sided die and a 20-sided die. Roll each die 10 times.
+
+print("(9-13)", "-" * 50)
+
+import random
+
+class Die:
+    def __init__(self, sides: int = 6) -> None:
+        self.sides = sides
+
+    def roll_die(self) -> int:
+        #self.random_number: int = random.randrange(1, (self.sides + 1))
+        print(random.randrange(1, (self.sides + 1)))
+
+
+die_1: Die = Die()
+
+print("The die is 6-sided:")
+die_1.roll_die() #1°
+die_1.roll_die() #2°
+die_1.roll_die() #3°
+die_1.roll_die() #4°
+die_1.roll_die() #5°
+die_1.roll_die() #6°
+die_1.roll_die() #7°
+die_1.roll_die() #8°
+die_1.roll_die() #9°
+die_1.roll_die() #10°
+print("\n")
+
+die_1: Die = Die(10)
+
+print("The die is 10-sided:")
+die_1.roll_die() #1°
+die_1.roll_die() #2°
+die_1.roll_die() #3°
+die_1.roll_die() #4°
+die_1.roll_die() #5°
+die_1.roll_die() #6°
+die_1.roll_die() #7°
+die_1.roll_die() #8°
+die_1.roll_die() #9°
+die_1.roll_die() #10°
+print("\n")
+
+die_1: Die = Die(20)
+
+print("The die is 20-sided:")
+die_1.roll_die() #1°
+die_1.roll_die() #2°
+die_1.roll_die() #3°
+die_1.roll_die() #4°
+die_1.roll_die() #5°
+die_1.roll_die() #6°
+die_1.roll_die() #7°
+die_1.roll_die() #8°
+die_1.roll_die() #9°
+die_1.roll_die() #10°
+
+
+#9-14. Lottery: Make a list or tuple containing a series of 10 numbers and 5 letters. 
+#Randomly select 4 numbers or letters from the list and print a message saying 
+#that any ticket matching these 4 numbers or letters wins a prize.
+
+print("(9-14)", "-" * 50)
+
+num_and_lett: list = [2, 76, 26, 69, 42, 9, 93, 5, 90, 1, "d", "f", "h", "i", "v"]
+
+print("Anyone who has the ticket with the following numbers and letters " \
+      f"{num_and_lett[1], num_and_lett[10], num_and_lett[3], num_and_lett[7]}, wins a prize.")
+
+
+#9-15. Lottery Analysis: You can use a loop to see how hard it might be to win 
+#the kind of lottery you just modeled. Make a list or tuple called my_ticket. 
+#Write a loop that keeps pulling numbers until your ticket wins. 
+#Print a message reporting how many times the loop had to run to give you a winning ticket.
+
+print("(9-15)", "-" * 50)
+
+import random
+
+my_ticket: list = []
+winning_ticket: list = [76, 'd', 69, 5]
+attempts: int = 0
+
+while my_ticket != winning_ticket:
+    my_ticket.clear()
+
+    i: int = 0
+    while i < 4:
+        my_ticket.append(random.choice(num_and_lett))
+        i += 1
+
+    attempts += 1
+
+print("Congrats, You won!" + f"\nWinning ticket: {winning_ticket}" + f"\nMy ticket: {my_ticket}" + "\nAttempts:", attempts)
