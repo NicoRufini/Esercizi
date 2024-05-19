@@ -349,3 +349,13 @@ print("(9-11)", "-" * 50)
 from admin import admin_py
 
 admin_py.privileges.show_privileges()
+
+
+#9-12. Multiple Modules: Store the User class in one module, and store the Privileges and Admin classes in a separate module. 
+#In a separate file, create an Admin instance and call show_privileges() to show that everything is still working correctly.
+
+print("(9-12)", "-" * 50)
+
+from admin_2 import admin_2_py
+
+admin_2_py.privileges.show_privileges()
