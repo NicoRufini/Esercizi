@@ -43,6 +43,7 @@ class Animal:
     def get_legs(self):
         return f"there are {self.legs} legs."
 
+
 horse = Animal("Horse")
 horse.set_legs(4)
 seahorse = Animal("Seahorse")
@@ -62,6 +63,7 @@ class Food:
         self.name = name
         self.price = price
         self.description = description
+
 
 hampurger = Food("Hambuger", 12, "It has a good taste.")
 pasta = Food("Pizza", 2, "")
@@ -98,6 +100,7 @@ class Restaurant:
     
     def open_restaurant(self) -> str:
         print("The restaurant is open")
+
 
 restaurant: Restaurant = Restaurant("Moriyama", "Japanese")
 print(restaurant.restaurant_name, restaurant.cuisine_type)
@@ -140,6 +143,7 @@ class User:
     def greet_user(self) -> str:
         print(f"Hi {self.first_name} {self.last_name}!")
 
+
 user_1: User = User("Giampiero", "Bonadonna", "fakeemail@gmail.com", "555-734 586 92 92")
 user_2: User = User("Lucrezia", "Martino", "anotherfakeemail@gmail.com", "555-9834 7215 06")
 
@@ -176,6 +180,7 @@ class Restaurant:
     def increment_number_served(self, add_number_served: int) -> int:
         self.add_number_served = add_number_served
         self.number_served += self.add_number_served
+
 
 #Instance restaurant from 9-1
 restaurant: Restaurant = Restaurant("Moriyama", "Japanese")
@@ -222,6 +227,7 @@ class User:
     def reset_login_attempts(self) -> int:
         self.login_attempts = 0
 
+
 #User from 9-3
 user_1: User = User("Giampiero", "Bonadonna", "fakeemail@gmail.com", "555-734 586 92 92")
 
@@ -257,6 +263,7 @@ class IceCreamStand(Restaurant):
         
         print(string_flavors)
 
+
 ice_cream_stand: IceCreamStand = IceCreamStand("Moriyama", "Japanese", ["Chocolate", "Coffee", "Strawberry"])
 ice_cream_stand.display_flavors()
 
@@ -283,6 +290,7 @@ class Admin(User):
         string_privileges += f"{self.privileges[-1].__str__()}"
         
         print(string_privileges)
+
 
 admin_1: Admin = Admin("Giampiero", "Bonadonna", "fakeemail@gmail.com", "555-734 586 92 92")
 admin_1.show_privileges()
@@ -314,17 +322,6 @@ class Admin(User):
     def __init__(self, first_name: str, last_name: str, email: str, phone_number: str, privileges: Privileges) -> None:
         super().__init__(first_name, last_name, email, phone_number)
         self.privileges = privileges
-        #self.privileges: list[str] = ["can add post", "can delete post", "can ban user"]
-
-    '''def show_privileges(self)  -> str:
-        string_privileges: str = "Your privileges: "
-        for i in range(len(self.privileges)):
-            if self.privileges[i] != self.privileges[-1]:
-                string_privileges += f"{self.privileges[i].__str__()}, "
-
-        string_privileges += f"{self.privileges[-1].__str__()}"
-        
-        print(string_privileges)'''
     
 
 privileges_1: Privileges = Privileges(["can add post", "can delete post"])
@@ -338,4 +335,8 @@ admin_2.privileges.show_privileges()
 #and call one of Restaurant's methods to show that the import statement is working properly.
 
 print("(9-10)", "-" * 50)
+
+from restaurant import restaurant_py
+
+restaurant_py.describe_restaurant()
 
