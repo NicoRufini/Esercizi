@@ -262,3 +262,4 @@ for i in range(1000):
     
 pumba = Animal(name="Pumba", species="Porco", age=25, height=2, width=5, preferred_habitat="Savana")
 zoo_keeper.add_animal(pumba, savana)
+zoo.describe_zoo()
