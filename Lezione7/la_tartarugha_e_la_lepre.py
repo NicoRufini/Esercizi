@@ -100,7 +100,7 @@ Consentire agli animali di beneficiare pienamente dei bonus, ma non oltrepassare
 '''
 
 import random
-#percorso: list[str] = ["_" for i in range(70)]
+'''#percorso: list[str] = ["_" for i in range(70)]
 
 percorso: list[str] = [i for i in range(70)]
 #percorso_2: list[str] = ["_" for i in range(70)] (?)
@@ -160,7 +160,7 @@ if 9 <= i_h <= 10:
     if lepre not in percorso:
         pass
 
-#print(percorso)
+#print(percorso)'''
 
 def mosse_della_tartarugha(posizione_t: int) -> int:
     i: int = random.randint(1, 10)
@@ -171,7 +171,7 @@ def mosse_della_tartarugha(posizione_t: int) -> int:
     elif 8 <= i <= 10:
         posizione_t += 1
     
-    while posizione_t < 1:
+    while posizione_t < 2: #1
         posizione_t += 1
 
     return posizione_t
@@ -189,11 +189,42 @@ def mosse_della_lepre(posizione_h: int) -> int:
     elif 9 <= i <= 10:
         posizione_h -= 2
 
-    while posizione_h < 1:
+    while posizione_h < 2: #1
         posizione_h += 1
 
     return posizione_h
 
 def gara() -> str:
-    pass
+    tartaruga: int = 1
+    lepre:int = 1
+    time: int = 0
 
+    print("BANG !!!!! AND THEY'RE OFF !!!!!")
+
+    while tartaruga < 70 and lepre < 70:
+        percorso: list[str] = [i for i in range(70)]
+        tartaruga: int = mosse_della_tartarugha(tartaruga)
+        lepre: int = mosse_della_lepre(lepre)
+        time += 1
+
+        if tartaruga == lepre and tartaruga < 70 and lepre < 70:
+            percorso[tartaruga - 1] = "OUCH!!!"
+
+            print(percorso[tartaruga - 1], "\n" + "_" * 30)
+        elif tartaruga < 70 and lepre < 70:
+            percorso[tartaruga - 1] = "T"
+            percorso[lepre - 1] = "H"
+
+            print(percorso, "\n" + "_" * 30)
+
+    if tartaruga >= 70 and lepre >= 70:
+        print("IT'S A TIE")
+        print("Time:", time)
+    elif tartaruga >= 70:
+        print("TORTOISE WINS! || VAY!!!")
+        print("Time:", time)
+    else:
+        print("HARE WINS || YUCH!!!")
+        print("Time:", time)
+
+gara()
