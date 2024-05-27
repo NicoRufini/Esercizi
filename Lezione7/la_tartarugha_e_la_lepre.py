@@ -171,7 +171,7 @@ def mosse_della_tartarugha(posizione_t: int) -> int:
     elif 8 <= i <= 10:
         posizione_t += 1
     
-    while posizione_t < 2: #1
+    while posizione_t < 1: #1
         posizione_t += 1
 
     return posizione_t
@@ -189,7 +189,7 @@ def mosse_della_lepre(posizione_h: int) -> int:
     elif 9 <= i <= 10:
         posizione_h -= 2
 
-    while posizione_h < 2: #1
+    while posizione_h < 1: #1
         posizione_h += 1
 
     return posizione_h
@@ -208,12 +208,12 @@ def gara() -> str:
         time += 1
 
         if tartaruga == lepre and tartaruga < 70 and lepre < 70:
-            percorso[tartaruga - 1] = "OUCH!!!"
+            percorso[tartaruga] = "OUCH!!!" #percorso[tartaruga - 1] = "OUCH!!!"
 
-            print(percorso[tartaruga - 1], "\n" + "_" * 30)
+            print(percorso[tartaruga], "\n" + "_" * 30)
         elif tartaruga < 70 and lepre < 70:
-            percorso[tartaruga - 1] = "T"
-            percorso[lepre - 1] = "H"
+            percorso[tartaruga] = "T" #percorso[tartaruga - 1] = "T"
+            percorso[lepre] = "H" #percorso[lepre - 1] = "H"
 
             print(percorso, "\n" + "_" * 30)
 
