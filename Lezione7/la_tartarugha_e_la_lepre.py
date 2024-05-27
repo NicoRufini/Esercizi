@@ -3,7 +3,8 @@ In questo problema ricreerete la classica gara tra la tartaruga e la lepre. User
 simulazione di questo memorabile evento. I contendenti iniziano la gara dal quadrato \#1 di un percorso composto da 70 quadrati. 
 Ogni quadrato rappresenta una posizione lungo il percorso della corsa. Il traguardo è al quadrato 70 e il contendente 
 che raggiunge per primo o supera questa posizione vince la gara. Durante la corsa, i contendenti possono occasionalmente perdere terreno. 
-C'è un orologio che conta i secondi. Ad ogni tick dell'orologio, il vostro programma deve aggiornare la posizione degli animali secondo le seguenti regole:
+C'è un orologio che conta i secondi. Ad ogni tick dell'orologio, il vostro programma deve aggiornare la posizione degli animali 
+secondo le seguenti regole:
 
 - Tartaruga:
     - Passo veloce (50% di probabilità): avanza di 3 quadrati.
@@ -31,14 +32,14 @@ Iniziate la gara stampando:
 Quindi, per ogni tick dell'orologio (ossia per ogni iterazione di un ciclo), stampate una lista di 70 posizioni che mostra la lettera 'T' 
 nella posizione della tartaruga, la lettera 'H' nella posizione della lepre, il carattere '_' nelle posizioni libere. 
 Occasionalmente, i contendenti si troveranno sullo stesso quadrato. In questo caso la tartaruga morde la lepre 
-e il vostro programma deve stampare 'OUCH!!!' iniziando da quella posizione. Tutte le posizioni di stampa diverse dalla 'T', dalla 'H' o dal 'OUCH!!!' 
-(in caso della stessa posizione) devono essere il carattere '_'.
+e il vostro programma deve stampare 'OUCH!!!' iniziando da quella posizione. Tutte le posizioni di stampa diverse dalla 'T', 
+dalla 'H' o dal 'OUCH!!!' (in caso della stessa posizione) devono essere il carattere '_'.
 
 Dopo la stampa di ogni tick, verificate se gli animali hanno raggiunto o superato il quadrato 70. Se è così, 
 stampate il nome del vincitore e terminate la simulazione. Se vince la tartaruga, stampate "TORTOISE WINS! || VAY!!!". 
 Se vince la lepre, stampate "HARE WINS || YUCH!!!". Se allo stesso tick dell'orologio vincono tutti e due gli animali, 
-potreste voler favorire la tartaruga (la "sfavorita"), oppure stampare "IT'S A TIE.". Se non vince nessun animale, eseguite una nuova iterazione 
-per simulare il successivo tick dell'orologio.
+potreste voler favorire la tartaruga (la "sfavorita"), oppure stampare "IT'S A TIE.". Se non vince nessun animale, 
+eseguite una nuova iterazione per simulare il successivo tick dell'orologio.
 
 Requisiti del Codice:
 - Utilizzare il modulo random per la generazione dei numeri casuali.
@@ -159,7 +160,39 @@ if 9 <= i_h <= 10:
     if lepre not in percorso:
         pass
 
-print(percorso)
+#print(percorso)
+
+def mosse_della_tartarugha(posizione_t: int) -> int:
+    i: int = random.randint(1, 10)
+    if 1 <= i <= 5:
+        posizione_t += 3
+    elif 6 <= i <= 7:
+        posizione_t -= 6
+    elif 8 <= i <= 10:
+        posizione_t += 1
+    
+    while posizione_t < 1:
+        posizione_t += 1
+
+    return posizione_t
+
+def mosse_della_lepre(posizione_h: int) -> int:
+    i: int = random.randint(1, 10)
+    if 1 <= i <= 2:
+        pass
+    elif 3 <= i <= 4:
+        posizione_h += 9
+    elif i == 5:
+        posizione_h -= 12
+    elif 6 <= i <= 8:
+        posizione_h += 1
+    elif 9 <= i <= 10:
+        posizione_h -= 2
+
+    while posizione_h < 1:
+        posizione_h += 1
+
+    return posizione_h
 
 def gara() -> str:
     pass
