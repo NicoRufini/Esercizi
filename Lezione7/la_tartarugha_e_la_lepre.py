@@ -248,9 +248,9 @@ def gara() -> str:
                 percorso[lepre] = "H" #percorso[lepre - 1] = "H"
                 percorso[tartaruga] = "T" #percorso[tartaruga - 1] = "T"
 
-            #if tartaruga != 1 and lepre != 1:
-            print("Clima:", clima, "Ticks:", time_clima) #
-            print(*percorso, "\n" + "-" * 30)
+            if tartaruga != 1 and lepre != 1:
+                print("Clima:", clima, "Ticks:", time_clima) #
+                print(*percorso, "\n" + "-" * 30)
 
     if tartaruga >= 70 and lepre >= 70:
         print("IT'S A TIE")
