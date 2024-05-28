@@ -273,7 +273,7 @@ quando recuperano punti:
 
 nel 3.
 es:
-key: posizione del percorso, value: di qunato riduce o umante la posizione dell'animale
+key: posizione del percorso, value: di qunato riduce o aumenta la posizione dell'animale
 ostacoli: dict = {15: -3 , 30: -5, 45: -7}
 bonus: dict = {10: 5, 25 3:, 50: 10}
 
@@ -283,7 +283,7 @@ animale += ostacoli[animale] # visto che i value di ostacoli sono negativi, in t
 
 #ho controllato, non sembra funzionare
 #if alternativo che sembra funzionare:
-if animale in ostacoli.keys: #stessa condizione con i bonus
+if animale in ostacoli.keys(): #stessa condizione con i bonus
 animale += ostacoli[animale] #nel pratica sembra che i valori negativi funzionano come previsto
 
 
