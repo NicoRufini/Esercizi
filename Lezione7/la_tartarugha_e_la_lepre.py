@@ -210,12 +210,12 @@ def gara() -> str:
         if tartaruga == lepre and tartaruga < 70 and lepre < 70:
             percorso[tartaruga] = "OUCH!!!" #percorso[tartaruga - 1] = "OUCH!!!"
 
-            print(percorso[tartaruga], "\n" + "_" * 30)
+            print(percorso[tartaruga], "\n" + "-" * 30)
         elif tartaruga < 70 and lepre < 70:
             percorso[tartaruga] = "T" #percorso[tartaruga - 1] = "T"
             percorso[lepre] = "H" #percorso[lepre - 1] = "H"
 
-            print(percorso, "\n" + "_" * 30)
+            print(*percorso, "\n" + "-" * 30)
 
     if tartaruga >= 70 and lepre >= 70:
         print("IT'S A TIE")
