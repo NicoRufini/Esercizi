@@ -161,33 +161,52 @@ if 9 <= i_h <= 10:
         pass
 
 #print(percorso)'''
+#global stamina
+stamina_t: int = 100
+stamina_h: int = 100
 
-def mosse_della_tartarugha(posizione_t: int) -> int:
+def mosse_della_tartarugha(posizione_t: int) -> int: #prova a mettere stamina prima di questa fun
     i: int = random.randint(1, 10)
-    if 1 <= i <= 5:
+    #stamina: int = 100
+    global stamina_t
+    if 1 <= i <= 5 and stamina_t >= 5:
         posizione_t += 3
-    elif 6 <= i <= 7:
+        stamina_t -= 5 #5
+    elif 6 <= i <= 7 and stamina_t >= 10:
         posizione_t -= 6
-    elif 8 <= i <= 10:
+        stamina_t -= 10 #10
+    elif 8 <= i <= 10 and stamina_t >= 3:
         posizione_t += 1
-    
+        stamina_t -= 3 #3
+    else: 
+        stamina_t += 10
+        #pass
+
     while posizione_t < 1: #1
         posizione_t += 1
-
+    
     return posizione_t
 
-def mosse_della_lepre(posizione_h: int) -> int:
+def mosse_della_lepre(posizione_h: int) -> int: #metti if se supera 100
     i: int = random.randint(1, 10)
+    global stamina_h
     if 1 <= i <= 2:
-        pass
-    elif 3 <= i <= 4:
+        stamina_h += 10 #10
+    elif 3 <= i <= 4 and stamina_h >= 15:
         posizione_h += 9
-    elif i == 5:
+        stamina_h -= 15
+    elif i == 5 and stamina_h >= 20:
         posizione_h -= 12
-    elif 6 <= i <= 8:
+        stamina_h -= 20
+    elif 6 <= i <= 8 and stamina_h >= 5:
         posizione_h += 1
-    elif 9 <= i <= 10:
+        stamina_h -= 5
+    elif 9 <= i <= 10 and stamina_h >= 8:
         posizione_h -= 2
+        stamina_h -= 8
+
+    if stamina_h > 100:
+        stamina_h = 100
 
     while posizione_h < 1: #1
         posizione_h += 1
@@ -231,7 +250,7 @@ def gara() -> str:
                 percorso[tartaruga] = "T" #percorso[tartaruga - 1] = "T"
                 percorso[lepre] = "H" #percorso[lepre - 1] = "H"
 
-            if tartaruga < 1 and lepre < 1:
+            if tartaruga <= 1 and lepre <= 1: #prova a metterci anche l'uguale
                 tartaruga = 1
                 lepre = 1
                 percorso[tartaruga] = "OUCH!!!" #percorso[tartaruga - 1] = "OUCH!!!"
@@ -242,7 +261,7 @@ def gara() -> str:
                 tartaruga = 1
                 percorso[tartaruga] = "T" #percorso[tartaruga - 1] = "T"
                 percorso[lepre] = "H" #percorso[lepre - 1] = "H"
-            elif lepre < 1 and tartaruga > 1:
+            elif lepre < 1 and tartaruga > 1: #lepre < 1 and tartaruga > 1:
                 percorso = [i for i in range(70)]
                 lepre = 1
                 percorso[lepre] = "H" #percorso[lepre - 1] = "H"
@@ -266,7 +285,7 @@ gara()
 
 
 
-''' |\|+
+''' |\|+ |\|
 time clima = 0
 clima = solare # all'inizio
 # un altra alternativa all'inizio il clima è lista con 
