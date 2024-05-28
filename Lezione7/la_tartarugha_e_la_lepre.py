@@ -197,7 +197,9 @@ def mosse_della_lepre(posizione_h: int) -> int:
 def gara() -> str:
     tartaruga: int = 1
     lepre:int = 1
-    time: int = 0
+    orlogio: int = 0
+    clima = random.choice(["soleggiato", "pioggia"])
+    time_clima: int = -1
 
     print("BANG !!!!! AND THEY'RE OFF !!!!!")
 
@@ -205,33 +207,66 @@ def gara() -> str:
         percorso: list[str] = [i for i in range(70)]
         tartaruga: int = mosse_della_tartarugha(tartaruga)
         lepre: int = mosse_della_lepre(lepre)
-        time += 1
+        orlogio += 1
+        time_clima += 1
+
+        if time_clima == 10 and clima == "soleggiato":
+            time_clima = 0
+            clima = "pioggia"
+        elif time_clima == 10 and clima == "pioggia":
+            time_clima = 0
+            clima = "soleggiato"
 
         if tartaruga == lepre and tartaruga < 70 and lepre < 70:
             percorso[tartaruga] = "OUCH!!!" #percorso[tartaruga - 1] = "OUCH!!!"
 
             print(percorso[tartaruga], "\n" + "-" * 30)
         elif tartaruga < 70 and lepre < 70:
-            percorso[tartaruga] = "T" #percorso[tartaruga - 1] = "T"
-            percorso[lepre] = "H" #percorso[lepre - 1] = "H"
+            if clima == "soleggiato":
+                percorso[tartaruga] = "T" #percorso[tartaruga - 1] = "T"
+                percorso[lepre] = "H" #percorso[lepre - 1] = "H"
+            elif clima == "pioggia":
+                tartaruga -= 1
+                lepre -= 2
+                percorso[tartaruga] = "T" #percorso[tartaruga - 1] = "T"
+                percorso[lepre] = "H" #percorso[lepre - 1] = "H"
 
+            if tartaruga < 1 and lepre < 1:
+                tartaruga = 1
+                lepre = 1
+                percorso[tartaruga] = "OUCH!!!" #percorso[tartaruga - 1] = "OUCH!!!"
+
+                print(percorso[tartaruga], "\n" + "-" * 30)
+            elif tartaruga < 1 and lepre > 1:
+                percorso = [i for i in range(70)]
+                tartaruga = 1
+                percorso[tartaruga] = "T" #percorso[tartaruga - 1] = "T"
+                percorso[lepre] = "H" #percorso[lepre - 1] = "H"
+            elif lepre < 1 and lepre > 1:
+                percorso = [i for i in range(70)]
+                lepre = 1
+                percorso[lepre] = "H" #percorso[lepre - 1] = "H"
+                percorso[tartaruga] = "T" #percorso[tartaruga - 1] = "T"
+
+            #if tartaruga != 1 and lepre != 1:
+            print("Clima:", clima, "Ticks:", time_clima) #
             print(*percorso, "\n" + "-" * 30)
 
     if tartaruga >= 70 and lepre >= 70:
         print("IT'S A TIE")
-        print("Time:", time)
+        print("Time:", orlogio)
     elif tartaruga >= 70:
         print("TORTOISE WINS! || VAY!!!")
-        print("Time:", time)
+        print("Time:", orlogio)
     else:
         print("HARE WINS || YUCH!!!")
-        print("Time:", time)
+        print("Time:", orlogio)
 
 gara()
 
 
 
-'''
+''' |\|
 time clima = 0
 clima = solare # all'inizio
 # un altra alternativa all'inizio il clima è lista con 
