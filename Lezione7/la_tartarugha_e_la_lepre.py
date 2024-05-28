@@ -251,10 +251,15 @@ tartaruga rimane uguale
 lepre pure
 
 elif clima = pioggia:
-tartaruga - 1
-lepre - 2
+tartaruga - 1 # o forse tartarugha -=1
+lepre - 2 # lepre -= 2
 
-nel 2. energia o chiamata anche stamine (a inizio è uguale 100) deve esser 
+# forse si rischia di posizionare T o H priam di percorso[1]
+# se succede prova a risolvere con mettere in "elif tartaruga < 70 and lepre < 70:":
+#- si potrebbe mettere if tartaruga < 1: tartarugha = 1
+#- stressa cosa per lepre
+
+nel 2. energia o chiamata anche stamina (a inizio è uguale 100) deve esser 
 presente nella funzion delle mosse della tartarugha e della lepre
 metti ogni and negli if se stamina è > di 0: se vero a energia sotrai punti 
 a seconda della mossa
