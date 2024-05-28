@@ -228,3 +228,32 @@ def gara() -> str:
         print("Time:", time)
 
 gara()
+
+
+
+'''
+time clima = 0
+clima = solare # all'inizio
+# un altra alternativa all'inizio il clima è lista con 
+# str solare e pioggia e usi usa random.choice
+
+nel while time clima+= 1
+if time clima = 10 and clima = solare:
+time clima = 0
+clima = pioggia
+
+elif time clima = 10 and clima = pioggia:
+time clima = 0
+clima = pioggia
+
+if clima = solare:
+tartaruga rimane uguale
+lepre pure
+
+elif clima = pioggia:
+tartaruga - 1
+lepre - 2
+
+nel 2. energia o chiamata anche stamine deve esser 
+presente nella funzion delle mosse della tartarugha e della lepre
+'''
