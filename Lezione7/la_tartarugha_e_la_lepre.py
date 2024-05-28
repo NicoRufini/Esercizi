@@ -242,13 +242,13 @@ def gara() -> str:
                 tartaruga = 1
                 percorso[tartaruga] = "T" #percorso[tartaruga - 1] = "T"
                 percorso[lepre] = "H" #percorso[lepre - 1] = "H"
-            elif lepre < 1 and lepre > 1:
+            elif lepre < 1 and tartaruga > 1:
                 percorso = [i for i in range(70)]
                 lepre = 1
                 percorso[lepre] = "H" #percorso[lepre - 1] = "H"
                 percorso[tartaruga] = "T" #percorso[tartaruga - 1] = "T"
 
-            if tartaruga != 1 and lepre != 1:
+            if tartaruga != 1 and lepre != 1 or tartaruga == 1 and lepre != 1 or tartaruga != 1 and lepre == 1: # and è il problema
                 print("Clima:", clima, "Ticks:", time_clima) #
                 print(*percorso, "\n" + "-" * 30)
 
@@ -266,7 +266,7 @@ gara()
 
 
 
-''' |\|+
+''' |\|
 time clima = 0
 clima = solare # all'inizio
 # un altra alternativa all'inizio il clima è lista con 
@@ -293,7 +293,7 @@ lepre - 2 # lepre -= 2
 # se succede prova a risolvere con mettere in "elif tartaruga < 70 and lepre < 70:":
 #- si potrebbe mettere if tartaruga < 1: tartarugha = 1
 #- stressa cosa per lepre
-
+------------------------------
 nel 2. energia o chiamata anche stamina (a inizio è uguale 100) deve esser 
 presente nella funzion delle mosse della tartarugha e della lepre
 metti ogni and negli if se stamina è > di 0 
