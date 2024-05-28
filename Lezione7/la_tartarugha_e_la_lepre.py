@@ -254,6 +254,14 @@ elif clima = pioggia:
 tartaruga - 1
 lepre - 2
 
-nel 2. energia o chiamata anche stamine deve esser 
+nel 2. energia o chiamata anche stamine (a inizio è uguale 100) deve esser 
 presente nella funzion delle mosse della tartarugha e della lepre
+metti ogni and negli if se stamina è > di 0: se vero a energia sotrai punti 
+a seconda della mossa
+
+quando recuperano punti: 
+-lepre: nel riposo recupera 10 stamina
+-tartarugha: se gli if non vengono rispettati metti un else che da 10 di stamina
+
+#forse metti while stamina < 0: stamina += 1
 '''
