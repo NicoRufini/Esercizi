@@ -251,22 +251,43 @@ tartaruga rimane uguale
 lepre pure
 
 elif clima = pioggia:
-tartaruga - 1 # o forse tartarugha -=1
+tartaruga - 1 # o forse è meglio tartaruga -=1
 lepre - 2 # lepre -= 2
 
-# forse si rischia di posizionare T o H priam di percorso[1]
+# forse si rischia di posizionare T o H prima di percorso[1]
 # se succede prova a risolvere con mettere in "elif tartaruga < 70 and lepre < 70:":
 #- si potrebbe mettere if tartaruga < 1: tartarugha = 1
 #- stressa cosa per lepre
 
 nel 2. energia o chiamata anche stamina (a inizio è uguale 100) deve esser 
 presente nella funzion delle mosse della tartarugha e della lepre
-metti ogni and negli if se stamina è > di 0: se vero a energia sotrai punti 
-a seconda della mossa
+metti ogni and negli if se stamina è > di 0 
+(forse è meglio and stamina >= valore, valore varia a seconda quanta stamina richiede la mossa): 
+se vero a energia sotrai punti a seconda della mossa
 
 quando recuperano punti: 
 -lepre: nel riposo recupera 10 stamina
 -tartarugha: se gli if non vengono rispettati metti un else che da 10 di stamina
 
 #forse metti while stamina < 0: stamina += 1
+
+nel 3.
+es:
+key: posizione del percorso, value: di qunato riduce o umante la posizione dell'animale
+ostacoli: dict = {15: -3 , 30: -5, 45: -7}
+bonus: dict = {10: 5, 25 3:, 50: 10}
+
+if animale == ostacoli[0] or ostacoli[1] or ostacoli[2]: # stessa ondizione con i bonus
+animale += ostacoli[animale] # visto che i value di ostacoli sono negativi, in teoria va bene,
+                             # ma nel dubbio controlla prima
+
+#ho controllato, non sembra funzionare
+#if alternativo che sembra funzionare:
+if animale in ostacoli.keys: #stessa condizione con i bonus
+animale += ostacoli[animale] #nel pratica sembra che i valori negativi funzionano come previsto
+
+
+
+
+# ho controlato la traccia, sembra che non ho dimenticato niente, nel dubbio ricontrolla a casa
 '''
