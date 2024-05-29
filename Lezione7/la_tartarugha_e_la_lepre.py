@@ -306,7 +306,7 @@ gara()
 
 
 
-''' |\|+ |\|+#(?) |\|
+''' |\|+ |\|+#(?) |\|(+?)
 time clima = 0
 clima = solare # all'inizio
 # un altra alternativa all'inizio il clima è lista con 
