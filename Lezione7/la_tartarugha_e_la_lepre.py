@@ -255,21 +255,29 @@ def gara() -> str:
             #####
             if tartaruga in ostacoli.keys(): #forse i print li devi mettere sotto percorso[animle] =
                 print("ostacolo per tartaruga") #
+                percorso: list[str] = [i for i in range(70)] #
                 tartaruga += ostacoli[tartaruga] #15:-3, 30:-5, 45:-7
                 percorso[tartaruga] = "T" ###
+                percorso[lepre] = "H" #
             elif tartaruga in bonus.keys():
                 print("bonus per tartaruga") #
+                percorso: list[str] = [i for i in range(70)] #
                 tartaruga += bonus[tartaruga] #10:5, 25:3, 50:10
                 percorso[tartaruga] = "T" ###
+                percorso[lepre] = "H" #
 
             if lepre in ostacoli.keys():
                 print("ostacolo per lepre") #
+                percorso: list[str] = [i for i in range(70)] #
                 lepre += ostacoli[lepre] #15:-3, 30:-5, 45:-7
                 percorso[lepre] = "H"
+                percorso[tartaruga] = "T" #
             elif lepre in bonus.keys():
                 print("bonus per lepre") #
+                percorso: list[str] = [i for i in range(70)] #
                 lepre += bonus[lepre] #10:5, 25:3, 50:10
                 percorso[lepre] = "H" ###
+                percorso[tartaruga] = "T" #
             #####
             if tartaruga <= 1 and lepre <= 1: #prova a metterci l'uguale insieme a <
                 tartaruga = 1
