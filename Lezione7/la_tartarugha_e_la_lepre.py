@@ -219,7 +219,10 @@ def gara() -> str:
     orlogio: int = 0
     clima = random.choice(["soleggiato", "pioggia"])
     time_clima: int = -1
-
+    #####
+    ostacoli: dict = {15:-3, 30:-5, 45:-7}
+    bonus: dict = {10:5, 25:3, 50:10}
+    #####
     print("BANG !!!!! AND THEY'RE OFF !!!!!")
 
     while tartaruga < 70 and lepre < 70:
@@ -249,8 +252,10 @@ def gara() -> str:
                 lepre -= 2
                 percorso[tartaruga] = "T" #percorso[tartaruga - 1] = "T"
                 percorso[lepre] = "H" #percorso[lepre - 1] = "H"
+            #####
 
-            if tartaruga <= 1 and lepre <= 1: #prova a metterci anche l'uguale
+            #####
+            if tartaruga <= 1 and lepre <= 1: #prova a metterci l'uguale insieme a <
                 tartaruga = 1
                 lepre = 1
                 percorso[tartaruga] = "OUCH!!!" #percorso[tartaruga - 1] = "OUCH!!!"
@@ -285,7 +290,7 @@ gara()
 
 
 
-''' |\|+ |\|+(?)
+''' |\|+ |\|+#(?) |\|
 time clima = 0
 clima = solare # all'inizio
 # un altra alternativa all'inizio il clima è lista con 
@@ -324,7 +329,7 @@ quando recuperano punti:
 -tartarugha: se gli if non vengono rispettati metti un else che da 10 di stamina
 
 #forse metti while stamina < 0: stamina += 1
-
+------------------------------
 nel 3.
 es:
 key: posizione del percorso, value: di qunato riduce o aumenta la posizione dell'animale
