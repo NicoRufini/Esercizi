@@ -256,16 +256,20 @@ def gara() -> str:
             if tartaruga in ostacoli.keys():
                 print("ostacolo per tartaruga") #
                 tartaruga += ostacoli[tartaruga] #15:-3, 30:-5, 45:-7
+                percorso[tartaruga] = "T" ###
             elif tartaruga in bonus.keys():
                 print("bonus per tartaruga") #
                 tartaruga += bonus[tartaruga] #10:5, 25:3, 50:10
+                percorso[tartaruga] = "T" ###
 
             if lepre in ostacoli.keys():
                 print("ostacolo per lepre") #
                 lepre += ostacoli[lepre] #15:-3, 30:-5, 45:-7
+                percorso[lepre] = "H"
             elif lepre in bonus.keys():
                 print("bonus per lepre") #
                 lepre += bonus[lepre] #10:5, 25:3, 50:10
+                percorso[lepre] = "H" ###
             #####
             if tartaruga <= 1 and lepre <= 1: #prova a metterci l'uguale insieme a <
                 tartaruga = 1
