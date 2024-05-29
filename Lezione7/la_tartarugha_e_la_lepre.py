@@ -253,7 +253,7 @@ def gara() -> str:
                 percorso[tartaruga] = "T" #percorso[tartaruga - 1] = "T"
                 percorso[lepre] = "H" #percorso[lepre - 1] = "H"
             #####
-            if tartaruga in ostacoli.keys():
+            if tartaruga in ostacoli.keys(): #forse i print li devi mettere sotto percorso[animle] =
                 print("ostacolo per tartaruga") #
                 tartaruga += ostacoli[tartaruga] #15:-3, 30:-5, 45:-7
                 percorso[tartaruga] = "T" ###
