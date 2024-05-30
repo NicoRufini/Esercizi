@@ -56,3 +56,67 @@ Classe:
       messaggio di errore se nessun film contiene la parola cercata nel titolo.
 
 '''
+
+class Libro:
+    def __init__(self, titolo: str, autore: str) -> None:
+        self.titolo = titolo
+        self.autore = autore
+        self.stato_prestito: bool = False
+    
+    def __str__(self) -> str:
+        pass
+    
+class Biblioteca:
+    def __init__(self) -> None:
+        self.catalogo: list[Libro] = []
+
+    def aggiungi_libro(self, libro):
+        self.libro = libro
+
+        self.catalogo.append(self.libro)
+
+    def presta_libro(self, titolo: str): #-> str:
+        self.titolo = titolo
+        
+        for i in self.catalogo:
+            if i.titolo == self.titolo and i.stato_prestito == False:
+                i.stato_prestito = True
+                print(i.titolo, "è disponibilie")
+                break
+        print("non è disponibile")
+    
+    def restituisci_libro(self, titolo: str): #-> str:
+        self.titolo = titolo
+        
+        for i in self.catalogo:
+            if i.titolo == self.titolo and i.stato_prestito == True:
+                i.stato_prestito = False
+                print(i.titolo, "non è disponibilie")
+                break
+        print("è disponibile")
+
+    def mostra_libri_disponibili(self): #-> str:
+        libri_disponibili_string: staticmethod = "Libri disponibili:\n"
+
+        for i in self.catalogo:
+            if i.stato_prestito == False:
+                libri_disponibili_string += f"{i.__str__()}\n"
+
+        if libri_disponibili_string != "Libri disponibili:\n":
+            print(libri_disponibili_string)
+        else:
+            print("errore, non ci stanno libri disponibili")
+
+#####
+
+class Film:
+    def __init__(self, title:str, director: str) -> None:
+        self.title = title
+        self.director = director
+    
+    def __str__(self) -> str:
+        pass
+
+class MovieCatalog:
+    def __init__(self) -> None:
+        self.catalogo: list[Film] = []
