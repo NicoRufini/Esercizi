@@ -50,5 +50,22 @@ Test case:
     Successivamente, aggiunge i prodotti al magazzino.
     Il sistema cerca un prodotto per verificare se esiste nell'inventario.
     Il sistema verifica la disponibilità dei prodotti in inventario.
-    
+
 '''
+#Per una sala ci sta solo un film
+
+class Film:
+    def __init__(self, titolo: str, durata: int) -> None:
+        self.titolo = titolo
+        self.durata = durata
+
+    def __str__(self) -> str:
+        pass
+
+class Sala:
+    def __init__(self, id: int, film_in_programmazione: Film, posti_totali: int) -> None:
+        self.id = id
+        self.film_in_programmazione = film_in_programmazione
+        self.posti_totali = posti_totali
+        self.posti_disponibili: int = self.posti_totali #
+        #self.posti_prenotati: int = 0 #
