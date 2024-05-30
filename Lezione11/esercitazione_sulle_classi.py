@@ -135,7 +135,7 @@ class Magazzino:
                 break
         print("non ci sta il prodotto")
 
-    def cerca_prodotto(self, nome: str) -> str:
+    def verifica_disponibilità(self, nome: str) -> str:
         self.nome = nome
 
         for i in self.num_prodotti:
