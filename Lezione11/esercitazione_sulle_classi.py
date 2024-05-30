@@ -86,23 +86,63 @@ class Sala:
         pass
 
 class Cinema:
-    def __init__(self, num_sale: list[Sala]) -> None:
-        self.num_sale = num_sale
+    def __init__(self) -> None:
+        self.num_sale: list[Sala] = []
 
-    def aggiungi_sala(self, sala: Sala) -> Sala: #-> Sala?
+    def aggiungi_sala(self, sala: Sala) -> Sala: #-> Sala? per tutti e due controlla i metodi dell'esercizio
         self.sala = sala
 
-        self.num_sale.append(sala)
+        self.num_sale.append(self.sala)
 
     def prenota_film(self, titolo_film: str, num_posti: int) -> str:
         self.titolo_film = titolo_film
         self.num_posti = num_posti
 
-        self.num_sale[:]
-        #per il titolo e i num posti devi accedere agli item di num_sale
-        #if self.titolo_film in self.num_sale?: prenota_posti(self.num_posti) print("ci sta il film")
-        #else: print("non ci sta")
+        for i in self.num_sale:
+            if i.film_in_programmazione.titolo == self.titolo_film:
+                print("ci sta il film", self.titolo_film)
+                i.prenota_posti(self.num_posti)
+                break
+        print("non ci sta il film, quindi non lo puoi prenotare")
+
+    def __str__(self) -> str:
         pass
 
 #####
+class Prodotto:
+    def __init__(self, nome: str, quantità: int) -> None:
+        self.nome = nome
+        self.quantità = quantità
 
+    def __str__(self) -> str:
+        pass
+
+class Magazzino:
+    def __init__(self) -> None:
+        self.num_prodotti: list[Prodotto] = []
+
+    def aggiungi_prodotto(self, prodotto: Prodotto) -> Prodotto: #-> Prodotto? per tutti e due controlla i metodi dell'esercizio
+        self.prodotto = prodotto
+
+        self.num_prodotti.append(self.prodotto)
+
+    def cerca_prodotto(self, nome: str) -> Prodotto:
+        self.nome = nome
+
+        for i in self.num_prodotti:
+            if i.nome == self.nome:
+                print(self.nome, "ci sta il prodotto")
+                break
+        print("non ci sta il prodotto")
+
+    def cerca_prodotto(self, nome: str) -> str:
+        self.nome = nome
+
+        for i in self.num_prodotti:
+            if i.nome == self.nome:
+                print(self.nome, "è disponibile")
+                break
+        print("no non è disponibile")
+
+    def __str__(self) -> str:
+        pass
