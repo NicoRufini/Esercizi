@@ -67,5 +67,42 @@ class Sala:
         self.id = id
         self.film_in_programmazione = film_in_programmazione
         self.posti_totali = posti_totali
-        self.posti_disponibili: int = self.posti_totali #
+        self.num_posti_disponibili: int = self.posti_totali #
         #self.posti_prenotati: int = 0 #
+
+    def prenota_posti(self, num_posti: int) -> str:
+        self.num_posti = num_posti #5 4 3 7 con il 2 deve dare errore
+        
+        if self.num_posti <= self.num_posti_disponibili:
+            self.num_posti_disponibili -= self.num_posti #
+            print("u can", self.num_posti)
+        else:
+            print("error u can't")
+
+    def posti_disponibili(self) -> int:
+        print(self.num_posti_disponibili)
+
+    def __str__(self) -> str:
+        pass
+
+class Cinema:
+    def __init__(self, num_sale: list[Sala]) -> None:
+        self.num_sale = num_sale
+
+    def aggiungi_sala(self, sala: Sala) -> Sala: #-> Sala?
+        self.sala = sala
+
+        self.num_sale.append(sala)
+
+    def prenota_film(self, titolo_film: str, num_posti: int) -> str:
+        self.titolo_film = titolo_film
+        self.num_posti = num_posti
+
+        self.num_sale[:]
+        #per il titolo e i num posti devi accedere agli item di num_sale
+        #if self.titolo_film in self.num_sale?: prenota_posti(self.num_posti) print("ci sta il film")
+        #else: print("non ci sta")
+        pass
+
+#####
+
