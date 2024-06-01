@@ -109,21 +109,14 @@ class Biblioteca:
 
 #####
 
-class Film:
-    def __init__(self, title:str, director: str) -> None:
-        self.title = title
-        self.director = director
-    
-    def __str__(self) -> str:
-        pass
 
 class MovieCatalog:
     def __init__(self) -> None:
         self.catalogo: dict[str:list[str]] = {}
 
     def add_movie(self, director_name: str, movies: list[str]):
-        self.director_name = director_name
-        self.movies = movies
+        self.director_name = director_name.capitalize()
+        self.movies = list(map(str.capitalize, movies))
 
         if self.director_name in self.catalogo:
             self.catalogo[self.director_name].extend(self.movies)
@@ -131,8 +124,8 @@ class MovieCatalog:
             self.catalogo[self.director_name] = self.movies
     
     def remove_movie(self, director_name: str, movies: list[str]):
-        self.director_name = director_name
-        self.movies = movies
+        self.director_name = director_name.capitalize()
+        self.movies = list(map(str.capitalize, movies))
 
         self.catalogo[self.director_name].remove(self.movies)
         
@@ -144,15 +137,21 @@ class MovieCatalog:
             print(i)
 
     def get_movies_by_director(self, director_name: str):
-        self.director_name = director_name
+        self.director_name = director_name.capitalize()
 
         for i in self.catalogo[self.director_name]:
             print(i)
 
     def search_movies_by_title(self, title: str):
-        self.title = title
+        self.title = title.capitalize()
+        self.results: list = []
 
-        if self.title in self.catalogo:
-            pass
+        for i in self.catalogo.values():
+            if self.title in i:
+                self.results = [j for j in i]
+        
+        if self.results == []:
+            print("error, non ci sta u  film con questa parola")
         else:
-            print("error nessun film contiene questa parola")
+            for i in self.results:
+                print(i)
