@@ -155,3 +155,6 @@ class MovieCatalog:
         else:
             for i in self.results:
                 print(i)
+    
+    def __str__(self) -> str:
+        pass
