@@ -127,7 +127,8 @@ class MovieCatalog:
         self.director_name = director_name.capitalize()
         self.movies = list(map(str.capitalize, movies))
 
-        self.catalogo[self.director_name].remove(self.movies)
+        for i in self.movies:
+            self.catalogo[self.director_name].remove(i)
         
         if self.catalogo[self.director_name] == []:
             self.catalogo.pop(self.director_name)
@@ -143,12 +144,12 @@ class MovieCatalog:
             print(i)
 
     def search_movies_by_title(self, title: str):
-        self.title = title.capitalize()
+        self.title = title.lower()
         self.results: list = []
 
         for i in self.catalogo.values():
             for j in i:
-                if self.title == j:
+                if self.title in j.lower():
                     self.results.append(j)
         
         if self.results == []:
