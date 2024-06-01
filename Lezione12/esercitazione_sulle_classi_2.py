@@ -147,8 +147,9 @@ class MovieCatalog:
         self.results: list = []
 
         for i in self.catalogo.values():
-            if self.title in i:
-                self.results = [j for j in i]
+            for j in i:
+                if self.title == j:
+                    self.results.append(j)
         
         if self.results == []:
             print("error, non ci sta u  film con questa parola")
