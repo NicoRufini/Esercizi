@@ -119,4 +119,40 @@ class Film:
 
 class MovieCatalog:
     def __init__(self) -> None:
-        self.catalogo: list[Film] = []
+        self.catalogo: dict[str:list[str]] = {}
+
+    def add_movie(self, director_name: str, movies: list[str]):
+        self.director_name = director_name
+        self.movies = movies
+
+        if self.director_name in self.catalogo:
+            self.catalogo[self.director_name].extend(self.movies)
+        else:
+            self.catalogo[self.director_name] = self.movies
+    
+    def remove_movie(self, director_name: str, movies: list[str]):
+        self.director_name = director_name
+        self.movies = movies
+
+        self.catalogo[self.director_name].remove(self.movies)
+        
+        if self.catalogo[self.director_name] == []:
+            self.catalogo.pop(self.director_name)
+
+    def list_directors(self):
+        for i in self.catalogo.keys():
+            print(i)
+
+    def get_movies_by_director(self, director_name: str):
+        self.director_name = director_name
+
+        for i in self.catalogo[self.director_name]:
+            print(i)
+
+    def search_movies_by_title(self, title: str):
+        self.title = title
+
+        if self.title in self.catalogo:
+            pass
+        else:
+            print("error nessun film contiene questa parola")
