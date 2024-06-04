@@ -204,7 +204,8 @@ math: MathOperations = MathOperations
 
 print(math.add(5, 2))
 print(math.multiply(5, 2))
-#Exercise 3: Library Management System 
+#Exercise 3: Library Management System
+#Create a Book class
 class Book:
     def __init__(self, title: str, author: str, isbn: str) -> None:
         self.title = title
@@ -212,12 +213,74 @@ class Book:
         self.isbn = isbn
 
     def __str__(self) -> str:
-        return f"book(title = {self.title}, author = {self.author}, isbn = {self.isbn}"
+        return f"book(title = {self.title}, author = {self.author}, isbn = {self.isbn})"
     
     @classmethod
     def from_string(cls, book_str: str) -> str:
-        '''
-        book str: str = str(self. book + self.author + self.isbn) #forse str() non è necessario
+        book_str: list = book_str.split(", ")
 
-        '''
-        pass
+        if len(book_str) == 3:
+            return f"book(title : {book_str[0]}, author : {book_str[1]}, isbn : {book_str[2]})"
+        
+book_0: Book = Book("La Divina Commedia", "D. Alighieri", "999000666")
+book: str = "La Divina Commedia, D. Alighieri, 999000666"
+book_1: Book = Book.from_string(book)
+
+print("Without from_string:", book_0)
+print("With from_string:", book_1)
+
+#Create a Member class
+class Member:
+    def __init__(self, name: str, member_id: int) -> None:
+        self.name = name
+        self.member_id = member_id
+        self.borrowed_books: list[Book] = []
+
+    def borrow_book(self, book: Book):
+        self.borrowed_books.append(book)
+    
+    def return_book(self, book: Book):
+        if book in self.borrowed_books:
+            self.borrowed_books.remove(book)
+    
+    def __str__(self) -> str:
+        return f"member(name = {self.name}, member id = {self.member_id}, borrowed_books = {self.borrowed_books})"
+    
+    @classmethod
+    def from_string(cls, member_str: str) -> str:
+        member_str: list = member_str.split(", ")
+
+        if len(member_str) == 2:
+            return f"member(name = {member_str[0]}, member id = {member_str[1]})"
+
+#Create a Library class
+class Library:
+    def __init__(self, books: list[Book], members: list[Member]) -> None:
+        self.books = books
+        self.members = members
+        self.total_books: int = len(self.books)
+
+    def add_book(self, book: Book):
+        self.books.append(book)
+        self.total_books += 1
+
+    def remove_book(self, book: Book):
+        if book in self.books:
+            self.books.remove(book)
+            self.total_books -= 1
+
+    def register_member(self, member: Member):
+        self.members.append(member)
+
+    def lend_book(self, book: Book, member: Member):
+        if member in self.members and book in self.books:
+            member.borrowed_books.append(book)
+            self.books.remove(book)
+            self.total_books -= 1
+
+    def __str__(self) -> str:
+        return f"library(books = {self.books}, members = {self.members})"
+    
+    @classmethod
+    def library_statistics(cls) -> str:
+        return f"There are {cls().total_books} books in this library"
