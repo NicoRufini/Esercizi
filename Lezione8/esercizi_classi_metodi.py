@@ -135,9 +135,11 @@ Add them to the university.
 Enroll students in courses and assign professors to courses.
 Display the state of the university.
 '''
-
+#####
+'''
 #Exercise 1: Creating an Abstract Class with Abstract Methods
 from abc import ABC, abstractmethod
+import math
 
 class Figure(ABC):
 
@@ -152,14 +154,14 @@ class Figure(ABC):
 class Circle(Figure):
     def area(self, radius: float):
         self.radius = radius
-        circle_area: float = 3.14*self.radius**2
+        circle_area: float = math.pi*self.radius**2
 
         print(circle_area)
         return super().area()
     
     def perimeter(self, radius: float):
         self.radius = radius
-        perimeter_area: float = 2*3.14*self.radius
+        perimeter_area: float = 2*math.pi*self.radius
 
         print(perimeter_area)
         return super().perimeter()
@@ -188,7 +190,7 @@ cirle0.area(5)
 cirle0.perimeter(5)
 rectangle0.area(7, 15)
 rectangle0.perimeter(7, 15)
-
+'''
 #Exercise 2: Implementing Static Methods
 class MathOperations:
 
@@ -284,3 +286,85 @@ class Library:
     @classmethod
     def library_statistics(cls) -> str:
         return f"There are {cls().total_books} books in this library"
+
+#Exercise 4: University Management System
+from abc import ABC, abstractmethod
+
+class Person(ABC):
+    def __init__(self, name: str, age: int) -> None:
+        super().__init__()
+        self.name = name
+        self.age = age
+
+    @abstractmethod
+    def get_role(self):
+        pass
+
+    def __str__(self) -> str:
+        return f"person(name = {self.name}, age = {self.age})"
+        #return super().__str__()
+
+class Student(Person):
+    def __init__(self, name: str, age: int, student_id: str) -> None:
+        super().__init__(name, age)
+        self.student_id = student_id
+        self.courses: list = []
+
+    def get_role(self, course):
+        self.courses.append(course)
+        return super().get_role()
+
+class Professor(Person):
+    def __init__(self, name: str, age: int, professor_id: str, department: str) -> None:
+        super().__init__(name, age)
+        self.professor_id = professor_id
+        self.department = department
+        self.courses: list = []
+
+    def get_role(self, course):
+        self.courses.append(course)
+        return super().get_role()
+    
+class Course:
+    def __init__(self, course_name: str, course_code: str) -> None:
+        self.course_name = course_name
+        self.course_code = course_code
+        self.students: list[Student] = []
+        self.professor: Professor = None
+
+    def add_student(self, student: Student):
+        self.students.append(student)
+
+    def set_professor(self, professor):
+        self.professor = professor
+
+    def __str__(self) -> str:
+        return f"course(name = {self.course_name}, code = {self.course_code}"\
+             + f", students = {self.students}, professor = {self.professor})"
+    
+class Department:
+    def __init__(self, department_name: str) -> None:
+        self.department_name = department_name
+        self.courses: list[Course] =[]
+        self.professors: list[Professor] =[]
+
+    def add_course(self, course: Course):
+        self.courses.append(course)
+
+    def add_professor(self, professor: Professor):
+        self.professors.append(professor)
+
+class University:
+    def __init__(self, name: str) -> None:
+        self.name = name
+        self.departments: list[Department] = []
+        self.students: list[Student] = []
+
+    def add_department(self, department: Department):
+        self.departments.append(department)
+
+    def add_student(self, student: Student):
+        self.students.append(student)
+
+    def __str__(self) -> str:
+        return f"university(name = {self.name}, departments = {self.departments}, students = {self.students})"
