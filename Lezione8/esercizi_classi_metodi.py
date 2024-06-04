@@ -136,5 +136,88 @@ Enroll students in courses and assign professors to courses.
 Display the state of the university.
 '''
 
+#Exercise 1: Creating an Abstract Class with Abstract Methods
+from abc import ABC, abstractmethod
 
-#
+class Figure(ABC):
+
+    @abstractmethod
+    def area(self):
+        pass
+
+    @abstractmethod
+    def perimeter(self):
+        pass
+
+class Circle(Figure):
+    def area(self, radius: float):
+        self.radius = radius
+        circle_area: float = 3.14*self.radius**2
+
+        print(circle_area)
+        return super().area()
+    
+    def perimeter(self, radius: float):
+        self.radius = radius
+        perimeter_area: float = 2*3.14*self.radius
+
+        print(perimeter_area)
+        return super().perimeter()
+
+class Rectangle(Figure):
+    def area(self, base: float, height: float):
+        self.base = base
+        self.height = height
+        rectangle_area: float = self.base*self.height
+
+        print(rectangle_area)
+        return super().area()
+    
+    def perimeter(self, base: float, height: float):
+        self.base = base
+        self.height = height
+        rectangle_perimeter: float = 2*(self.base + self.height)
+
+        print(rectangle_perimeter)
+        return super().perimeter()
+    
+cirle0: Circle = Circle()
+rectangle0: Rectangle = Rectangle()
+
+cirle0.area(5)
+cirle0.perimeter(5)
+rectangle0.area(7, 15)
+rectangle0.perimeter(7, 15)
+
+#Exercise 2: Implementing Static Methods
+class MathOperations:
+
+    @staticmethod
+    def add(number_1: float, number_2: float):
+        return number_1 + number_2
+    
+    @staticmethod
+    def multiply(number_1: float, number_2: float):
+        return number_1*number_2
+
+math: MathOperations = MathOperations
+
+print(math.add(5, 2))
+print(math.multiply(5, 2))
+#Exercise 3: Library Management System 
+class Book:
+    def __init__(self, title: str, author: str, isbn: str) -> None:
+        self.title = title
+        self.author = author
+        self.isbn = isbn
+
+    def __str__(self) -> str:
+        return f"book(title = {self.title}, author = {self.author}, isbn = {self.isbn}"
+    
+    @classmethod
+    def from_string(cls, book_str: str) -> str:
+        '''
+        book str: str = str(self. book + self.author + self.isbn) #forse str() non è necessario
+
+        '''
+        pass
