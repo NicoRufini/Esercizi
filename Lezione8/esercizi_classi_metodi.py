@@ -260,7 +260,7 @@ class Library:
     def __init__(self, books: list[Book], members: list[Member]) -> None:
         self.books = books
         self.members = members
-        self.total_books: int = len(self.books)
+        self.total_books: int = len(self.books) #forse self.total_books += 1 0 -= 1 non è necessario e non si deve fare
 
     def add_book(self, book: Book):
         self.books.append(book)
