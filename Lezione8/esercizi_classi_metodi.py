@@ -257,19 +257,19 @@ class Member:
 
 #Create a Library class
 class Library:
-    def __init__(self, books: list[Book], members: list[Member]) -> None:
-        self.books = books
-        self.members = members
+    def __init__(self) -> None:
+        self.books: list[Book] = []
+        self.members: list[Member] = []
         self.total_books: int = len(self.books) #forse self.total_books += 1 0 -= 1 non è necessario e non si deve fare
 
     def add_book(self, book: Book):
         self.books.append(book)
-        self.total_books += 1
+        #self.total_books += 1 #
 
     def remove_book(self, book: Book):
         if book in self.books:
-            self.books.remove(book)
-            self.total_books -= 1
+            self.books.remove(self.book)
+            #self.total_books -= 1 #
 
     def register_member(self, member: Member):
         self.members.append(member)
@@ -278,7 +278,7 @@ class Library:
         if member in self.members and book in self.books:
             member.borrowed_books.append(book)
             self.books.remove(book)
-            self.total_books -= 1
+            #self.total_books -= 1 #
 
     def __str__(self) -> str:
         return f"library(books = {self.books}, members = {self.members})"
