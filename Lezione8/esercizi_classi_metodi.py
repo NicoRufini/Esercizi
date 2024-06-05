@@ -253,7 +253,7 @@ class Member:
         member_str: list = member_str.split(", ")
 
         if len(member_str) == 2:
-            return f"member(name = {member_str[0]}, member id = {member_str[1]})"
+            return f"member(name : {member_str[0]}, member id : {member_str[1]})"
 
 #Create a Library class
 class Library:
