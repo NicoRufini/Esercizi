@@ -255,21 +255,31 @@ class Member:
         if len(member_str) == 2:
             return f"member(name : {member_str[0]}, member id : {member_str[1]})"
 
+member_0: Member = Member("Gian", 74739)
+
+member_0.borrow_book(book_0)
+member_0.return_book(book_0) #
+
+print(member_0)
 #Create a Library class
 class Library:
+    total_books: int = 0
+
     def __init__(self) -> None:
         self.books: list[Book] = []
         self.members: list[Member] = []
-        self.total_books: int = len(self.books) #forse self.total_books += 1 0 -= 1 non è necessario e non si deve fare
+        #self.total_books: int = len(self.books) #forse self.total_books += 1 o -= 1 non è necessario e non si deve fare
 
     def add_book(self, book: Book):
         self.books.append(book)
         #self.total_books += 1 #
+        Library.total_books += 1
 
     def remove_book(self, book: Book):
         if book in self.books:
-            self.books.remove(self.book)
+            self.books.remove(book)
             #self.total_books -= 1 #
+            Library.total_books -= 1
 
     def register_member(self, member: Member):
         self.members.append(member)
@@ -278,15 +288,24 @@ class Library:
         if member in self.members and book in self.books:
             member.borrowed_books.append(book)
             self.books.remove(book)
-            #self.total_books -= 1 #
+            Library.total_books -= 1 #
 
     def __str__(self) -> str:
         return f"library(books = {self.books}, members = {self.members})"
     
     @classmethod
     def library_statistics(cls) -> str:
-        return f"There are {cls().total_books} books in this library"
+        return f"There are {cls.total_books} books in this library."
 
+library: Library = Library()
+
+library.register_member(member_0)
+library.add_book(book_0) #
+library.add_book(book_0) #
+library.remove_book(book_0) #
+library.lend_book(book_0, member_0)
+
+print(library.library_statistics())
 #Exercise 4: University Management System
 from abc import ABC, abstractmethod
 
