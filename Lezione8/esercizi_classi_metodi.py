@@ -246,7 +246,7 @@ class Member:
             self.borrowed_books.remove(book)
     
     def __str__(self) -> str:
-        return f"member(name : {self.name}, member id : {self.member_id}, borrowed_books : {self.borrowed_books})"
+        return f"member(name = {self.name}, member id = {self.member_id}, borrowed_books = {self.borrowed_books})"
     
     @classmethod
     def from_string(cls, member_str: str) -> str:
