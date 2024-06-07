@@ -107,6 +107,24 @@ class Media:
         return f"Il {voto_rate}% delle recensioni ha il voto {voto}"
 
     def recensione(self):
-        pass
+        terribile: int = 0
+        brutto: int = 0
+        normale: int = 0
+        bello: int = 0
+        grandioso: int = 0
+
+        for i in self.reviews:
+            if i <= 1:
+                terribile += 1
+            elif i <= 2:
+                brutto += 1
+            elif i <= 3:
+                normale += 1
+            elif i <= 4:
+                bello += 1
+            elif i <= 5:
+                grandioso += 1
+        
+        rates_list: list = [terribile, brutto, normale, bello, grandioso]
 
 #class Film: class Media è la sua superclasse e basta; rappresenta specificamente un film
