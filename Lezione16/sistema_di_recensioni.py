@@ -35,8 +35,11 @@ aggiunga a ognuno dei due almeno dieci valutazioni e richiami il metodo recensio
 
 class Media:
     def __init__(self) -> None:
-        self.get_title()#
+        #self.get_title() #
+        self.title: str = None
         self.reviews: list[int] = []
+        #self.media = sum(self.reviews) / len(self.reviews) #
+        #self.media: float = 0 #
 
     def set_title(self, title: str):
         self.title = title
@@ -49,7 +52,7 @@ class Media:
             self.reviews.append(voto)
 
     def getMedia(self) -> str:
-        self.media = sum(self.reviews) / len(self.reviews)
+        self.media = sum(self.reviews) / len(self.reviews) #
         #return sum(self.reviews) / len(self.reviews)
         return f"Voto Medio: {self.media}"
     
@@ -57,6 +60,8 @@ class Media:
         '''
         <=1=Terribile, <=2=Brutto, <=3=Normale, <=4=Bello, <=5=Grandioso.
         '''
+        self.media = sum(self.reviews) / len(self.reviews) #
+
         if self.media <= 1:
             return "Giudizio: Terribile"
         elif self.media <= 2:
@@ -106,12 +111,13 @@ class Media:
 
         return f"Il {voto_rate}% delle recensioni ha il voto {voto}"
 
-    def recensione(self):
+    def recensione(self) -> str:
         terribile: int = 0
         brutto: int = 0
         normale: int = 0
         bello: int = 0
         grandioso: int = 0
+        #self.media = sum(self.reviews) / len(self.reviews) #
 
         for i in self.reviews:
             if i <= 1:
@@ -131,7 +137,7 @@ class Media:
 
         for i in rates_list:
             #voto_rate = (len(i)/len(self.reviews))*100
-            rates_media_list.append((len(i)/len(self.reviews))*100)
+            rates_media_list.append((i/len(self.reviews))*100)
 
         rates_media_dict: dict = {"Terribile" : rates_media_list[0], "Brutto" : rates_media_list[1], "Normale" : rates_media_list[2], "Bello" : rates_media_list[3], "Grandioso" : rates_media_list[4]}
 
@@ -140,5 +146,23 @@ class Media:
         for i, j in rates_media_dict.items():
             rates_media_string += f"{i}: {j}%\n"
         
-        print(f"{self.get_title()}\n{self.getMedia()}\n{self.getRate}\n000") #000 è temporaneo
+        print(f"{self.get_title()}\n{self.getMedia()}\n{self.getRate()}\n000") #000 è temporaneo
 #class Film: class Media è la sua superclasse e basta; rappresenta specificamente un film
+
+film: Media = Media()
+
+film.set_title("The Shawshank Redemption")
+#print(film.get_title()) #
+film.aggiungiValutazione(5) #5, 4, 3, 5, 4, 5, 2, 4, 1, 5
+film.aggiungiValutazione(4)
+film.aggiungiValutazione(3)
+film.aggiungiValutazione(5)
+film.aggiungiValutazione(4)
+film.aggiungiValutazione(5)
+film.aggiungiValutazione(2)
+film.aggiungiValutazione(4)
+film.aggiungiValutazione(1)
+film.aggiungiValutazione(5)
+#print(film.getRate()) #
+
+film.recensione() #
