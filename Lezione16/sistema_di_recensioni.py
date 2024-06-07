@@ -144,9 +144,12 @@ class Media:
         rates_media_string: str = ""
 
         for i, j in rates_media_dict.items():
-            rates_media_string += f"{i}: {j}%\n"
+            if i != "Grandioso":
+                rates_media_string += f"{i}: {j}%\n"
         
-        print(f"{self.get_title()}\n{self.getMedia()}\n{self.getRate()}\n000") #000 è temporaneo
+        rates_media_string += f"Grandioso: {rates_media_list[4]}%" #
+
+        print(f"{self.get_title()}\n{self.getMedia()}\n{self.getRate()}\n{rates_media_string}") #000 è temporaneo
 #class Film: class Media è la sua superclasse e basta; rappresenta specificamente un film
 
 film: Media = Media()
