@@ -73,7 +73,7 @@ class Media:
         elif self.media <= 5:
             return "Giudizio: Grandioso"
 
-    def ratePercentage(self, voto: float) -> float:
+    def ratePercentage(self, voto: float) -> float: #La traccia in realtà NON chiede una stringa con il float "voto" come ho al return
         ''' ###Non lo devi mettere qui, lo devi spostare da un altra parte, forse è meglio se lo metti in recensione(self)
         self.Terribile = 0
         self.Brutto = 0 ...
@@ -107,9 +107,9 @@ class Media:
             #else: #
                 #return "Nessuna delle recensioni ha questo voto" #
 
-        voto_rate: float = (len(voto_quantity)/len(self.reviews))*100
+        voto_rate: float = ((voto_quantity)/len(self.reviews))*100
 
-        return f"Il {voto_rate}% delle recensioni ha il voto {voto}"
+        return f"Il {voto_rate}% delle recensioni ha il voto {voto}."
 
     def recensione(self) -> str:
         terribile: int = 0
@@ -139,7 +139,9 @@ class Media:
             #voto_rate = (len(i)/len(self.reviews))*100
             rates_media_list.append((i/len(self.reviews))*100)
 
-        rates_media_dict: dict = {"Terribile" : rates_media_list[0], "Brutto" : rates_media_list[1], "Normale" : rates_media_list[2], "Bello" : rates_media_list[3], "Grandioso" : rates_media_list[4]}
+        rates_media_dict: dict = {"Terribile" : rates_media_list[0], "Brutto" : rates_media_list[1], \
+                                  "Normale" : rates_media_list[2], "Bello" : rates_media_list[3], \
+                                    "Grandioso" : rates_media_list[4]}
 
         rates_media_string: str = ""
 
@@ -150,13 +152,16 @@ class Media:
         rates_media_string += f"Grandioso: {rates_media_list[4]}%" #
 
         print(f"{self.get_title()}\n{self.getMedia()}\n{self.getRate()}\n{rates_media_string}") #000 è temporaneo
-#class Film: class Media è la sua superclasse e basta; rappresenta specificamente un film
 
-film: Media = Media()
+#class Film: class Media è la sua superclasse e basta; rappresenta specificamente un film
+class Film(Media):
+    pass
+
+film: Film = Film()
 
 film.set_title("The Shawshank Redemption")
 #print(film.get_title()) #
-film.aggiungiValutazione(5) #5, 4, 3, 5, 4, 5, 2, 4, 1, 5
+film.aggiungiValutazione(5) #Voti: [5, 4, 3, 5, 4, 5, 2, 4, 1, 5]
 film.aggiungiValutazione(4)
 film.aggiungiValutazione(3)
 film.aggiungiValutazione(5)
@@ -168,4 +173,9 @@ film.aggiungiValutazione(1)
 film.aggiungiValutazione(5)
 #print(film.getRate()) #
 
+#print(film.ratePercentage(1)) #
 film.recensione() #
+
+
+#Si verifichi il funzionamento scrivendo un codice 
+#che crei almeno due oggetti di tipo Film, aggiunga a ognuno dei due almeno dieci valutazioni e richiami il metodo recensione().
