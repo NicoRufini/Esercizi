@@ -65,6 +65,12 @@ class Media:
         if i <=1=Terribile:
         self.Terribilie += i ...
 
+        rates_list = [self.Terrible, self.Brutto, ...]
+        rates_dict = {Terribile : 0, Brutto : 0 , ...}
+        rate: int = 0
+
+        for i in rates_list and for j in rates_dict.keys(): #non si può fare
         rate = (len(self.Terrible, brutto, ...) / len(self.reviews))*100
+        rates_dict[j] = rate
         '''
         pass
