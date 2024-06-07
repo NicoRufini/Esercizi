@@ -42,7 +42,7 @@ class Media:
         self.title = title
 
     def get_title(self) -> str:
-        return self.title
+        return f"Titolo del Film: {self.title}"
     
     def aggiungiValutazione(self, voto: int):
         if 1 <= voto <= 5:
@@ -126,5 +126,14 @@ class Media:
                 grandioso += 1
         
         rates_list: list = [terribile, brutto, normale, bello, grandioso]
+        #voto_rate: float = 0
+        rates_media_list: list = []
+
+        for i in rates_list:
+            #voto_rate = (len(i)/len(self.reviews))*100
+            rates_media_list.append((len(i)/len(self.reviews))*100)
+
+        rates_media_dict: dict = {"Terribile" : rates_media_list[0], "Brutto" : rates_media_list[1], "Normale" : rates_media_list[2], "Bello" : rates_media_list[3], "Grandioso" : rates_media_list[4]}
+
 
 #class Film: class Media è la sua superclasse e basta; rappresenta specificamente un film
