@@ -69,7 +69,7 @@ class Media:
         rates_dict = {Terribile : 0, Brutto : 0 , ...}
         rate: int = 0
 
-        for i in rates_list and for j in rates_dict.keys(): #non si può fare
+        for i in rates_list and for j in rates_dict.keys(): #non si può fare #ho trovato il modo di farlo, continuo dopo
         rate = (len(self.Terrible, brutto, ...) / len(self.reviews))*100
         rates_dict[j] = rate
         '''
