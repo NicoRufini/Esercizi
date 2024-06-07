@@ -58,7 +58,7 @@ class Media:
         pass
 
     def ratePercentage(self, voto: float) -> float:
-        '''
+        ''' ###Non lo devi mettere qui, lo devi spostare da un altra parte, forse è meglio se lo metti in recensione(self)
         self.Terribile = 0
         self.Brutto = 0 ...
         for i in self.reviews:
@@ -74,3 +74,8 @@ class Media:
         rates_dict[j] = rate
         '''
         pass
+
+    def recensione(self):
+        pass
+
+#class Film: class Media è la sua superclasse e basta; rappresenta specificamente un film
