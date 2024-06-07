@@ -48,7 +48,7 @@ class Media:
         if 1 <= voto <= 5:
             self.reviews.append(voto)
 
-    def getMedia(self) -> float:
+    def getMedia(self) -> str:
         self.media = sum(self.reviews) / len(self.reviews)
         #return sum(self.reviews) / len(self.reviews)
         return f"Voto Medio: {self.media}"
@@ -135,5 +135,10 @@ class Media:
 
         rates_media_dict: dict = {"Terribile" : rates_media_list[0], "Brutto" : rates_media_list[1], "Normale" : rates_media_list[2], "Bello" : rates_media_list[3], "Grandioso" : rates_media_list[4]}
 
+        rates_media_string: str = ""
 
+        for i, j in rates_media_dict.items():
+            rates_media_string += f"{i}: {j}%\n"
+        
+        print(f"{self.get_title()}\n{self.getMedia()}\n{self.getRate}\n000") #000 è temporaneo
 #class Film: class Media è la sua superclasse e basta; rappresenta specificamente un film
