@@ -94,7 +94,17 @@ class Media:
 
         voto_rate: float = (len(voto_quantity)/len(self.reviews))*100
         '''
-        pass
+        voto_quantity: int = 0
+
+        for i in self.reviews:
+            if i == voto:
+                voto_quantity += 1
+            #else: #
+                #return "Nessuna delle recensioni ha questo voto" #
+
+        voto_rate: float = (len(voto_quantity)/len(self.reviews))*100
+
+        return f"Il {voto_rate}% delle recensioni ha il voto {voto}"
 
     def recensione(self):
         pass
