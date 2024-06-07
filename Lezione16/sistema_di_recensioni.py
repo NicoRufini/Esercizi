@@ -49,13 +49,24 @@ class Media:
             self.reviews.append(voto)
 
     def getMedia(self) -> float:
-        return sum(self.reviews) / len(self.reviews)
+        self.media = sum(self.reviews) / len(self.reviews)
+        #return sum(self.reviews) / len(self.reviews)
+        return f"Voto Medio: {self.media}"
     
     def getRate(self) -> str:
         '''
         <=1=Terribile, <=2=Brutto, <=3=Normale, <=4=Bello, <=5=Grandioso.
         '''
-        pass
+        if self.media <= 1:
+            return "Giudizio: Terribile"
+        elif self.media <= 2:
+            return "Giudizio: Brutto"
+        elif self.media <= 3:
+            return "Giudizio: Normale"
+        elif self.media <= 4:
+            return "Giudizio: Bello"
+        elif self.media <= 5:
+            return "Giudizio: Grandioso"
 
     def ratePercentage(self, voto: float) -> float:
         ''' ###Non lo devi mettere qui, lo devi spostare da un altra parte, forse è meglio se lo metti in recensione(self)
@@ -72,6 +83,16 @@ class Media:
         for i in rates_list and for j in rates_dict.keys(): #non si può fare #ho trovato il modo di farlo, continuo dopo
         rate = (len(self.Terrible, brutto, ...) / len(self.reviews))*100
         rates_dict[j] = rate
+        '''
+
+        '''
+        #Questo invece lo devi lasciare qui
+        voto_quantity: int = 0
+        for i in self.reviews:
+        if i == voto:
+        voto_quantity += i
+
+        voto_rate: float = (len(voto_quantity)/len(self.reviews))*100
         '''
         pass
 
