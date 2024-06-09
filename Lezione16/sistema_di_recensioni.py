@@ -179,22 +179,22 @@ film.recensione() #
 
 print("(Secondo film)", "-"*30)
 
-film2: Film = Film()
+film: Film = Film()
 
-film2.set_title("The Spiderwick Chronicles")
-film2.aggiungiValutazione(3) #Voti: [3, 3, 3, 2, 3, 4, 4, 2, 3, 2]
-film2.aggiungiValutazione(3)
-film2.aggiungiValutazione(3)
-film2.aggiungiValutazione(2)
-film2.aggiungiValutazione(3)
-film2.aggiungiValutazione(4)
-film2.aggiungiValutazione(4)
-film2.aggiungiValutazione(2)
-film2.aggiungiValutazione(3)
-film2.aggiungiValutazione(2)
+film.set_title("The Spiderwick Chronicles")
+film.aggiungiValutazione(3) #Voti: [3, 3, 3, 2, 3, 4, 4, 2, 3, 2]
+film.aggiungiValutazione(3)
+film.aggiungiValutazione(3)
+film.aggiungiValutazione(2)
+film.aggiungiValutazione(3)
+film.aggiungiValutazione(4)
+film.aggiungiValutazione(4)
+film.aggiungiValutazione(2)
+film.aggiungiValutazione(3)
+film.aggiungiValutazione(2)
 
 #print(film2.ratePercentage(3)) #
-film2.recensione() #
+film.recensione() #
 
 #Si verifichi il funzionamento scrivendo un codice 
 #che crei almeno due oggetti di tipo Film, aggiunga a ognuno dei due almeno dieci valutazioni e richiami il metodo recensione().
