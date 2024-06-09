@@ -159,6 +159,7 @@ class Film(Media):
 
 film: Film = Film()
 
+print("(Primo film)", "-"*30)
 film.set_title("The Shawshank Redemption")
 #print(film.get_title()) #
 film.aggiungiValutazione(5) #Voti: [5, 4, 3, 5, 4, 5, 2, 4, 1, 5]
@@ -176,6 +177,24 @@ film.aggiungiValutazione(5)
 #print(film.ratePercentage(1)) #
 film.recensione() #
 
+print("(Secondo film)", "-"*30)
+
+film2: Film = Film()
+
+film2.set_title("The Spiderwick Chronicles")
+film2.aggiungiValutazione(3) #Voti: [3, 3, 3, 2, 3, 4, 4, 2, 3, 2]
+film2.aggiungiValutazione(3)
+film2.aggiungiValutazione(3)
+film2.aggiungiValutazione(2)
+film2.aggiungiValutazione(3)
+film2.aggiungiValutazione(4)
+film2.aggiungiValutazione(4)
+film2.aggiungiValutazione(2)
+film2.aggiungiValutazione(3)
+film2.aggiungiValutazione(2)
+
+#print(film2.ratePercentage(3)) #
+film2.recensione() #
 
 #Si verifichi il funzionamento scrivendo un codice 
 #che crei almeno due oggetti di tipo Film, aggiunga a ognuno dei due almeno dieci valutazioni e richiami il metodo recensione().
