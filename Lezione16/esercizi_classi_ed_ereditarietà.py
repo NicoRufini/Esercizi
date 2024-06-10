@@ -143,7 +143,7 @@ class RecipeManager:
     
     def add_ingredient(self, recipe_name: str, ingredient: str) -> dict[str, list]:
         for i in self.ricette:
-            if recipe_name in i.keys() and ingredient not in i.values(): #and
+            if recipe_name in i.keys() and ingredient not in i.values(): #and ingredient in i[recipe_name] misa che è meglio 
                 i[recipe_name].append(ingredient)
                 return i
             else: #else(?)
