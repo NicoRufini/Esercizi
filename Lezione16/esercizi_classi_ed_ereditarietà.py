@@ -358,7 +358,7 @@ Formule Matematiche:
 
 '''
 
-print("(Question 3)", "-"*30)
+print("(Question 4)", "-"*30)
 
 class Specie:
     def __init__(self, nome: str, popolazione_iniziale: int, tasso_crescita: float) -> None:
