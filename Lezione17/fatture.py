@@ -14,3 +14,33 @@ In tale file, creare una classe chiamata Fattura.
     removePatient(idCode): consente di rimuovere un paziente alla lista di pazienti di un dottore ricevendo in input il codice identificativo del paziente da rimuovere, aggiornando poi il numero di fatture e il salario, richiamando il metodo get Fatture() e getSalary(). Stampare "Alla lista del Dottor cognome è stato rimosso il paziente {codice_identificativo}".
 
 '''
+
+class Fattura:
+    def __init__(self, patient: list, doctor) -> None: #patient: list[Paziente], doctor: Doctor
+        self.patient = patient
+        self.doctor = doctor
+        self.fatture: int = 0
+        self.salary: int = 0
+
+        if self.doctor.isAValidDoctor():
+            self.fatture = len(self.patient)
+        else:
+            self.patient = None
+            self.doctor = None
+            self.fatture = None
+            self.salary = None
+            print("Non è possibile creare la classe fattura poichè il dottore non è valido!")
+
+    def getSalary(self) -> int:
+        self.salary = self.doctor.parcel*self.fatture
+        return self.salary
+    
+    def getFatture(self) -> int:
+        self.fatture = len(self.patient)
+        return self.fatture
+    
+    def addPatient(self, newPatient) -> str: #newPatient: Paziente
+        self.patient.append(newPatient)
+        self.getFatture()
+        self.getSalary()
+        print(f"Alla lista del Dottor {self.doctor.last_name} è stato rimosso il paziente {self.newPatient.__id}")
