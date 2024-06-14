@@ -17,3 +17,19 @@ Un paziente ha un nome, un cognome, un età, definiti dalla classe Persona ed un
          ID: {codice identificativo}"
  
 '''
+
+from persona import Persona
+
+class Paziente(Persona):
+    def __init__(self, first_name: str, last_name: str, id: str) -> None:
+        super().__init__(first_name, last_name)
+        self.__id = id
+
+    def setIdCode(self, idCode: str) -> None:
+        self.__id = idCode
+
+    def getidCode(self) -> str:
+        return self.__id
+    
+    def patientInfo(self) -> str:
+        print(f"Paziente: {self.first_name} {self.last_name}\nID: {self.__id}")
