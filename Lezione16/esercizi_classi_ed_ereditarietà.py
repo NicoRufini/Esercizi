@@ -373,7 +373,7 @@ class Specie:
         #return popolazione_nuova #self.popolazione_iniziale #
     
     def anni_per_superare(self, altra_specie: 'Specie') -> int:
-        anni: int = 0
+        anni: int = 1 #0
         
         while self.popolazione_iniziale <= altra_specie.popolazione_iniziale and anni < 1000:
             #self.popolazione_iniziale = self.cresci()
@@ -389,7 +389,7 @@ class Specie:
     def getDensita(self, area_kmq: float) -> int:
         densita: int = self.popolazione_iniziale/area_kmq
         #densita: int = 0
-        anni: int = 0
+        anni: int = -1 #0
         
         while densita < 1:
             #self.popolazione_iniziale = self.cresci()
@@ -418,7 +418,7 @@ class Elefante(Specie):
 
 print("(1° check)", "-"*15)
 # Creazione delle istanze delle specie
-bufalo_klingon = BufaloKlingon(100, 16) ###(100, 15)  # Crea un'istanza di BufaloKlingon con popolazione 100 e tasso di crescita 15%
+bufalo_klingon = BufaloKlingon(100, 15) ###(100, 15)  # Crea un'istanza di BufaloKlingon con popolazione 100 e tasso di crescita 15%
 elefante = Elefante(10, 35)  # Crea un'istanza di Elefante con popolazione 10 e tasso di crescita 35%
 
 # Calcolo degli anni necessari per superare
@@ -426,5 +426,5 @@ anni_necessari = elefante.anni_per_superare(bufalo_klingon)  # Calcola gli anni 
 print(f"Anni necessari perché la popolazione di elefanti superi quella dei bufali Klingon: {anni_necessari}") #Expected: Anni necessari perché la popolazione di elefanti superi quella dei bufali Klingon: 16
 
 # Calcolo della densità di popolazione per i Bufali Klingon
-anni_densita = bufalo_klingon.getDensita(1700) ###(1500)  # Calcola gli anni necessari per raggiungere una densità di 1 bufalo Klingon per km²
+anni_densita = bufalo_klingon.getDensita(1500) ###(1500)  # Calcola gli anni necessari per raggiungere una densità di 1 bufalo Klingon per km²
 print(f"Anni necessari per raggiungere una densità di 1 Bufalo Klingon per km quadrato: {anni_densita}") #Expected: Anni necessari per raggiungere una densità di 1 Bufalo Klingon per km quadrato: 4
