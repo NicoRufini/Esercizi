@@ -18,3 +18,49 @@ Questa classe deve avere come attributi una lista di film contenuti in negozio (
     printRentMovies(clientID): questo metodo deve stampare la lista dei film noleggiati dal cliente di cui viene specificato l'id.
 
 '''
+
+from film import Film
+from movie_genre import Azione, Commedia, Drama
+
+class Noleggio:
+    def __init__(self, film_list: list[Film]) -> None:
+        self.film_list = film_list
+        self.rented_film: dict[str, list[Film]] = {}
+
+    def isAvaible(self, film: Film) -> bool:
+        if film in self.film_list:
+            print(f"Il film scelto è disponibile: {film.title}!")
+            return True
+        else:
+            print(f"Il film scelto non è disponibile: {film.title}!")
+            return False
+        
+    def rentAMovie(self, film: Film, clientID: str) -> None:
+        if film in self.film_list:
+            if clientID in self.rented_film and len(self.rented_film[clientID]) == 0:
+                self.film_list.remove(film)
+                self.rented_film[clientID] = [film]
+                print(f"Il cliente {clientID} ha noleggiato {film.title}!")
+            elif clientID in self.rented_film and len(self.rented_film[clientID]) > 0:
+                self.film_list.remove(film)
+                self.rented_film[clientID].append(film)
+                print(f"Il cliente {clientID} ha noleggiato {film}!")
+        else:
+            print(f"Non è possibile nolegiare il film {film.title}!")
+
+    def giveBack(self, film: Film, clientID: str, days: int) -> str:
+        if clientID in self.rented_film and film in self.rented_film:
+            self.film_list.append(film)
+            self.rented_film[clientID].remove(film)
+            penale_da_pagare: float = film.calcolaPenaleRitardo(days)
+
+            print(f"Cliente: {clientID}! La penale da pagare per il film {film.title} e' di {penale_da_pagare} euro!") #title: Never(?)
+
+    def printMovies(self) -> str:
+        for i in self.film_list:
+            print(i.getTitle(), "-", i.getGenere())
+
+    def printRentMovies(self, clientID: str) -> str:
+        if clientID in self.rented_film:
+            for i in self.rented_film[clientID]:
+                print(i)
