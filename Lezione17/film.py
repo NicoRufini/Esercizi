@@ -13,16 +13,25 @@ In un file chiamato "film.py", si definisca la classe Film che rappresenta un fi
     getTitle(): che consente di ritornare il valore del titolo di un film.
     isEqual(otherFilm): che ritorna true se il codice identificativo di due film è uguale.  
 
- 
-### CLASSI GENERE
-Si creino tre classi chiamate Azione, Commedia e Drama, tutte derivanti dalla classe Film. Ognuna di queste classi ha un attributo privato di tipo string chiamato genere, che equivale al genere di film (genere="Azione", nella classe Azione) ed un attributo privato di tipo float chiamato penale. I film di azione hanno una penalità di 3 euro al giorno, le commedie hanno una penale di 2.50 euro al giorno, i film drammatici hanno una penale di 2 euro al giorno.
-
-- Per ognuna di queste classi si implementi un metodo chiamato:
-
-    getGenere(), che ritorna il genere di film
-    getPenale(), che ritorna il valore della penale
-    calcolaPenaleRitardo(), che prende in ingresso il numero dei giorni di ritardo per un film e restituisce la penale da pagare per quel film.
-
-Le tre classi Azione, Commedia e Drama devono essere contenute nel file "movie_genre.py".
-
 '''
+
+class Film:
+    def __init__(self, id: str, title: str) -> None:
+        self.id = id
+        self.title = title
+
+    def setID(self, id: str) -> None:
+        self.id = id
+
+    def setTitle(self, title: str) -> None:
+        self.title = title
+
+    def getID(self) -> str:
+        return self.id
+    
+    def getTitle(self) -> str:
+        return self.title
+    
+    def isEqual(self, otherFilm: 'Film') -> bool:
+        return self.id == otherFilm.id
+    
