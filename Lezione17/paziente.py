@@ -32,4 +32,4 @@ class Paziente(Persona):
         return self.__id
     
     def patientInfo(self) -> str:
-        print(f"Paziente: {self.first_name} {self.last_name}\nID: {self.__id}")
+        print(f"Paziente: {self.first_name} {self.last_name}\nID: {self.getidCode()}") #(f"Paziente: {self.first_name} {self.last_name}\nID: {self.__id}")
