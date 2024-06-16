@@ -44,6 +44,7 @@ class Fattura:
         return self.fatture
     
     def addPatient(self, newPatient: Paziente) -> str: #newPatient: Paziente
+        #if type(self.patient) != None: ###
         self.patient.append(newPatient)
         self.getFatture()
         self.getSalary()

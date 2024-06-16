@@ -55,10 +55,10 @@ class Dottore(Persona):
          return self.__parcel
     
     def isAValidDoctor(self) -> str:
-        if self.__age > 30:
-            print(f"Doctor {self.__first_name} {self.__last_name} is valid!")
+        if self.getAge() > 30: #if self.__age > 30:
+            print(f"Doctor {self.getName()} {self.getLastname()} is valid!")
         else:
-            print(f"Doctor {self.__first_name} {self.__last_name} is not valid!")
+            print(f"Doctor {self.getName()} {self.getLastname()} is not valid!")
 
     def doctorGreet(self) -> str:
         self.greet()
