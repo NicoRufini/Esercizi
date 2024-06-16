@@ -17,7 +17,7 @@ Un paziente ha un nome, un cognome, un età, definiti dalla classe Persona ed un
          ID: {codice identificativo}"
  
 '''
-
+#|||
 from persona import Persona
 
 class Paziente(Persona):
@@ -32,4 +32,4 @@ class Paziente(Persona):
         return self.__id
     
     def patientInfo(self) -> str:
-        print(f"Paziente: {self.first_name} {self.last_name}\nID: {self.getidCode()}") #(f"Paziente: {self.first_name} {self.last_name}\nID: {self.__id}")
+        print(f"Paziente: {self.getName()} {self.getLastname()}\nID: {self.getidCode()}") #(f"Paziente: {self.first_name} {self.last_name}\nID: {self.__id}")
