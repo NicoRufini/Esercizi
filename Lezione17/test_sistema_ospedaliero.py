@@ -39,3 +39,21 @@ Test della Classe Fattura
   - L'aggiunta e la rimozione di pazienti dalla lista.
 
 '''
+
+import unittest
+from persona import Persona
+from dottore import Dottore
+from paziente import Paziente
+from fatture import Fattura
+
+class TestPersona(unittest.TestCase):
+    pass
+
+class TestDottore(unittest.TestCase):
+    pass
+
+class TestPaziente(unittest.TestCase):
+    pass
+
+class TestFattura(unittest.TestCase):
+    pass
