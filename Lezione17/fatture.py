@@ -48,3 +48,12 @@ class Fattura:
         self.getFatture()
         self.getSalary()
         print(f"Alla lista del Dottor {self.doctor.__last_name} è stato rimosso il paziente {newPatient.__id}") #self.newPatient.__id: Any(?)
+    
+    def removePatient(self, idCode: str) -> str:
+        for i in self.patient:
+            if i.__id == idCode:
+                self.patient.remove(i)
+        
+        self.getFatture()
+        self.getSalary()
+        print(f"Alla lista del Dottor {self.doctor.__last_name} è stato rimosso il paziente {idCode}")
