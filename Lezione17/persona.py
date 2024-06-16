@@ -27,50 +27,50 @@ ed un attributo privato di tipo int per l'età.
     greet(): stampa il seguente saluto "Ciao, sono nome cognome! Ho età anni!"
 
 '''
-
+#|||
 class Persona:
     def __init__(self, first_name: str, last_name: str) -> None:
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age: int = None
+        self.__first_name = first_name
+        self.__last_name = last_name
+        self.__age: int = None
 
-        if type(self.first_name) != str:
-            self.first_name = None
+        if type(self.__first_name) != str:
+            self.__first_name = None
             print("Il nome inserito non è una stringa!")
 
-        if type(self.last_name) != str:
-            self.last_name = None
+        if type(self.__last_name) != str:
+            self.__last_name = None
             print("Il cognome inserito non è una stringa!")
 
-        if type(self.first_name) == str and type(self.last_name) == str:
-            self.age = 0
+        if type(self.__first_name) == str and type(self.__last_name) == str:
+            self.__age = 0
 
     def setName(self, first_name: str) -> None:
         if type(first_name) == str:
-            self.first_name = first_name
+            self.__first_name = first_name
         else:
             print("Il nome inserito non è una stringa!")
 
     def setLastName(self, last_name: str) -> None:
         if type(last_name) == str:
-            self.last_name = last_name
+            self.__last_name = last_name
         else:
             print("Il cognome inserito non è una stringa!")
 
     def setAge(self, age: int) -> None:
         if type(age) == int:
-            self.age = age
+            self.__age = age
         else:
             print("L'età deve essere un numero intero!")
 
     def getName(self) -> str:
-        return self.first_name
+        return self.__first_name
     
     def getLastname(self) -> str:
-        return self.last_name
+        return self.__last_name
     
     def getAge(self) -> int:
-        return self.age
+        return self.__age
     
     def greet(self) -> str:
         print(f"Ciao, sono {self.getName()} {self.getLastname()}! Ho {self.getAge()} anni!") #(f"Ciao, sono {self.first_name} {self.last_name}! Ho {self.age} anni!")
