@@ -62,4 +62,4 @@ class Dottore(Persona):
 
     def doctorGreet(self) -> str:
         self.greet()
-        print(f"Sono un medico {self.specialization}")
+        print(f"Sono un medico {self.getSpecialization()}") #(f"Sono un medico {self.specialization}")
