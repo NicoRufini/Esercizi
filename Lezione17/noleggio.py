@@ -18,9 +18,9 @@ Questa classe deve avere come attributi una lista di film contenuti in negozio (
     printRentMovies(clientID): questo metodo deve stampare la lista dei film noleggiati dal cliente di cui viene specificato l'id.
 
 '''
-
+#|\\
 from film import Film
-from movie_genre import Azione, Commedia, Drama
+from movie_genre import Azione, Commedia, Drama #(?)
 
 class Noleggio:
     def __init__(self, film_list: list[Film]) -> None:
@@ -29,32 +29,38 @@ class Noleggio:
 
     def isAvaible(self, film: Film) -> bool:
         if film in self.film_list:
-            print(f"Il film scelto è disponibile: {film.title}!")
+            print(f"Il film scelto è disponibile: {film.getTitle()}!")
             return True
         else:
-            print(f"Il film scelto non è disponibile: {film.title}!")
+            print(f"Il film scelto non è disponibile: {film.getTitle()}!")
             return False
         
     def rentAMovie(self, film: Film, clientID: str) -> None:
         if film in self.film_list:
-            if clientID in self.rented_film and len(self.rented_film[clientID]) == 0:
-                self.film_list.remove(film)
-                self.rented_film[clientID] = [film]
-                print(f"Il cliente {clientID} ha noleggiato {film.title}!")
-            elif clientID in self.rented_film and len(self.rented_film[clientID]) > 0:
-                self.film_list.remove(film)
+            if clientID in self.rented_film: #and len(self.rented_film[clientID]) == 0:
+                #self.rented_film[clientID] = [film]
                 self.rented_film[clientID].append(film)
-                print(f"Il cliente {clientID} ha noleggiato {film}!")
+                self.film_list.remove(film)
+                print(f"Il cliente {clientID} ha noleggiato {film.getTitle()}!")
+            #elif clientID in self.rented_film and len(self.rented_film[clientID]) > 0:
+                #self.rented_film[clientID].append(film)
+                #self.film_list.remove(film)
+                #print(f"Il cliente {clientID} ha noleggiato {film.getTitle()}!")
+            else: #
+                self.rented_film[clientID] = [film]
+                self.film_list.remove(film)
+                print(f"Il cliente {clientID} ha noleggiato {film.getTitle()}!")            
         else:
-            print(f"Non è possibile nolegiare il film {film.title}!")
+            print(f"Non è possibile nolegiare il film {film.getTitle()}!")
 
     def giveBack(self, film: Film, clientID: str, days: int) -> str:
-        if clientID in self.rented_film and film in self.rented_film:
-            self.film_list.append(film)
-            self.rented_film[clientID].remove(film)
-            penale_da_pagare: float = film.calcolaPenaleRitardo(days)
+        #if clientID in self.rented_film and film in self.rented_film: #\(?)
+        if clientID in self.rented_film.items() and film in self.rented_film.items(): #|(?)
+            self.film_list.append(film) #(parameter) film: Never(?)
+            self.rented_film[clientID].remove(film) #(parameter) film: Never(?)
+            penale_da_pagare: float = film.calcolaPenaleRitardo(days) #(parameter) film: Never(?)
 
-            print(f"Cliente: {clientID}! La penale da pagare per il film {film.title} e' di {penale_da_pagare} euro!") #title: Never(?)
+            print(f"Cliente: {clientID}! La penale da pagare per il film {film.getTitle()} e' di {penale_da_pagare} euro!") #title: Never(?)
 
     def printMovies(self) -> str:
         for i in self.film_list:
