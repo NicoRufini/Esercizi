@@ -13,7 +13,7 @@ Si creino tre classi chiamate Azione, Commedia e Drama, tutte derivanti dalla cl
 Le tre classi Azione, Commedia e Drama devono essere contenute nel file "movie_genre.py".
 
 '''
-
+#|||
 from film import Film
 
 #class Azione
