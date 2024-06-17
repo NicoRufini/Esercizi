@@ -14,24 +14,24 @@ In un file chiamato "film.py", si definisca la classe Film che rappresenta un fi
     isEqual(otherFilm): che ritorna true se il codice identificativo di due film è uguale.  
 
 '''
-
+#||\
 class Film:
-    def __init__(self, id: str, title: str) -> None:
-        self.id = id
-        self.title = title
+    def __init__(self, id: str, title: str) -> None: #(?)
+        self.__id = id
+        self.__title = title
 
     def setID(self, id: str) -> None:
-        self.id = id
+        self.__id = id
 
     def setTitle(self, title: str) -> None:
-        self.title = title
+        self.__title = title
 
     def getID(self) -> str:
-        return self.id
+        return self.__id
     
     def getTitle(self) -> str:
-        return self.title
+        return self.__title
     
     def isEqual(self, otherFilm: 'Film') -> bool:
-        return self.id == otherFilm.id
+        return self.__id == otherFilm.getID() #self.__id == otherFilm.__id
     
