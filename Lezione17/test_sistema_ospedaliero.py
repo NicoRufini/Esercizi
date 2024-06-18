@@ -39,7 +39,7 @@ Test della Classe Fattura
   - L'aggiunta e la rimozione di pazienti dalla lista.
 
 '''
-#\\\
+#|||-
 import unittest
 from persona import Persona
 from dottore import Dottore
