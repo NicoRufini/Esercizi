@@ -26,7 +26,7 @@ class Fattura:
         self.fatture: int = 0
         self.salary: int = 0
 
-        if self.doctor.isAValidDoctor(): #(?)
+        if self.doctor.isAValidDoctor() == True: #(?) #== True
             self.fatture = len(self.patient)
         else:
             self.patient = None
@@ -36,7 +36,7 @@ class Fattura:
             print("Non è possibile creare la classe fattura poichè il dottore non è valido!")
 
     def getSalary(self) -> int:
-        self.salary = self.doctor.__parcel*self.fatture
+        self.salary = self.doctor.getParcel()*self.fatture #self.doctor.__parcel*self.fatture
         return self.salary
     
     def getFatture(self) -> int:
@@ -48,13 +48,13 @@ class Fattura:
         self.patient.append(newPatient)
         self.getFatture()
         self.getSalary()
-        print(f"Alla lista del Dottor {self.doctor.__last_name} è stato rimosso il paziente {newPatient.__id}") #self.newPatient.__id: Any(?)
+        print(f"Alla lista del Dottor {self.doctor.getLastname()} è stato rimosso il paziente {newPatient.getidCode()}") #self.doctor.__last_name #self.newPatient.__id: Any(?)
     
     def removePatient(self, idCode: str) -> str:
         for i in self.patient:
-            if i.__id == idCode:
+            if i.getidCode() == idCode: #if i.__id == idCode:
                 self.patient.remove(i)
         
         self.getFatture()
         self.getSalary()
-        print(f"Alla lista del Dottor {self.doctor.__last_name} è stato rimosso il paziente {idCode}")
+        print(f"Alla lista del Dottor {self.doctor.getLastname()} è stato rimosso il paziente {idCode}") #self.doctor.__last_name
