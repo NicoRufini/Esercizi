@@ -43,3 +43,28 @@ Testare la Stampa dei Film Noleggiati da un Cliente (printRentMovies):
 - Verificare che la stampa dei film noleggiati contenga i titoli corretti.
 
 '''
+
+import unittest
+from film import Film
+from movie_genre import Azione, Commedia, Drama
+from noleggio import Noleggio
+
+class testFilm(unittest.TestCase):
+   def setUp(self) -> None:
+      self.film_test: Film = Film("F01OT01", "The Spiderwick Chronicles")
+
+class testAzione(unittest.TestCase):
+   def setUp(self) -> None:
+      self.azione_test: Azione = Azione("AF01OT02", "The Rhythm Section")
+
+class testCommedia(unittest.TestCase):
+   def setUp(self) -> None:
+      self.commedia_test: Commedia = Commedia("CF01OT03", "21 Jump Street")
+
+class testDrama(unittest.TestCase):
+   def setUp(self) -> None:
+      self.drama_test: Drama = Drama("DF010T04", "Minari")
+
+class testNoleggio(unittest.TestCase):
+   def setUp(self) -> None:
+      self.noleggio_test: Noleggio = Noleggio()
