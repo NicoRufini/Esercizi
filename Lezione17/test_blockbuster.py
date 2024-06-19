@@ -70,7 +70,7 @@ class testCommedia(unittest.TestCase):
 
 class testDrama(unittest.TestCase):
    def setUp(self) -> None:
-      self.drama_test: Drama = Drama("DF010T04", "Minari")
+      self.drama_test: Drama = Drama("DF01OT04", "Minari")
 
 class testNoleggio(unittest.TestCase):
    def setUp(self) -> None:
