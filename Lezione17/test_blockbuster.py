@@ -141,17 +141,32 @@ class TestFilm(unittest.TestCase):
 
    def test_rentAMovie(self):
       self.noleggio_test.rentAMovie(self.azione_test1, "C01")
-      self.assertNotIn(self.azione_test1, self.noleggio_test.film_list, "test_rentAMovie Error: The film self.azione_test1 is in self.noleggio_test.film_list")
-      self.assertIn("C01", self.noleggio_test.rented_film.keys(), "test_rentAMovie Error: The clientID C01 is not in in self.noleggio_test.rented_film.keys()")
 
-   '''
-   Testare il Noleggio di un Film Non Disponibile:
-   - Noleggiare un film con un cliente.
-   - Provare a noleggiare lo stesso film con un altro cliente e verificare che non sia possibile.
-   '''
+      self.assertNotIn(self.azione_test1, self.noleggio_test.film_list, "test_rentAMovie Error: The film self.azione_test1 is in self.noleggio_test.film_list")
+      self.assertIn("C01", self.noleggio_test.rented_film.keys(), "test_rentAMovie Error: The clientID C01 is not in self.noleggio_test.rented_film.keys()")
+      self.assertIn(self.azione_test1, self.noleggio_test.rented_film["C01"], "test_rentAMovie Error: The film self.azione_test1 is not in self.noleggio_test.rented_film['C01']")
+
+      '''
+      Testare il Noleggio di un Film Non Disponibile:
+      - Noleggiare un film con un cliente.
+      - Provare a noleggiare lo stesso film con un altro cliente e verificare che non sia possibile.
+      '''
+
+      self.noleggio_test.rentAMovie(self.azione_test1, "C02")
+
+      self.assertNotIn("C02", self.noleggio_test.rented_film.keys(), "test_rentAMovie Error: The clientID C02 is in self.noleggio_test.rented_film.keys()")
+
+      self.noleggio_test.rentAMovie(self.drama_test, "C02")
+
+      if "C02" in self.noleggio_test.rented_film.keys():
+         self.assertNotIn(self.azione_test1, self.noleggio_test.rented_film["C02"], "test_rentAMovie Error: The film self.azione_test1 is in self.noleggio_test.rented_film['C02']")
 
    def test_giveBack(self):
-      pass
+      self.noleggio_test.rentAMovie(self.azione_test1, "C01") #
+      self.noleggio_test.giveBack(self.azione_test1, "C01")
+
+      self.assertIn(self.azione_test1, self.noleggio_test.film_list, "test_giveBack Error: The film self.azione_test1 is not in self.noleggio_test.film_list")
+      self.assertNotIn(self.azione_test1, self.noleggio_test.rented_film["C01"], "test_giveBack Error: The film self.azione_test1 is in self.noleggio_test.rented_film['C01']")
 
    def test_calcolaPenaleRitardo(self):
       pass
