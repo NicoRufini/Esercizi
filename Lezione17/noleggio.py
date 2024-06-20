@@ -18,16 +18,16 @@ Questa classe deve avere come attributi una lista di film contenuti in negozio (
     printRentMovies(clientID): questo metodo deve stampare la lista dei film noleggiati dal cliente di cui viene specificato l'id.
 
 '''
-#|\\
+#||\
 from film import Film
-from movie_genre import Azione, Commedia, Drama #(?)
+from movie_genre import Azione, Commedia, Drama #(?) #|||
 
 class Noleggio:
-    def __init__(self, film_list: list[Film]) -> None:
+    def __init__(self, film_list: list[Film|Azione|Commedia|Drama]) -> None:
         self.film_list = film_list
-        self.rented_film: dict[str, list[Film]] = {}
+        self.rented_film: dict[str, list[Film|Azione|Commedia|Drama]] = {}
 
-    def isAvaible(self, film: Film) -> bool:
+    def isAvaible(self, film: Film|Azione|Commedia|Drama) -> bool:
         if film in self.film_list:
             print(f"Il film scelto è disponibile: {film.getTitle()}!")
             return True
@@ -35,7 +35,7 @@ class Noleggio:
             print(f"Il film scelto non è disponibile: {film.getTitle()}!")
             return False
         
-    def rentAMovie(self, film: Film, clientID: str) -> None:
+    def rentAMovie(self, film: Film|Azione|Commedia|Drama, clientID: str) -> None:
         if film in self.film_list:
             if clientID in self.rented_film: #and len(self.rented_film[clientID]) == 0:
                 #self.rented_film[clientID] = [film]
@@ -53,7 +53,7 @@ class Noleggio:
         else:
             print(f"Non è possibile nolegiare il film {film.getTitle()}!")
 
-    def giveBack(self, film: Film, clientID: str, days: int) -> str:
+    def giveBack(self, film: Film|Azione|Commedia|Drama, clientID: str, days: int) -> str:
         #if clientID in self.rented_film and film in self.rented_film: #\(?)
         if clientID in self.rented_film.items() and film in self.rented_film.items(): #|(?)
             self.film_list.append(film) #(parameter) film: Never(?)
