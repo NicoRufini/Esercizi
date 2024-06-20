@@ -43,7 +43,7 @@ Testare la Stampa dei Film Noleggiati da un Cliente (printRentMovies):
 - Verificare che la stampa dei film noleggiati contenga i titoli corretti.
 
 '''
-
+#|||-
 import unittest
 from film import Film
 from movie_genre import Azione, Commedia, Drama
