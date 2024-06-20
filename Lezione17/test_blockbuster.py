@@ -163,7 +163,7 @@ class TestFilm(unittest.TestCase):
 
    def test_giveBack(self):
       self.noleggio_test.rentAMovie(self.azione_test1, "C01") #
-      self.noleggio_test.giveBack(self.azione_test1, "C01")
+      self.noleggio_test.giveBack(self.azione_test1, "C01", 5)
 
       self.assertIn(self.azione_test1, self.noleggio_test.film_list, "test_giveBack Error: The film self.azione_test1 is not in self.noleggio_test.film_list")
       self.assertNotIn(self.azione_test1, self.noleggio_test.rented_film["C01"], "test_giveBack Error: The film self.azione_test1 is in self.noleggio_test.rented_film['C01']")
@@ -200,3 +200,6 @@ class TestFilm(unittest.TestCase):
 
       self.assertEqual(list_rented_movies_string, self.noleggio_test.rented_film_string, "test_printRentMovies Error: Either rented_film_string doesn't have the correct films," \
                        "or some films are missing")
+      
+
+unittest.main()
