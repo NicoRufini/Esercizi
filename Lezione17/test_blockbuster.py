@@ -100,6 +100,9 @@ class testNoleggio(unittest.TestCase):
 #####
 class TestFilm(unittest.TestCase):
    def setUp(self) -> None:
+      #Film:
+      self.film_test: Film = Film("F01OT01", "The Spiderwick Chronicles")
+
       #Azione:
       self.azione_test1: Azione = Azione("AF01OT02", "The Rhythm Section")
       self.azione_test2: Azione = Azione("AF02OT02", "Raiders of the Lost Ark")
@@ -124,10 +127,22 @@ class TestFilm(unittest.TestCase):
       self.noleggio_test: Noleggio = Noleggio(list_movies)
 
    def test_isAvaible(self):
-      pass
+      self.assertEqual(self.noleggio_test.isAvaible(self.azione_test1), True, "test_isAvaible Error: The film self.azione_test1 is not avaible")
+      self.assertEqual(self.noleggio_test.isAvaible(self.azione_test2), True, "test_isAvaible Error: The film self.azione_test2 is not avaible")
+      self.assertEqual(self.noleggio_test.isAvaible(self.azione_test3), True, "test_isAvaible Error: The film self.azione_test3 is not avaible")
+      self.assertEqual(self.noleggio_test.isAvaible(self.azione_test4), True, "test_isAvaible Error: The film self.azione_test4 is not avaible")
+      self.assertEqual(self.noleggio_test.isAvaible(self.azione_test5), True, "test_isAvaible Error: The film self.azione_test5 is not avaible")
+      self.assertEqual(self.noleggio_test.isAvaible(self.commedia_test1), True, "test_isAvaible Error: The film self.commedia_test1 is not avaible")
+      self.assertEqual(self.noleggio_test.isAvaible(self.commedia_test2), True, "test_isAvaible Error: The film self.commedia_test2 is not avaible")
+      self.assertEqual(self.noleggio_test.isAvaible(self.commedia_test3), True, "test_isAvaible Error: The film self.commedia_test3 is not avaible")
+      self.assertEqual(self.noleggio_test.isAvaible(self.commedia_test4), True, "test_isAvaible Error: The film self.commedia_test4 is not avaible")
+      self.assertEqual(self.noleggio_test.isAvaible(self.drama_test), True, "test_isAvaible Error: The film self.drama_test is not avaible")
+      self.assertEqual(self.noleggio_test.isAvaible(self.film_test), False, "test_isAvaible Error: The film self.film_test is avaible")
 
    def test_rentAMovie(self):
-      pass
+      self.noleggio_test.rentAMovie(self.azione_test1, "C01")
+      self.assertNotIn(self.azione_test1, self.noleggio_test.film_list, "test_rentAMovie Error: The film self.azione_test1 is in self.noleggio_test.film_list")
+      self.assertIn("C01", self.noleggio_test.rented_film.keys(), "test_rentAMovie Error: The clientID C01 is not in in self.noleggio_test.rented_film.keys()")
 
    '''
    Testare il Noleggio di un Film Non Disponibile:
