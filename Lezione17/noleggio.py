@@ -55,7 +55,7 @@ class Noleggio:
 
     def giveBack(self, film: Film|Azione|Commedia|Drama, clientID: str, days: int) -> str:
         #if clientID in self.rented_film and film in self.rented_film: #\(?)
-        if clientID in self.rented_film.items() and film in self.rented_film.items(): #|(?)
+        if clientID in self.rented_film.keys() and film in self.rented_film[clientID]: #|(?) #if clientID in self.rented_film.items() and film in self.rented_film.items():
             self.film_list.append(film) #(parameter) film: Never(?)
             self.rented_film[clientID].remove(film) #(parameter) film: Never(?)
             penale_da_pagare: float = film.calcolaPenaleRitardo(days) #(parameter) film: Never(?)
