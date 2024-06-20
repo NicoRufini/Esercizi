@@ -96,3 +96,53 @@ class testNoleggio(unittest.TestCase):
                                                      self.commedia_test2, self.commedia_test3, self.commedia_test4, self.drama_test]
 
       self.noleggio_test: Noleggio = Noleggio(list_movies)
+
+#####
+class TestFilm(unittest.TestCase):
+   def setUp(self) -> None:
+      #Azione:
+      self.azione_test1: Azione = Azione("AF01OT02", "The Rhythm Section")
+      self.azione_test2: Azione = Azione("AF02OT02", "Raiders of the Lost Ark")
+      self.azione_test3: Azione = Azione("AF03OT02", "Kill Bill")
+      self.azione_test4: Azione = Azione("AF04OT02", "The Terminator")
+      self.azione_test5: Azione = Azione("AF05OT02", "Predator")
+
+      #Commedia:
+      self.commedia_test1: Commedia = Commedia("CF01OT03", "21 Jump Street")
+      self.commedia_test2: Commedia = Commedia("CF02OT03", "Ace Ventura: Pet Detective")
+      self.commedia_test3: Commedia = Commedia("CF03OT03", "Beetlejuice")
+      self.commedia_test4: Commedia = Commedia("CF04OT03", "Jojo Rabbit")
+
+      #Drama:
+      self.drama_test: Drama = Drama("DF010T04", "Minari")
+
+      #List of movies:
+      list_movies: list[Azione, Commedia, Drama] = [self.azione_test1, self.azione_test2, self.azione_test3,
+                                                     self.azione_test4, self.azione_test5, self.commedia_test1, 
+                                                     self.commedia_test2, self.commedia_test3, self.commedia_test4, self.drama_test]
+
+      self.noleggio_test: Noleggio = Noleggio(list_movies)
+
+   def test_isAvaible(self):
+      pass
+
+   def test_rentAMovie(self):
+      pass
+
+   '''
+   Testare il Noleggio di un Film Non Disponibile:
+   - Noleggiare un film con un cliente.
+   - Provare a noleggiare lo stesso film con un altro cliente e verificare che non sia possibile.
+   '''
+
+   def test_giveBack(self):
+      pass
+
+   def test_calcolaPenaleRitardo(self):
+      pass
+
+   def test_printMovies(self):
+      pass
+
+   def test_printRentMovies(self):
+      pass
