@@ -169,7 +169,12 @@ class TestFilm(unittest.TestCase):
       self.assertNotIn(self.azione_test1, self.noleggio_test.rented_film["C01"], "test_giveBack Error: The film self.azione_test1 is in self.noleggio_test.rented_film['C01']")
 
    def test_calcolaPenaleRitardo(self):
-      pass
+      #self.azione_test1.calcolaPenaleRitardo(5) #3
+      #self.commedia_test1.calcolaPenaleRitardo(5) #2.5
+      #self.drama_test.calcolaPenaleRitardo(5) #2
+      self.assertEqual(self.azione_test1.calcolaPenaleRitardo(5), 15, "test_calcolaPenaleRitardo Error: self.azione_test1.calcolaPenaleRitardo(5) is not equal to 15")
+      self.assertEqual(self.commedia_test1.calcolaPenaleRitardo(5), 12.5, "test_calcolaPenaleRitardo Error: self.commedia_test1.calcolaPenaleRitardo(5) is not equal to 12.5")
+      self.assertEqual(self.drama_test.calcolaPenaleRitardo(5), 10, "test_calcolaPenaleRitardo Error: self.drama_test.calcolaPenaleRitardo(5) is not equal to 10")
 
    def test_printMovies(self):
       pass
