@@ -48,7 +48,7 @@ import unittest
 from film import Film
 from movie_genre import Azione, Commedia, Drama
 from noleggio import Noleggio
-
+'''
 class testFilm(unittest.TestCase):
    def setUp(self) -> None:
       self.film_test: Film = Film("F01OT01", "The Spiderwick Chronicles")
@@ -96,7 +96,7 @@ class testNoleggio(unittest.TestCase):
                                                      self.commedia_test2, self.commedia_test3, self.commedia_test4, self.drama_test]
 
       self.noleggio_test: Noleggio = Noleggio(list_movies)
-
+'''
 #####
 class TestFilm(unittest.TestCase):
    def setUp(self) -> None:
@@ -120,11 +120,11 @@ class TestFilm(unittest.TestCase):
       self.drama_test: Drama = Drama("DF010T04", "Minari")
 
       #List of movies:
-      list_movies: list[Azione, Commedia, Drama] = [self.azione_test1, self.azione_test2, self.azione_test3,
+      self.list_movies: list[Azione, Commedia, Drama] = [self.azione_test1, self.azione_test2, self.azione_test3,
                                                      self.azione_test4, self.azione_test5, self.commedia_test1, 
                                                      self.commedia_test2, self.commedia_test3, self.commedia_test4, self.drama_test]
 
-      self.noleggio_test: Noleggio = Noleggio(list_movies)
+      self.noleggio_test: Noleggio = Noleggio(self.list_movies)
 
    def test_isAvaible(self):
       self.assertEqual(self.noleggio_test.isAvaible(self.azione_test1), True, "test_isAvaible Error: The film self.azione_test1 is not avaible")
@@ -177,7 +177,26 @@ class TestFilm(unittest.TestCase):
       self.assertEqual(self.drama_test.calcolaPenaleRitardo(5), 10, "test_calcolaPenaleRitardo Error: self.drama_test.calcolaPenaleRitardo(5) is not equal to 10")
 
    def test_printMovies(self):
-      pass
+      list_movies_string: str = "" #
+
+      for i in self.list_movies: #
+         list_movies_string += f"{i.getTitle()} - {i.getGenere()}\n" #
+      
+      self.noleggio_test.printMovies() #
+
+      self.assertEqual(list_movies_string, self.noleggio_test.film_list_string, "test_printMovies Error: Either film_list_string doesn't have the correct films," \
+                       "or some films are missing")
 
    def test_printRentMovies(self):
-      pass
+      self.noleggio_test.rentAMovie(self.azione_test1, "C01")
+      self.noleggio_test.rentAMovie(self.azione_test2, "C01")
+
+      list_rented_movies_string: str = "" #
+
+      for i in self.noleggio_test.rented_film["C01"]: #
+         list_rented_movies_string += f"{i}\n" #
+
+      self.noleggio_test.printRentMovies("C01") #
+
+      self.assertEqual(list_rented_movies_string, self.noleggio_test.rented_film_string, "test_printRentMovies Error: Either rented_film_string doesn't have the correct films," \
+                       "or some films are missing")

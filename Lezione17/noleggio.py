@@ -63,10 +63,25 @@ class Noleggio:
             print(f"Cliente: {clientID}! La penale da pagare per il film {film.getTitle()} e' di {penale_da_pagare} euro!") #title: Never(?)
 
     def printMovies(self) -> str:
-        for i in self.film_list:
-            print(i.getTitle(), "-", i.getGenere())
+        #for i in self.film_list: #
+            #print(i.getTitle(), "-", i.getGenere()) #
+        
+        self.film_list_string: str = "" #
+
+        for i in self.film_list: #
+            self.film_list_string += f"{i.getTitle()} - {i.getGenere()}\n" #
+
+        print(self.film_list_string) #
 
     def printRentMovies(self, clientID: str) -> str:
-        if clientID in self.rented_film:
-            for i in self.rented_film[clientID]:
-                print(i)
+        #if clientID in self.rented_film: #
+            #for i in self.rented_film[clientID]: #
+                #print(i) #
+
+        self.rented_film_string: str = "" #
+
+        if clientID in self.rented_film: #
+            for i in self.rented_film[clientID]: #
+                self.rented_film_string += f"{i}\n" #
+
+        print(self.rented_film_string) #
