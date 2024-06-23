@@ -98,6 +98,10 @@ class PagamentoContanti(Pagamento):
         print("a:", a, "b:", b)
         ------------------------
 
+        if importo_monete % 1 != 0:
+        importo_monete +=  round(importo % 1, 2)
+        importo -= importo_monete
+
         while importo % 5 != 0:
         importo -= 1
         importo_monete += 1
@@ -118,18 +122,18 @@ class PagamentoContanti(Pagamento):
         banconote_risultato.append(i)
 
         #è per le monete:
-        if importo % 5 != 0: #nel dubbio, da rivedere
+        if importo_monete % 5 != 0: #nel dubbio, da rivedere
         for i in monete:
-        while importo > 0 and importo % 5 != 0:
+        while importo_monete > 0 and importo_monete % 5 != 0:
         if i == importo:
-        importo -= i
+        importo_monete -= i
         monete_risultato.append(i)
-        elif importo % i == 0:
-        while importo % i == 0: ---
-        importo -= i
+        elif importo_monete % i == 0:
+        while importo_monete % i == 0: ---
+        importo_monete -= i
         monete_risultato.append(i)
-        elif importo - i  >= 0:
-        importo -= i
+        elif importo_monete - i  >= 0:
+        importo_monete -= i
         monete_risultato.append(i)
 
 
