@@ -83,7 +83,7 @@ class PagamentoContanti(Pagamento):
 
         spezzetare importo per dare una parte le banconote e una parte le monete:
         ------------------------
-        #per i centesimi e ance le monete:
+        #per i centesimi e anche le monete:
         
         a = 269.99
         b = 0
