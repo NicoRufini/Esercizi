@@ -47,6 +47,7 @@ Numero della carta: 6543210987654321
 '''
 from abc import ABC, abstractmethod
 
+#Pagamento:
 class Pagamento(ABC):
     def __init__(self) -> None:
         self.__importo: float = None
@@ -61,15 +62,16 @@ class Pagamento(ABC):
     
     @abstractmethod
     def dettagliPagamento(self) -> None: #-> str(?):
-        print(f"Importo del pagamento: €{self.__importo:.2f}") #{'{0:.2f}'.format(self.__importo)}
+        print(f"Importo del pagamento: €{self.__importo():.2f}") #{'{0:.2f}'.format(self.__importo)}
         #pass
 
+#PagamentoContanti:
 class PagamentoContanti(Pagamento):
     def __init__(self) -> None:
         super().__init__()
 
     def dettagliPagamento(self) -> None:
-        print(f"Pagamento in contanti di: €{self.__importo:.2f}")
+        print(f"Pagamento in contanti di: €{self.getImporto():.2f}")
 
     def inPezziDa(self) -> None:
         banconote: list[int] = [500, 200, 100, 50, 20, 10, 5]
@@ -139,3 +141,22 @@ class PagamentoContanti(Pagamento):
 
 
         '''
+
+#PagamentoCartaDiCredito:
+class PagamentoCartaDiCredito(Pagamento):
+    def __init__(self, nome_titolare: str, data_scadenza: str, numero_carta: int) -> None: #numero_carta: str
+        super().__init__()
+        self.nome_titolare = nome_titolare
+        self.data_scadenza = data_scadenza
+        self.numero_carta = numero_carta
+
+    def dettagliPagamento(self) -> None:
+        print(f"Pagamento di: €{self.__importo:.2f} effettuato con la carta di credito")
+        print(f"Nome sulla carta: {self.nome_titolare}")
+        print(f"Data di scadenza: {self.data_scadenza}")
+        print(f"Numero della carta: {self.numero_carta}")
+
+#pagamentoContanti: PagamentoContanti = PagamentoContanti()
+
+#pagamentoContanti.setImporto(25.2)
+#pagamentoContanti.dettagliPagamento()
