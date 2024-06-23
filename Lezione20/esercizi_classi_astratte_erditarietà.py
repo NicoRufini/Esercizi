@@ -81,7 +81,7 @@ class PagamentoContanti(Pagamento):
         '''
         if importo % 5 == 0:
         for i in banconote:
-        while importo > 0 or importo % 5 == 0: #---
+        while importo > 0 and importo % 5 == 0: #--- #and importo > 0 forse non è necessario
         if i == importo:
         importo -= i
         banconote_risultato.append(i)
