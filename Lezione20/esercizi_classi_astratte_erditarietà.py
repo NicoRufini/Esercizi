@@ -79,18 +79,59 @@ class PagamentoContanti(Pagamento):
         importo = self.getImporto()
 
         '''
+        importo_monete: float = 0
+
+        spezzetare importo per dare una parte le banconote e una parte le monete:
+        ------------------------
+        #per i centesimi e ance le monete:
+        
+        a = 269.99
+        b = 0
+        if a % 1 != 0:
+        b += round(a % 1, 2) 
+        a -= b
+
+        while a % 5 != 0:
+        a -= 1 #0.01
+        b += 1 #0.01
+    
+        print("a:", a, "b:", b)
+        ------------------------
+
+        while importo % 5 != 0:
+        importo -= 1
+        importo_monete += 1
+        
+        #è per le banconote:
         if importo % 5 == 0:
         for i in banconote:
         while importo > 0 and importo % 5 == 0: #--- #and importo > 0 forse non è necessario
         if i == importo:
         importo -= i
         banconote_risultato.append(i)
-        elif importo % i == 0: ---
+        elif importo % i == 0:
         while importo % i == 0:
         importo -= i
         banconote_risultato.append(i)
         elif importo - i  >= 0:
         importo -= i
         banconote_risultato.append(i)
+
+        #è per le monete:
+        if importo % 5 != 0: #nel dubbio, da rivedere
+        for i in monete:
+        while importo > 0 and importo % 5 != 0:
+        if i == importo:
+        importo -= i
+        monete_risultato.append(i)
+        elif importo % i == 0:
+        while importo % i == 0: ---
+        importo -= i
+        monete_risultato.append(i)
+        elif importo - i  >= 0:
+        importo -= i
+        monete_risultato.append(i)
+
+
 
         '''
