@@ -138,8 +138,14 @@ class PagamentoContanti(Pagamento):
         importo_monete -= i
         monete_risultato.append(i)
 
+        banconote_risultato_string: str = "" #non è ""
+        monete_risultato_string: str = "" #non è ""
 
+        for i in range(len(banco_risultato)):
+        if i != (len(banco_risultato) -1):
+        banconote_risultato_string += f"1 banconota da 50 euro" #cambia 1 con il count e 50 con banco_risultato[i]
 
+        #Continua dopo con monete_risultato_string
         '''
 
 #PagamentoCartaDiCredito:
