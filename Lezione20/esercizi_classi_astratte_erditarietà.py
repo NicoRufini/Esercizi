@@ -141,8 +141,9 @@ class PagamentoContanti(Pagamento):
         banconote_risultato_string: str = "" #non è ""
         monete_risultato_string: str = "" #non è ""
 
+        #Per aggiornare le stringhe:
         for i in range(len(banco_risultato)): #---Da rivedere
-        if i != (len(banco_risultato) -1):
+        if i != (len(banco_risultato) -1): #ci potrei mettere un and e verificare che l'item subito accanto è diverso, non rispetterà l'if se è uguale, ritrova la formula per calcolare l'indice dell'item accanto senza andare 'out of bound'
         banconote_risultato_string += f"{banco_risultato.count(banco_risultato[i])} banconota da {banco_risultato[i]} euro\n" #cambia 1 con il count e 50 con banco_risultato[i]
 
         banconote_risultato_string += f"{banco_risultato.count(banco_risultato[-1])} banconota da {banco_risultato[-1]} euro"        
