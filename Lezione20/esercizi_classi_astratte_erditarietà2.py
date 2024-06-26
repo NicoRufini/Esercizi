@@ -78,7 +78,10 @@ class Quadrato(Forma):
     def render(self):
         contatore: int = 0
 
-        print(f"Ecco un Quadrato di lato {self.lato}!")
+        if self.lato >= 0: #|??????????????????
+            print(f"Ecco un Quadrato di lato {self.lato}!")
+        else: #
+            print("I lati del quadrato non possono avere dei valori negativi") #
 
         if self.lato > 0:
             print("* "*self.lato)
@@ -91,7 +94,9 @@ class Quadrato(Forma):
 
         if self.lato >= 2:
             print("* "*self.lato)
-        print("L'area di questo quadrato vale:", self.getArea())
+
+        if self.lato >= 0: #|??????????????????
+            print("L'area di questo quadrato vale:", self.getArea(), "\n")
 
 #Rettangolo:
 class Rettangolo(Forma):
@@ -106,7 +111,12 @@ class Rettangolo(Forma):
         contatore: int = 0
 
         if self.base != self.altezza:
-            print(f"Ecco un Rettangolo avente base {self.base} ed altezza {self.altezza}!")
+            '''if self.base < 0 or self.altezza < 0: #if self.base >= 0 or self.altezza >= 0:
+                print(f"Ecco un Rettangolo avente base {self.base} ed altezza {self.altezza}!")'''
+            if self.base >= 0 and self.altezza >= 0: #|??????????????????
+                print(f"Ecco un Rettangolo avente base {self.base} ed altezza {self.altezza}!")
+            else: #
+                print("La base e/o l'altezza del rettangolo non possono avere dei valori negativi") #
 
             if self.base > 0 and self.altezza > 0:
                 print("* "*self.base)
@@ -114,7 +124,7 @@ class Rettangolo(Forma):
                 print("")
 
         
-            while contatore < self.altezza - 2:
+            while contatore < self.altezza - 2 and self.base > 0: #and self.base > 0:
                 print("*"+" "*(self.base*2 - 3)+"*") #print("*"+" "*(self.altezza*2 + (self.base - 3))+"*")
                 contatore += 1
             '''elif self.altezza > self.base:
@@ -125,10 +135,11 @@ class Rettangolo(Forma):
             if self.altezza >= 2:
                 print("* "*self.base)
             
-            print("L'area di questo rettangolo vale:", self.getArea())
+            if self.base >= 0 and self.altezza >= 0: #|??????????????????
+                print("L'area di questo rettangolo vale:", self.getArea(), "\n")
         
         else:
-            print("Un rettangolo non può avere base ed altezza uguali")
+            print("Un rettangolo non può avere base ed altezza uguali\n")
 
 #Triangolo:
 class Triangolo(Forma):
@@ -142,7 +153,10 @@ class Triangolo(Forma):
         contatore: int = 0
         spazio: int = 0
 
-        print(f"Ecco un Triangolo avente base {self.lato} ed altezza {self.lato}!")
+        if self.lato >= 0: #|??????????????????
+            print(f"Ecco un Triangolo avente base {self.lato} ed altezza {self.lato}!")
+        else: #
+            print("I lati del triangolo non possono avere dei valori negativi") #
 
         while contatore < self.lato - 1:
             print("*"+" "*spazio+"*")
@@ -154,7 +168,8 @@ class Triangolo(Forma):
         else:
             print("")
 
-        print("L'area di questo triangolo vale:", self.getArea())
+        if self.lato >= 0: #|??????????????????
+            print("L'area di questo triangolo vale:", self.getArea(), "\n")
 
 print("(Quadrato)", "-"*30)
 #Quadrato:
@@ -221,7 +236,7 @@ rettangolo0: Rettangolo = Rettangolo(0, 0)
 rettangolo0.render()
 
 #altezza -1:
-rettangolo0: Rettangolo = Rettangolo(-1, 7)
+rettangolo0: Rettangolo = Rettangolo(7, -1)
 rettangolo0.render()
 
 #altezza 8:
