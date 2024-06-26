@@ -105,25 +105,30 @@ class Rettangolo(Forma):
     def render(self):
         contatore: int = 0
 
-        print(f"Ecco un Rettangolo avente base {self.base} ed altezza {self.altezza}!")
+        if self.base != self.altezza:
+            print(f"Ecco un Rettangolo avente base {self.base} ed altezza {self.altezza}!")
 
-        if self.base > 0 and self.altezza > 0:
-            print("* "*self.base)
-        else:
-            print("")
+            if self.base > 0 and self.altezza > 0:
+                print("* "*self.base)
+            else:
+                print("")
 
-        #if self.base > self.altezza:
-        while contatore < self.altezza - 2:
-            print("*"+" "*(self.base*2 - 3)+"*") #print("*"+" "*(self.altezza*2 + (self.base - 3))+"*")
-            contatore += 1
-        '''elif self.altezza > self.base:
+        
             while contatore < self.altezza - 2:
-                print("*"+" "*(self.base*2 - 3)+"*") #print("*"+" "*(self.altezza*2 + 13)+"*")
-                contatore += 1'''
+                print("*"+" "*(self.base*2 - 3)+"*") #print("*"+" "*(self.altezza*2 + (self.base - 3))+"*")
+                contatore += 1
+            '''elif self.altezza > self.base:
+                while contatore < self.altezza - 2:
+                    print("*"+" "*(self.base*2 - 3)+"*") #print("*"+" "*(self.altezza*2 + 13)+"*")
+                    contatore += 1'''
 
-        if self.altezza >= 2:
-            print("* "*self.base)
-        print("L'area di questo rettangolo vale:", self.getArea())
+            if self.altezza >= 2:
+                print("* "*self.base)
+            
+            print("L'area di questo rettangolo vale:", self.getArea())
+        
+        else:
+            print("Un rettangolo non può avere base ed altezza uguali")
 
 #Triangolo:
 class Triangolo(Forma):
@@ -134,7 +139,22 @@ class Triangolo(Forma):
         return (self.lato*self.lato)/2
 
     def render(self):
+        contatore: int = 0
+        spazio: int = 0
+
         print(f"Ecco un Triangolo avente base {self.lato} ed altezza {self.lato}!")
+
+        while contatore < self.lato - 1:
+            print("*"+" "*spazio+"*")
+            contatore += 1
+            spazio += 2
+
+        if self.lato > 0:
+            print("* "*self.lato)
+        else:
+            print("")
+
+        print("L'area di questo triangolo vale:", self.getArea())
 
 print("(Quadrato)", "-"*30)
 #Quadrato:
@@ -164,6 +184,10 @@ quadrato0.render()
 
 #Lato 0:
 quadrato0: Quadrato = Quadrato(0)
+quadrato0.render()
+
+#Lato -1:
+quadrato0: Quadrato = Quadrato(-1)
 quadrato0.render()
 
 print("\n(Rettangolo)", "-"*30)
@@ -196,6 +220,10 @@ rettangolo0.render()
 rettangolo0: Rettangolo = Rettangolo(0, 0)
 rettangolo0.render()
 
+#altezza -1:
+rettangolo0: Rettangolo = Rettangolo(-1, 7)
+rettangolo0.render()
+
 #altezza 8:
 rettangolo0: Rettangolo = Rettangolo(4, 8)
 rettangolo0.render()
@@ -219,3 +247,41 @@ rettangolo0.render()
 #altezza 1:
 rettangolo0: Rettangolo = Rettangolo(0, 1)
 rettangolo0.render()
+
+#altezza -1:
+rettangolo0: Rettangolo = Rettangolo(7, -1)
+rettangolo0.render()
+
+print("\n(Triangolo)", "-"*30)
+#Triangolo:
+#Lato 8:
+triangolo0: Triangolo = Triangolo(8)
+triangolo0.render()
+
+#Lato 15:
+triangolo0: Triangolo = Triangolo(15)
+triangolo0.render()
+
+#Lato 4:
+triangolo0: Triangolo = Triangolo(4)
+triangolo0.render()
+
+#Lato 5:
+triangolo0: Triangolo = Triangolo(5)
+triangolo0.render()
+
+#Lato 2:
+triangolo0: Triangolo = Triangolo(2)
+triangolo0.render()
+
+#Lato 1:
+triangolo0: Triangolo = Triangolo(1)
+triangolo0.render()
+
+#Lato 0:
+triangolo0: Triangolo = Triangolo(0)
+triangolo0.render()
+
+#Lato -1:
+triangolo0: Triangolo = Triangolo(-1)
+triangolo0.render()
