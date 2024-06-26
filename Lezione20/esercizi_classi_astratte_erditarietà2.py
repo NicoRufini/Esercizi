@@ -36,15 +36,15 @@ Esempi di output:
 Ecco un Quadrato di lato 4!
 
 * * * *
-*      *
-*      *
+*       *
+*       *
 * * * *
 L'area di questo quadrato vale: 16
 
 Ecco un Rettangolo avente base 8 ed altezza 4!
 * * * * * * * *
-*                *
-*                *
+*             *
+*             *
 * * * * * * * *
 L'area di questo rettangolo vale: 32
 
@@ -67,14 +67,155 @@ class Forma(ABC):
     def render(self):
         pass #continua, potrei usare vari print()
 
-#Quadrato :
+#Quadrato:
 class Quadrato(Forma):
-    pass
+    def __init__(self, lato: int) -> None:
+        self.lato = lato
+
+    def getArea(self):
+        return self.lato**2 
+    
+    def render(self):
+        contatore: int = 0
+
+        print(f"Ecco un Quadrato di lato {self.lato}!")
+
+        if self.lato > 0:
+            print("* "*self.lato)
+        else:
+            print("")
+
+        while contatore < self.lato - 2:
+            print("*"+" "*(self.lato*2 - 3)+"*")
+            contatore += 1
+
+        if self.lato >= 2:
+            print("* "*self.lato)
+        print("L'area di questo quadrato vale:", self.getArea())
 
 #Rettangolo:
 class Rettangolo(Forma):
-    pass
+    def __init__(self, base: int, altezza: int) -> None:
+        self.base = base
+        self.altezza = altezza
 
-#Rettangolo:
+    def getArea(self):
+        return self.base*self.altezza 
+    
+    def render(self):
+        contatore: int = 0
+
+        print(f"Ecco un Rettangolo avente base {self.base} ed altezza {self.altezza}!")
+
+        if self.base > 0 and self.altezza > 0:
+            print("* "*self.base)
+        else:
+            print("")
+
+        #if self.base > self.altezza:
+        while contatore < self.altezza - 2:
+            print("*"+" "*(self.base*2 - 3)+"*") #print("*"+" "*(self.altezza*2 + (self.base - 3))+"*")
+            contatore += 1
+        '''elif self.altezza > self.base:
+            while contatore < self.altezza - 2:
+                print("*"+" "*(self.base*2 - 3)+"*") #print("*"+" "*(self.altezza*2 + 13)+"*")
+                contatore += 1'''
+
+        if self.altezza >= 2:
+            print("* "*self.base)
+        print("L'area di questo rettangolo vale:", self.getArea())
+
+#Triangolo:
 class Triangolo(Forma):
-    pass
+    def __init__(self, lato: int) -> None:
+        self.lato = lato
+
+    def getArea(self):
+        return (self.lato*self.lato)/2
+
+    def render(self):
+        print(f"Ecco un Triangolo avente base {self.lato} ed altezza {self.lato}!")
+
+print("(Quadrato)", "-"*30)
+#Quadrato:
+#Lato 8:
+quadrato0: Quadrato = Quadrato(8)
+quadrato0.render()
+
+#Lato 15:
+quadrato0: Quadrato = Quadrato(15)
+quadrato0.render()
+
+#Lato 4:
+quadrato0: Quadrato = Quadrato(4)
+quadrato0.render()
+
+#Lato 5:
+quadrato0: Quadrato = Quadrato(5)
+quadrato0.render()
+
+#Lato 2:
+quadrato0: Quadrato = Quadrato(2)
+quadrato0.render()
+
+#Lato 1:
+quadrato0: Quadrato = Quadrato(1)
+quadrato0.render()
+
+#Lato 0:
+quadrato0: Quadrato = Quadrato(0)
+quadrato0.render()
+
+print("\n(Rettangolo)", "-"*30)
+#Rettangolo:
+#base 8:
+rettangolo0: Rettangolo = Rettangolo(8, 4)
+rettangolo0.render()
+
+#base 15:
+rettangolo0: Rettangolo = Rettangolo(15, 7)
+rettangolo0.render()
+
+#base 4:
+rettangolo0: Rettangolo = Rettangolo(4, 2)
+rettangolo0.render()
+
+#base 5:
+rettangolo0: Rettangolo = Rettangolo(5, 3)
+rettangolo0.render()
+
+#base 2:
+rettangolo0: Rettangolo = Rettangolo(2, 1)
+rettangolo0.render()
+
+#base 1:
+rettangolo0: Rettangolo = Rettangolo(1, 0)
+rettangolo0.render()
+
+#base 0:
+rettangolo0: Rettangolo = Rettangolo(0, 0)
+rettangolo0.render()
+
+#altezza 8:
+rettangolo0: Rettangolo = Rettangolo(4, 8)
+rettangolo0.render()
+
+#altezza 15:
+rettangolo0: Rettangolo = Rettangolo(7, 15)
+rettangolo0.render()
+
+#altezza 4:
+rettangolo0: Rettangolo = Rettangolo(2, 4)
+rettangolo0.render()
+
+#altezza 5:
+rettangolo0: Rettangolo = Rettangolo(3, 4)
+rettangolo0.render()
+
+#altezza 2:
+rettangolo0: Rettangolo = Rettangolo(1, 2)
+rettangolo0.render()
+
+#altezza 1:
+rettangolo0: Rettangolo = Rettangolo(0, 1)
+rettangolo0.render()
