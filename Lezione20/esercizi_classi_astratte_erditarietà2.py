@@ -139,7 +139,7 @@ class Rettangolo(Forma):
                 print("L'area di questo rettangolo vale:", self.getArea(), "\n")
         
         else:
-            print("Un rettangolo non può avere base ed altezza uguali\n")
+            print("Un rettangolo non può essere equilatero\n")
 
 #Triangolo:
 class Triangolo(Forma):
@@ -151,22 +151,27 @@ class Triangolo(Forma):
 
     def render(self):
         contatore: int = 0
-        spazio: int = 0
+        spazio: int = 1 #spazio: int = 0
 
         if self.lato >= 0: #|??????????????????
             print(f"Ecco un Triangolo avente base {self.lato} ed altezza {self.lato}!")
         else: #
             print("I lati del triangolo non possono avere dei valori negativi") #
 
-        while contatore < self.lato - 1:
+        if self.lato > 0: ###
+            print("*") ###
+        else:
+            print("") ###
+
+        while contatore < self.lato - 2: #self.lato - 1:
             print("*"+" "*spazio+"*")
             contatore += 1
-            spazio += 2
+            spazio += 2 #spazio += 2
 
-        if self.lato > 0:
+        if self.lato > 1: #if self.lato > 0:
             print("* "*self.lato)
-        else:
-            print("")
+        #else: #
+            #print("") #
 
         if self.lato >= 0: #|??????????????????
             print("L'area di questo triangolo vale:", self.getArea(), "\n")
@@ -300,3 +305,5 @@ triangolo0.render()
 #Lato -1:
 triangolo0: Triangolo = Triangolo(-1)
 triangolo0.render()
+
+#extra(?) potrei arrotondare per ecesso(?) se gli attributi delle classi sono float
