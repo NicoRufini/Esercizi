@@ -125,19 +125,32 @@ class PagamentoContanti(Pagamento):
         #Per aggiornare le stringhe:
         for i in range(len(banconote_risultato)): #---Da rivedere #"banconote" se il count è maggiore di 1
             if i != (len(banconote_risultato) -1) and banconote_risultato[i] != banconote_risultato[-len(banconote_risultato) + i + 1]: #ci potrei mettere un and e verificare che l'item subito accanto è diverso, non rispetterà l'if se è uguale, ritrova la formula per calcolare l'indice dell'item accanto senza andare 'out of bound', ho fatto qualche prova e sembra andare bene
-                banconote_risultato_string += f"{banconote_risultato.count(banconote_risultato[i])} banconota da {banconote_risultato[i]} euro\n" #cambia 1 con il count e 50 con banco_risultato[i]
+                if banconote_risultato.count(banconote_risultato[i]) == 1: #
+                    banconote_risultato_string += f"{banconote_risultato.count(banconote_risultato[i])} banconota da {banconote_risultato[i]} euro\n" #cambia 1 con il count e 50 con banco_risultato[i]
+                elif banconote_risultato.count(banconote_risultato[i]) > 1: #
+                    banconote_risultato_string += f"{banconote_risultato.count(banconote_risultato[i])} banconote da {banconote_risultato[i]} euro\n"
 
         if len(banconote_risultato) != 0: #nel caso in cui la lista rimanga vuota
-            banconote_risultato_string += f"{banconote_risultato.count(banconote_risultato[-1])} banconota da {banconote_risultato[-1]} euro"        
+            if banconote_risultato.count(banconote_risultato[-1]) == 1: #
+                banconote_risultato_string += f"{banconote_risultato.count(banconote_risultato[-1])} banconota da {banconote_risultato[-1]} euro"        
+            elif banconote_risultato.count(banconote_risultato[-1]) > 1: #
+                    banconote_risultato_string += f"{banconote_risultato.count(banconote_risultato[i])} banconote da {banconote_risultato[i]} euro"
+
 
         #Continua dopo con monete_risultato_string
 
         for i in range(len(monete_risultato)):
             if i != (len(monete_risultato) -1) and monete_risultato[i] != monete_risultato[-len(monete_risultato) + i + 1]:
-                monete_risultato_string += f"{monete_risultato.count(monete_risultato[i])} moneta da {monete_risultato[i]} euro\n"
+                if monete_risultato.count(monete_risultato[i]) == 1: #
+                    monete_risultato_string += f"{monete_risultato.count(monete_risultato[i])} moneta da {monete_risultato[i]} euro\n"
+                elif monete_risultato.count(monete_risultato[i]) > 1: #
+                    monete_risultato_string += f"{monete_risultato.count(monete_risultato[i])} monete da {monete_risultato[i]} euro\n"
 
         if len(monete_risultato) != 0: #nel caso in cui la lista rimanga vuota
-            monete_risultato_string += f"{monete_risultato.count(monete_risultato[-1])} moneta da {monete_risultato[-1]} euro"
+            if monete_risultato.count(monete_risultato[-1]) == 1: #
+                monete_risultato_string += f"{monete_risultato.count(monete_risultato[-1])} moneta da {monete_risultato[-1]} euro"
+            elif monete_risultato.count(monete_risultato[-1]) > 1: #
+                    monete_risultato_string += f"{monete_risultato.count(monete_risultato[i])} monete da {monete_risultato[i]} euro"
 
         if banconote_risultato_string != "": ###
             risultato_string += f"\n{banconote_risultato_string}" ###
@@ -346,8 +359,8 @@ class PagamentoCartaDiCredito(Pagamento):
         print(f"Data di scadenza: {self.data_scadenza}")
         print(f"Numero della carta: {self.numero_carta}")
 
-#prove per l'importo: 25474369.89; 1517.62 |(?); 1500 |(?); 500; 700; 2483; 389.00; 176.0
-#prove per l'importo EXTRA: 10**10 |; 0.00; \/326742369
+#prove per l'importo: 25474369.89; 1517.62; 1500; 500; 700; 2483; 389.00; 176.0
+#prove per l'importo EXTRA: 10**10 + 9**10 + 0.99; 0.00; \/326742369
 
 #prova dettagliPagamento(): |
 #pagamentoContanti.dettagliPagamento() #
@@ -357,6 +370,6 @@ pagamentoContanti: PagamentoContanti = PagamentoContanti()
 ###Prove inPezziDa():
 
 #prova importo = 1517.62:
-pagamentoContanti.setImporto(520.21) #
+pagamentoContanti.setImporto(-(10**10 + 9**10 + 0.99)) #
 
 pagamentoContanti.inPezziDa() #
