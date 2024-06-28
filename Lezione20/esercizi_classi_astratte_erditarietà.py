@@ -84,6 +84,12 @@ class PagamentoContanti(Pagamento):
         #'''
         importo_monete: float = 0
 
+        if importo < 0:
+            import sys
+
+            sys.exit("L'importo non può avere un valore negativo")
+            #break #
+
         #prove per l'importo: 1517.62 #|(?); 1500 #|(?); 500; 700; 2483; 389.00; 176.0
         #prove per l'importo EXTRA: 0.00
 
@@ -143,8 +149,8 @@ class PagamentoContanti(Pagamento):
             print(risultato_string)
         elif self.getImporto() == 0:
             print("Non deve pagare niente per questo importo")
-        else:
-            print("Non può inserire un valore negativo")
+        #else: #
+            #print("Non può inserire un valore negativo") #
 
         #'''
         ##########
@@ -351,6 +357,6 @@ pagamentoContanti: PagamentoContanti = PagamentoContanti()
 ###Prove inPezziDa():
 
 #prova importo = 1517.62:
-pagamentoContanti.setImporto(1517.62878) #
+pagamentoContanti.setImporto(1517.61) #
 
 pagamentoContanti.inPezziDa() #
