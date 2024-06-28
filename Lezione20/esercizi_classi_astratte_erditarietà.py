@@ -100,7 +100,7 @@ class PagamentoContanti(Pagamento):
         print("a:", a, "b:", b)
         ------------------------
 
-        prove per l'importo: 1517.62; 500; 700; 2483; 389.00; 176.0
+        prove per l'importo: 1517.62; 1500 #|; 500; 700; 2483; 389.00; 176.0
         prove per l'importo EXTRA: 0.00
 
         if importo_monete % 1 != 0:
@@ -119,7 +119,7 @@ class PagamentoContanti(Pagamento):
         importo -= i
         banconote_risultato.append(i)
         elif importo % i == 0:
-        while importo % i == 0:
+        while importo % i == 0 and importo > 0: #and importo > 0:
         importo -= i
         banconote_risultato.append(i)
         elif importo - i  >= 0:
@@ -133,7 +133,7 @@ class PagamentoContanti(Pagamento):
         if i == importo:
         importo_monete -= i
         monete_risultato.append(i)
-        elif importo_monete % i == 0:
+        elif importo_monete % i == 0 and importo > 0: #and importo > 0:
         while importo_monete % i == 0: ---
         importo_monete -= i
         monete_risultato.append(i)
@@ -148,10 +148,11 @@ class PagamentoContanti(Pagamento):
         monete_risultato_string: str = "" #non è "" ###forse le posso lasciare a ""
 
         #Per aggiornare le stringhe:
-        for i in range(len(banconote_risultato)): #---Da rivedere
+        for i in range(len(banconote_risultato)): #---Da rivedere #"banconote" se il count è maggiore di 1
         if i != (len(banconote_risultato) -1) and banconote_risultato[i] != banconote_risultato[-len(banconote_risultato) + i + 1]: #ci potrei mettere un and e verificare che l'item subito accanto è diverso, non rispetterà l'if se è uguale, ritrova la formula per calcolare l'indice dell'item accanto senza andare 'out of bound', ho fatto qualche prova e sembra andare bene
         banconote_risultato_string += f"{banconote_risultato.count(banconote_risultato[i])} banconota da {banconote_risultato[i]} euro\n" #cambia 1 con il count e 50 con banco_risultato[i]
 
+        if len(banconote_risultato) != 0: #nel case in cui la lista rimanga vuota
         banconote_risultato_string += f"{banconote_risultato.count(banconote_risultato[-1])} banconota da {banconote_risultato[-1]} euro"        
 
         #Continua dopo con monete_risultato_string
@@ -160,6 +161,7 @@ class PagamentoContanti(Pagamento):
         if i != (len(monete_risultato) -1) and monete_risultato[i] != monete_risultato[-len(monete_risultato) + i + 1]:
         monete_risultato_string += f"{monete_risultato.count(monete_risultato[i]} moneta da {monete_risultato[i]} euro\n"
 
+        if len(monete_risultato) != 0: #nel case in cui la lista rimanga vuota
         monete_risultato_string += f"{monete_risultato.count(monete_risultato[-1])} banconota da {monete_risultato[-1]} euro"
 
         if banconote_risultato_string != "": ###
