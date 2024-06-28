@@ -80,8 +80,77 @@ class PagamentoContanti(Pagamento):
         monete_risultato: list[float] = []
         importo: float = self.getImporto()
 
+        ########## (2)
+        #'''
+        importo_monete: float = 0
+
+        #prove per l'importo: 1517.62 #|(?); 1500 #|(?); 500; 700; 2483; 389.00; 176.0
+        #prove per l'importo EXTRA: 0.00
+
+        if importo_monete % 1 != 0:
+            importo_monete +=  round(importo % 1, 2)
+            importo -= importo_monete
+
+        while importo % 5 != 0:
+            importo -= 1
+            importo_monete += 1
+
+        #è per le banconote:
+        if importo != 0:
+            for i in banconote:
+                    while importo - i  >= 0: #  
+                        importo -= i
+                        banconote_risultato.append(i)
+
+        #è per le monete:
+        if importo_monete != 0: #nel dubbio, da rivedere
+            for i in monete:
+                    while importo_monete - i  >= 0: #  
+                        importo_monete -= i
+                        monete_risultato.append(i)
+
+        ###idea per il risultato:
+        risultato_string: str = f"{self.getImporto()} euro da pagare in contanti con:"
+
+        banconote_risultato_string: str = "" #non è "" ###forse le posso lasciare a ""
+        monete_risultato_string: str = "" #non è "" ###forse le posso lasciare a ""
+
+
+        #Per aggiornare le stringhe:
+        for i in range(len(banconote_risultato)): #---Da rivedere #"banconote" se il count è maggiore di 1
+            if i != (len(banconote_risultato) -1) and banconote_risultato[i] != banconote_risultato[-len(banconote_risultato) + i + 1]: #ci potrei mettere un and e verificare che l'item subito accanto è diverso, non rispetterà l'if se è uguale, ritrova la formula per calcolare l'indice dell'item accanto senza andare 'out of bound', ho fatto qualche prova e sembra andare bene
+                banconote_risultato_string += f"{banconote_risultato.count(banconote_risultato[i])} banconota da {banconote_risultato[i]} euro\n" #cambia 1 con il count e 50 con banco_risultato[i]
+
+        if len(banconote_risultato) != 0: #nel caso in cui la lista rimanga vuota
+            banconote_risultato_string += f"{banconote_risultato.count(banconote_risultato[-1])} banconota da {banconote_risultato[-1]} euro"        
+
+        #Continua dopo con monete_risultato_string
+
+        for i in range(len(monete_risultato)):
+            if i != (len(monete_risultato) -1) and monete_risultato[i] != monete_risultato[-len(monete_risultato) + i + 1]:
+                monete_risultato_string += f"{monete_risultato.count(monete_risultato[i])} moneta da {monete_risultato[i]} euro\n"
+
+        if len(monete_risultato) != 0: #nel caso in cui la lista rimanga vuota
+            monete_risultato_string += f"{monete_risultato.count(monete_risultato[-1])} moneta da {monete_risultato[-1]} euro"
+
+        if banconote_risultato_string != "": ###
+            risultato_string += f"\n{banconote_risultato_string}" ###
+
+        if monete_risultato_string != "": ###
+            risultato_string += f"\n{monete_risultato_string}" ###
+
+        if self.getImporto() != 0:
+            print(risultato_string)
+        elif self.getImporto() == 0:
+            print("Non deve pagare niente per questo importo")
+        else:
+            print("Non può inserire un valore negativo")
+
+        #'''
         ##########
 
+        ########## (1)\\\
+        '''
         importo_monete: float = 0
 
         #prove per l'importo: 1517.62 #|(?); 1500 #|(?); 500; 700; 2483; 389.00; 176.0
@@ -149,7 +218,7 @@ class PagamentoContanti(Pagamento):
                 monete_risultato_string += f"{monete_risultato.count(monete_risultato[i])} moneta da {monete_risultato[i]} euro\n"
 
         if len(monete_risultato) != 0: #nel caso in cui la lista rimanga vuota
-            monete_risultato_string += f"{monete_risultato.count(monete_risultato[-1])} banconota da {monete_risultato[-1]} euro"
+            monete_risultato_string += f"{monete_risultato.count(monete_risultato[-1])} moneta da {monete_risultato[-1]} euro"
 
         if banconote_risultato_string != "": ###
             risultato_string += f"\n{banconote_risultato_string}" ###
@@ -159,6 +228,7 @@ class PagamentoContanti(Pagamento):
 
         print(risultato_string)
 
+        '''
         ##########
 
         '''
@@ -270,8 +340,8 @@ class PagamentoCartaDiCredito(Pagamento):
         print(f"Data di scadenza: {self.data_scadenza}")
         print(f"Numero della carta: {self.numero_carta}")
 
-#prove per l'importo: 1517.62 #|(?); 1500 #|(?); 500; 700; 2483; 389.00; 176.0
-#prove per l'importo EXTRA: 0.00
+#prove per l'importo: 1517.62 |(?); 1500 |(?); 500; 700; 2483; 389.00; 176.0
+#prove per l'importo EXTRA: 10**10 |; 0.00; \/326742369
 
 #prova dettagliPagamento(): |
 #pagamentoContanti.dettagliPagamento() #
@@ -281,6 +351,6 @@ pagamentoContanti: PagamentoContanti = PagamentoContanti()
 ###Prove inPezziDa():
 
 #prova importo = 1517.62:
-pagamentoContanti.setImporto(1517.62)
+pagamentoContanti.setImporto(1.5) #
 
-pagamentoContanti.inPezziDa()
+pagamentoContanti.inPezziDa() #
