@@ -87,7 +87,7 @@ class PagamentoContanti(Pagamento):
         #prove per l'importo: 1517.62 #|(?); 1500 #|(?); 500; 700; 2483; 389.00; 176.0
         #prove per l'importo EXTRA: 0.00
 
-        if importo_monete % 1 != 0:
+        if importo % 1 != 0:
             importo_monete +=  round(importo % 1, 2)
             importo -= importo_monete
 
@@ -351,6 +351,6 @@ pagamentoContanti: PagamentoContanti = PagamentoContanti()
 ###Prove inPezziDa():
 
 #prova importo = 1517.62:
-pagamentoContanti.setImporto(1.5) #
+pagamentoContanti.setImporto(1517.62878) #
 
 pagamentoContanti.inPezziDa() #
