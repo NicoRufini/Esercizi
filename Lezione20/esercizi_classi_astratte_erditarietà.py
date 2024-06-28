@@ -270,7 +270,17 @@ class PagamentoCartaDiCredito(Pagamento):
         print(f"Data di scadenza: {self.data_scadenza}")
         print(f"Numero della carta: {self.numero_carta}")
 
-#pagamentoContanti: PagamentoContanti = PagamentoContanti()
+#prove per l'importo: 1517.62 #|(?); 1500 #|(?); 500; 700; 2483; 389.00; 176.0
+#prove per l'importo EXTRA: 0.00
 
-#pagamentoContanti.setImporto(25.2)
-#pagamentoContanti.dettagliPagamento()
+#prova dettagliPagamento(): |
+#pagamentoContanti.dettagliPagamento() #
+
+pagamentoContanti: PagamentoContanti = PagamentoContanti()
+
+###Prove inPezziDa():
+
+#prova importo = 1517.62:
+pagamentoContanti.setImporto(1517.62)
+
+pagamentoContanti.inPezziDa()
