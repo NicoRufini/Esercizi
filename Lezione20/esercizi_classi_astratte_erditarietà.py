@@ -83,7 +83,7 @@ class PagamentoContanti(Pagamento):
         ########## (2)
         #'''
         importo_monete: float = 0
-
+        
         if importo < 0:
             import sys
 
@@ -94,7 +94,7 @@ class PagamentoContanti(Pagamento):
         #prove per l'importo EXTRA: 0.00
 
         if importo % 1 != 0:
-            importo_monete +=  round(importo % 1, 2)
+            importo_monete += round(importo % 1, 2) #round(importo % 1, 2) #importo % 1
             importo -= importo_monete
 
         while importo % 5 != 0:
@@ -346,7 +346,7 @@ class PagamentoCartaDiCredito(Pagamento):
         print(f"Data di scadenza: {self.data_scadenza}")
         print(f"Numero della carta: {self.numero_carta}")
 
-#prove per l'importo: 1517.62 |(?); 1500 |(?); 500; 700; 2483; 389.00; 176.0
+#prove per l'importo: 25474369.89; 1517.62 |(?); 1500 |(?); 500; 700; 2483; 389.00; 176.0
 #prove per l'importo EXTRA: 10**10 |; 0.00; \/326742369
 
 #prova dettagliPagamento(): |
@@ -357,6 +357,6 @@ pagamentoContanti: PagamentoContanti = PagamentoContanti()
 ###Prove inPezziDa():
 
 #prova importo = 1517.62:
-pagamentoContanti.setImporto(1517.61) #
+pagamentoContanti.setImporto(520.21) #
 
 pagamentoContanti.inPezziDa() #
