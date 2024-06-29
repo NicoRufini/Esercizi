@@ -86,7 +86,7 @@ class PagamentoContanti(Pagamento):
         
         if importo < 0:
             import sys
-
+            
             sys.exit("L'importo non può avere un valore negativo")
             #break #
 
@@ -354,7 +354,7 @@ class PagamentoCartaDiCredito(Pagamento):
         self.numero_carta = numero_carta
 
     def dettagliPagamento(self) -> None:
-        print(f"Pagamento di: €{self.__importo:.2f} effettuato con la carta di credito")
+        print(f"Pagamento di: €{self.getImporto():.2f} effettuato con la carta di credito")
         print(f"Nome sulla carta: {self.nome_titolare}")
         print(f"Data di scadenza: {self.data_scadenza}")
         print(f"Numero della carta: {self.numero_carta}")
@@ -365,11 +365,34 @@ class PagamentoCartaDiCredito(Pagamento):
 #prova dettagliPagamento(): |
 #pagamentoContanti.dettagliPagamento() #
 
-pagamentoContanti: PagamentoContanti = PagamentoContanti()
 
-###Prove inPezziDa():
+###Prove PagamentoContanti:
+print("(PagamentoContanti)", "#"*50 + "\n")
+
+pagamentoContanti: PagamentoContanti = PagamentoContanti()
 
 #prova importo = 1517.62:
 pagamentoContanti.setImporto(-(10**10 + 9**10 + 0.99)) #
 
 pagamentoContanti.inPezziDa() #
+
+###Prove PagamentoCartaDiCredito:
+''' #
+print("(PagamentoCartaDiCredito)", "#"*50 + "\n") 
+
+#prova 1° oggetto:
+print("(1° oggetto)", "-"*30)
+pagamentoCartaDiCredito: PagamentoCartaDiCredito = PagamentoCartaDiCredito("GianCarlo Bonadonna", "24/02/2026", "74739")
+pagamentoCartaDiCredito.setImporto(22)
+
+pagamentoCartaDiCredito.dettagliPagamento()
+print("\n")
+
+#prova 2° oggetto:
+print("(2° oggetto)", "-"*30)
+pagamentoCartaDiCredito: PagamentoCartaDiCredito = PagamentoCartaDiCredito("Lucrezio Boscaioli", "09/10/2024", "628523")
+pagamentoCartaDiCredito.setImporto(246)
+
+pagamentoCartaDiCredito.dettagliPagamento()
+print("\n")
+''' #
